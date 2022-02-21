@@ -54,11 +54,6 @@
           <References />
         </DtsPackage>
         <DtsPackage FormatVersion="6">
-          <Name>prueba.dtsx</Name>
-          <FullPath>prueba.dtsx</FullPath>
-          <References />
-        </DtsPackage>
-        <DtsPackage FormatVersion="6">
           <Name>Pedidos_PRD.dtsx</Name>
           <FullPath>Pedidos_PRD.dtsx</FullPath>
           <References />
