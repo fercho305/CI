@@ -1,0 +1,1313 @@
+DELETE FROM collections_nocol
+GO
+
+DELETE FROM prj_collections_received
+GO
+
+DELETE FROM prj_collections_pending
+GO
+
+DELETE FROM prj_col_cash_central
+GO
+
+DELETE FROM prj_counting
+GO
+
+--DELETE FROM prj_bill
+--GO
+
+DELETE FROM prj_movements
+GO
+
+DELETE FROM prj_loads_detail
+GO
+
+DELETE from prj_equipment_account_cap
+GO
+
+DELETE FROM equipment_account_cap
+GO
+
+Delete from prj_equipment_account
+GO
+
+DELETE FROM equipment_account
+GO
+
+TRUNCATE TABLE prj_assig_seller
+GO
+
+DELETE FROM activities_accounts
+GO
+
+DELETE FROM activities_check_list_cap
+GO
+
+DELETE FROM activities_companion
+GO
+
+DELETE FROM activities_doc
+GO
+
+DELETE FROM activities_entities
+GO
+
+DELETE FROM activities_hierarchy
+GO
+
+--DELETE FROM activities_products_cap
+--GO
+
+--DELETE FROM activities_products_def
+--GO
+
+DELETE FROM activities_head
+GO
+
+DELETE FROM accounts_addresses
+GO
+
+DELETE FROM addresses_cap
+GO
+
+DELETE FROM addresses_org_cap
+GO
+
+DELETE FROM addresses_organization_cap
+GO
+
+DELETE FROM addresses_organization
+GO
+
+DELETE FROM addresses_org
+GO
+
+DELETE FROM addresses
+GO
+
+DELETE FROM alerts_destiny
+GO
+
+DELETE FROM alerts_head_cap
+GO
+
+DELETE FROM alerts_head
+GO
+
+DELETE FROM assortment_asso_cap
+GO
+
+DELETE FROM assortment_destiny
+GO
+
+DELETE FROM assortment_detail
+GO
+
+DELETE FROM assortment_detail_cap
+GO
+
+DELETE FROM assortment_detail_comp
+GO
+
+DELETE FROM assortment_detail_comp_cap
+GO
+
+DELETE FROM assortment_head_cap
+GO
+
+DELETE FROM assortment_head
+GO
+
+DELETE FROM calendar_holidays
+GO
+
+DELETE FROM campaign_destiny
+GO
+
+DELETE FROM campaign_detail
+GO
+
+DELETE FROM campaign_picture
+GO
+
+DELETE FROM campaign_head
+GO
+
+DELETE FROM prj_close_day
+GO
+
+DELETE FROM close_day
+GO
+
+DELETE FROM collections_received
+GO
+
+DELETE FROM collections_bank_seller
+GO
+
+DELETE FROM collections_bank
+GO
+
+DELETE FROM collections_pending
+GO
+
+DELETE FROM complaints_check_list_cap
+GO
+
+DELETE FROM complaints_doc
+GO
+
+DELETE FROM complaints_head
+GO
+
+DELETE FROM contracts_slots
+GO
+
+DELETE FROM contracts_promotions
+GO
+
+DELETE FROM contracts_doc
+GO
+
+DELETE FROM contracts_assortments
+GO
+
+DELETE FROM contracts
+GO
+
+DELETE FROM cost_center_user
+GO
+
+DELETE FROM cost_center_tr
+GO
+
+DELETE FROM cost_center_organ
+GO
+
+DELETE FROM cost_center
+GO
+
+DELETE FROM delivery_zone_seller
+GO
+
+DELETE FROM delivery_zone_truck_tmp
+GO
+
+DELETE FROM delivery_zone_truck
+GO
+
+DELETE FROM delivery_zone_organ
+GO
+
+DELETE FROM dbo.delivery_zone_seller_tmp
+GO
+
+DELETE FROM delivery_zone
+GO
+
+DELETE FROM devices
+GO
+
+DELETE FROM devices_info
+GO
+
+DELETE FROM devices_hard
+GO
+
+DELETE FROM dispatch_orders
+GO
+
+DELETE FROM dispatch_head
+GO
+
+DELETE FROM display_detail_cap
+GO
+
+DELETE FROM display_head_cap
+GO
+
+DELETE FROM equipment_account_cap
+GO
+
+DELETE FROM equipment_account
+GO
+
+DELETE FROM documents_gen
+GO
+
+DELETE FROM expenses_lines
+GO
+
+DELETE FROM expenses_organization
+GO
+
+DELETE FROM expenses_type_user
+GO
+
+DELETE FROM expenses_conf
+GO
+
+DELETE FROM expenses_concepts_tr
+GO
+
+DELETE FROM expenses_concepts
+GO
+
+DELETE FROM expenses_head
+GO
+
+DELETE FROM list_tables
+GO
+
+DELETE FROM list_structure
+GO
+
+DELETE FROM list_secuence_type_tr
+GO
+
+DELETE FROM list_hier
+GO
+
+DELETE FROM list_condition
+GO
+
+DELETE FROM list
+GO
+
+DELETE FROM market_account
+GO
+
+DELETE FROM market_account_cap
+GO
+
+DELETE FROM material_order_lines
+GO
+
+DELETE FROM material_order_head
+GO
+
+DELETE FROM message_users
+GO
+
+DELETE FROM message_head
+GO
+
+DELETE FROM movements
+GO
+
+DELETE FROM order_focus_destiny
+GO
+
+DELETE FROM order_focus_lines
+GO
+
+DELETE FROM order_focus_head
+GO
+
+DELETE FROM pictures_captured
+GO
+
+DELETE FROM potential_notes
+GO
+
+DELETE FROM potential_detail
+GO
+
+DELETE FROM potential_head
+GO
+
+DELETE FROM prj_accounts
+GO
+
+DELETE FROM prj_accounts_credit
+GO
+
+DELETE FROM prj_accounts_dashboard_visit
+GO
+
+DELETE FROM prj_accounts_dashboard_sales
+GO
+
+DELETE FROM prj_accounts_organization_cap
+GO
+
+DELETE FROM prj_accounts_organization
+GO
+
+DELETE FROM prj_accounts_organ_credit
+GO
+
+DELETE FROM prj_accounts_orga_hier_cluster
+GO
+
+DELETE FROM prj_accounts_roles
+GO
+
+DELETE FROM prj_accounts_tax
+GO
+
+DELETE FROM prj_accounts_wholesaler
+GO
+
+DELETE FROM prj_close_day
+GO
+
+DELETE FROM prj_commissions_destiny
+GO
+
+DELETE FROM prj_commissions_seller
+GO
+
+DELETE FROM prj_commissions_head
+GO
+
+DELETE FROM prj_company_comp
+GO
+
+DELETE FROM prj_configuration
+GO
+
+DELETE FROM visits_type_survey
+GO
+
+DELETE FROM survey_exh_principal
+GO
+
+DELETE FROM survey_questions_tr
+GO
+
+DELETE FROM survey_answer_tr
+GO
+
+DELETE FROM survey_destiny
+GO
+
+DELETE FROM survey_head_tr
+GO
+
+DELETE FROM survey_answer_cap
+GO
+
+DELETE FROM survey_head_cap
+GO
+
+DELETE FROM survey_answer
+GO
+
+DELETE FROM survey_questions
+GO
+
+DELETE FROM survey_head
+GO
+
+DELETE FROM target_contacts_detail
+GO
+
+DELETE FROM target_contacts_header_tr
+GO
+
+DELETE FROM target_contacts_header
+GO
+
+DELETE FROM task_hierarchy
+GO
+
+DELETE FROM task_doc
+GO
+
+DELETE FROM task_destiny
+GO
+
+DELETE FROM task_companion
+GO
+
+DELETE FROM task_accounts
+GO
+
+DELETE FROM task_products_def
+GO
+
+DELETE FROM task_head
+GO
+
+DELETE FROM risk_notes
+GO
+
+DELETE FROM risk_detail
+GO
+
+DELETE FROM risk_head
+GO
+
+DELETE FROM prj_contacts_accounts
+GO
+
+DELETE FROM prj_contacts_accounts_hprod
+GO
+
+DELETE FROM contacts_accounts
+GO
+
+DELETE FROM contacts_organization
+GO
+
+DELETE FROM contacts
+GO
+
+DELETE FROM prj_liquidation
+GO
+
+DELETE FROM loads_orders
+GO
+
+DELETE FROM prj_hist_services_causes
+GO
+
+DELETE FROM prj_hist_orders_sec
+GO
+
+DELETE FROM prj_hist_orders_lines
+GO
+
+DELETE FROM prj_hist_orders_header
+GO
+
+DELETE FROM prj_orders_secuences
+GO
+
+DELETE FROM prj_orders_promo_list
+GO
+
+DELETE FROM prj_orders_packs_taxes
+GO
+
+DELETE FROM prj_orders_packs_lines_lot
+GO
+
+DELETE FROM prj_orders_packs_lines
+GO
+
+DELETE FROM prj_orders_packs_header
+GO
+
+DELETE FROM prj_orders_lines_lots
+GO
+
+DELETE FROM prj_orders_invoices
+GO
+
+DELETE FROM prj_orders_lines
+GO
+
+DELETE FROM prj_orders_header
+GO
+
+DELETE FROM prj_loads_head
+GO
+
+DELETE FROM loads_detail_lot
+GO
+
+DELETE FROM loads_detail
+GO
+
+DELETE FROM loads_head
+GO
+
+DELETE FROM trucks
+GO 
+
+DELETE FROM warehouses_users
+GO
+
+DELETE FROM prj_warehouses_stock_v
+GO
+
+DELETE FROM prj_warehouses_stock
+GO
+
+DELETE FROM warehouses_stock
+GO
+
+DELETE FROM warehouses_depend
+GO
+
+DELETE FROM warehouses
+GO
+
+DELETE FROM visits_entities
+GO
+
+DELETE FROM visits_companion
+GO
+
+DELETE FROM visits_check_list_cap
+GO
+
+DELETE FROM users_geolocation
+GO
+
+DELETE FROM visits_cap
+GO
+
+DELETE FROM users_roles
+GO
+
+DELETE FROM users_holidays
+GO
+
+DELETE FROM users_counter
+GO
+
+--DELETE FROM unit_sales_organization_lan
+--GO
+
+DELETE FROM treasury_line
+GO
+
+DELETE FROM treasury_deposit
+GO
+
+DELETE FROM treasury_head
+GO
+
+DELETE FROM target_users_detail
+GO
+
+DELETE FROM target_users_header_tr
+GO
+
+DELETE FROM target_users_header
+GO
+
+--DELETE FROM target_products_header_tr
+--GO
+
+--DELETE FROM target_products_detail
+--GO
+
+--DELETE FROM target_products_header
+--GO
+
+DELETE FROM target_accounts_detail
+GO
+
+DELETE FROM target_accounts_header_tr
+GO
+
+DELETE FROM target_accounts_header
+GO
+
+DELETE FROM sum_day_detail_prod
+GO
+
+DELETE FROM sum_day_detail_inv
+GO
+
+DELETE FROM sum_day_detail
+GO
+
+DELETE FROM sum_day_header
+GO
+
+DELETE FROM stocktaking_lines
+GO
+
+DELETE FROM stocktaking_head
+GO
+
+DELETE FROM slot_survey_principal_cap
+GO
+
+DELETE FROM slot_principal_add
+GO
+
+DELETE FROM slot_own_sl_cap
+GO
+
+DELETE FROM slot_own_prod_cap
+GO
+
+DELETE FROM slot_own_principal_cap
+GO
+
+DELETE FROM slot_own_pr_cap
+GO
+
+DELETE FROM slot_own_pr_add_cap
+GO
+
+DELETE FROM slot_own_hier4_cap
+GO
+
+DELETE FROM slot_own_hi_cap
+GO
+
+DELETE FROM slot_own_head_cap
+GO
+
+DELETE FROM slot_hier4
+GO
+
+DELETE FROM slot_principal
+GO
+
+DELETE FROM slot_head_tr
+GO
+
+DELETE FROM slot_comp_prod_cap
+GO
+
+DELETE FROM slot_comp_principal_cap
+GO
+
+DELETE FROM slot_comp_hier4_cap
+GO
+
+DELETE FROM slot_comp_hier_prod
+GO
+
+DELETE FROM slot_destiny
+GO
+
+DELETE FROM slot_head
+GO
+
+DELETE FROM slot_comp_head_cap
+GO
+
+DELETE FROM prj_services_manpower
+GO
+
+DELETE FROM prj_services_equipment
+GO
+
+DELETE FROM prj_services_causes
+GO
+
+DELETE FROM services_survey
+GO
+
+DELETE FROM services_order_check
+GO
+
+DELETE FROM services_operations
+GO
+
+DELETE FROM services_material
+GO
+
+DELETE FROM services_hist_material
+GO
+
+DELETE FROM services_hist_order
+GO
+
+DELETE FROM service_check_list
+GO
+
+DELETE FROM services_order
+GO
+
+DELETE FROM sellers_skills
+GO
+
+DELETE FROM skills
+GO
+
+DELETE FROM sellers_sector
+GO
+
+DELETE FROM route_sellers
+GO
+
+DELETE FROM prj_route_accounts
+GO
+
+DELETE FROM route_accounts
+GO
+
+DELETE FROM route_header
+GO
+
+DELETE FROM rappel_accounts
+GO
+
+--DELETE FROM providers_products_organ_price
+--GO
+
+--DELETE FROM providers_products_organ
+--GO
+
+--DELETE FROM providers_organization
+--GO
+
+--DELETE FROM providers
+--GO
+
+DELETE FROM promo_mark_prod_plv_cap
+GO
+
+DELETE FROM promo_mark_prod_plv
+GO
+
+DELETE FROM promo_mark_prod_cost_cap
+GO
+
+DELETE FROM promo_mark_prod_cost
+GO
+
+DELETE FROM promo_mark_location_cap
+GO
+
+DELETE FROM promo_mark_location
+GO
+
+DELETE FROM promo_mark_incidence_cap
+GO
+
+DELETE FROM promo_mark_detail_comp_cap
+GO
+
+DELETE FROM promo_mark_detail_comp
+GO
+
+DELETE FROM promo_mark_detail
+GO
+
+DELETE FROM promo_mark_detail_cap
+GO
+
+DELETE FROM promo_mark_destiny
+GO
+
+--DELETE FROM promo_mark_array
+--GO
+
+DELETE FROM promo_mark_head_cap
+GO
+
+DELETE FROM promo_mark_head
+GO
+
+DELETE FROM products_tr
+GO
+
+DELETE FROM products_picture
+GO
+
+DELETE FROM products_packs
+GO
+
+DELETE FROM products_organization_comp
+GO
+
+DELETE FROM prj_products_org_hierarchy6
+GO
+
+DELETE FROM products_org_hierarchy5
+GO
+
+DELETE FROM products_org_hierarchy4
+GO
+
+DELETE FROM products_org_hierarchy3
+GO
+
+DELETE FROM products_org_hierarchy2
+GO
+
+DELETE FROM products_org_hierarchy1
+GO
+
+DELETE FROM products_org_hierarchy_all
+GO
+
+DELETE FROM products_measure
+GO
+
+DELETE FROM products_doc
+GO
+
+DELETE FROM products_comp_tr
+GO
+
+DELETE FROM products_comp_measure
+GO
+
+DELETE FROM prj_TW_SB_Show
+GO
+
+DELETE FROM prj_TW_SB1
+GO
+
+DELETE FROM prj_sellers
+GO
+
+DELETE FROM prj_pvp_products_own_cap
+GO
+
+DELETE FROM prj_pvp_products_comp_cap
+GO
+
+DELETE FROM prj_pvp_head_cap
+GO
+
+DELETE FROM prj_promotions_sellers_cap
+GO
+
+DELETE FROM prj_promotions_sellers
+GO
+
+DELETE FROM prj_promotions_quantity
+GO
+
+DELETE FROM prj_promotions_products
+GO
+
+DELETE FROM prj_promotions_organization
+GO
+
+DELETE FROM prj_promotions_hierarchy
+GO
+
+DELETE FROM prj_promotions_hier_gift
+GO
+
+DELETE FROM prj_promotions_prod_exc
+GO
+
+DELETE FROM prj_promotions_head_tr
+GO
+
+DELETE FROM prj_promotions_destiny
+GO
+
+DELETE FROM prj_promotions_type_user
+GO
+
+DELETE FROM prj_promotions_head
+GO
+
+DELETE FROM prj_promo_packs_tr
+GO
+
+DELETE FROM prj_promo_packs_sellers_cap
+GO
+
+DELETE FROM prj_promo_packs_sellers
+GO
+
+DELETE FROM prj_promo_packs_quantity
+GO
+
+DELETE FROM prj_promo_packs_products
+GO
+
+DELETE FROM prj_promo_packs_organization
+GO
+
+DELETE FROM prj_promo_packs_destiny
+GO
+
+DELETE FROM prj_promo_packs_type_user
+GO
+
+DELETE FROM prj_promo_packs
+GO
+
+DELETE FROM prj_products_tax
+GO
+
+DELETE FROM prj_products_status
+GO
+
+DELETE FROM prj_products_plant_status
+GO
+
+DELETE FROM prj_products_plant
+GO
+
+DELETE FROM prj_products_organization
+GO
+
+DELETE FROM prj_products_org_status
+GO
+
+DELETE FROM prj_products_org_plant
+GO
+
+DELETE FROM prj_products_hidden
+GO
+
+DELETE FROM prj_products_comp
+GO
+
+DELETE FROM prj_products_commissions
+GO
+
+DELETE FROM prj_products_color
+GO
+
+DELETE FROM prj_products
+GO
+
+DELETE FROM prj_pricing_tables_esc
+GO
+
+DELETE FROM prj_pricing_tables
+GO
+
+DELETE FROM accounts_system
+GO
+
+DELETE FROM accounts_points
+GO
+
+DELETE FROM accounts_points_used
+GO
+
+DELETE FROM products_comp
+GO
+
+DELETE FROM products_organization
+GO
+
+--DELETE FROM type_unit_control
+--GO
+
+DELETE FROM prj_products_control
+GO
+
+DELETE FROM prj_price_list_products
+GO
+
+DELETE FROM prj_products_assor_det
+GO
+
+DELETE FROM type_unit_control
+GO
+
+DELETE FROM products 
+GO
+
+DELETE FROM products_hierarchy5
+GO
+
+DELETE FROM products_hierarchy4
+GO
+
+DELETE FROM products_hierarchy3
+GO
+
+DELETE FROM products_hierarchy2
+GO
+
+DELETE FROM products_hierarchy1
+GO
+
+DELETE FROM products_hierarchy_all
+GO
+
+DELETE FROM accounts_doc
+GO
+
+DELETE FROM accounts_function_cap
+GO
+
+DELETE FROM accounts_notes
+GO
+
+DELETE FROM accounts_org_cap
+GO
+
+DELETE FROM accounts_organization_cap
+GO
+
+DELETE FROM accounts_qr_status
+GO
+
+DELETE FROM accounts_cap
+GO
+
+DELETE FROM accounts_function
+GO
+
+DELETE FROM accounts_addresses_cap
+GO
+
+DELETE FROM prj_accounts_hierarchy
+GO
+
+DELETE FROM prj_accounts_hierarchy2
+GO
+
+DELETE FROM accounts_organization
+GO
+
+DELETE FROM accounts_org
+GO
+
+DELETE FROM prj_account_control
+GO
+
+DELETE FROM accounts
+GO
+
+DELETE FROM company_orga_comp
+GO
+
+DELETE FROM company_comp
+GO
+
+DELETE FROM prj_products_org_hierarchy6
+GO
+
+DELETE FROM prj_products_hierarchyB2
+GO
+
+DELETE FROM prj_products_hierarchyB1
+GO
+
+DELETE FROM prj_products_hierarchyA2
+GO
+
+DELETE FROM prj_products_hierarchyA1
+GO
+
+DELETE FROM prj_products_hierarchy2
+GO
+
+DELETE FROM prj_currency_tr
+GO
+
+DELETE FROM prj_currency_organization
+GO
+
+DELETE FROM prj_currency_exchange
+GO
+
+DELETE FROM prj_currency
+GO
+
+DELETE FROM prj_orders_type_user
+GO
+
+DELETE FROM prj_orders_type_tr
+GO
+
+DELETE FROM prj_orders_type_sales_organ
+GO
+
+--DELETE FROM products_array
+--GO
+
+-- Tablas propias de cada proyecto. ¿Hay que borrar?
+DELETE FROM prj_pricing_sc_trademark
+GO
+
+DELETE FROM prj_orders_type
+GO
+
+DELETE FROM prj_roles
+GO
+
+DELETE FROM prj_price_list
+GO
+
+DELETE FROM prj_payment_terms_tr
+GO
+
+DELETE FROM prj_payment_terms
+GO
+
+DELETE FROM prj_plant
+GO
+
+DELETE FROM addresses
+GO
+
+DELETE FROM prj_accounts_org_hierarchy5
+GO
+
+DELETE FROM prj_accounts_org_hierarchy4
+GO
+
+DELETE FROM accounts_org_hierarchy3
+GO
+
+DELETE FROM accounts_org_hierarchy2
+GO
+
+DELETE FROM accounts_org_hierarchy1
+GO
+
+DELETE FROM accounts_hierarchy3
+GO
+
+DELETE FROM accounts_hierarchy2
+GO
+
+DELETE FROM accounts_hierarchy1
+GO
+
+--DELETE FROM accounts_org_array
+--GO
+
+DELETE FROM accounts_agrupation5
+GO
+
+DELETE FROM accounts_agrupation4
+GO
+
+DELETE FROM accounts_agrupation3
+GO
+
+DELETE FROM accounts_agrupation2
+GO
+
+DELETE FROM accounts_agrupation1
+GO
+
+DELETE FROM check_list_detail
+GO
+
+DELETE FROM check_list_tr
+GO
+
+DELETE FROM check_list
+GO
+
+DELETE FROM users_organizations_sellers
+GO
+
+DELETE FROM users_organizations
+GO
+
+DELETE FROM unit_sales_organ_seller
+GO
+
+DELETE FROM dbo.prj_products_assor_sel
+GO
+
+DELETE FROM prj_order_min_seller
+GO
+
+DELETE FROM sellers
+GO
+
+DELETE FROM accounts_org_potential
+GO
+
+DELETE FROM unit_sales_organization
+GO
+
+DELETE FROM sales_organization
+GO
+
+DELETE FROM unit_organization
+GO
+
+DELETE FROM type_unit
+GO
+
+DELETE FROM prj_cedi
+GO
+
+DELETE FROM accounts_array
+GO
+
+DELETE FROM prj_users_tem_km
+GO
+
+DELETE FROM   prj_users_type_control
+GO
+
+DELETE FROM core_users_permissions WHERE Code_User NOT IN ('1','10','3','9','TELDEV1','TELTEST1')
+GO
+
+DELETE FROM users_organizations_sellers WHERE Code_User NOT IN ('1','10','3','9','TELDEV1','TELTEST1')
+GO
+
+DELETE FROM users_organizations WHERE Code_User NOT IN ('1','10','3','9','TELDEV1','TELTEST1')
+GO
+
+DELETE FROM PRJ_USERS WHERE CODE_USER NOT IN ('1','10','3','9','TELDEV1','TELTEST1')
+GO
+
+DELETE FROM core_comms_profiles_agents WHERE CODE_USER NOT IN ('1','10','3','9','TELDEV1','TELTEST1')
+GO
+
+DELETE FROM dbo.core_pub_users WHERE CODE_USER NOT IN ('1','10','3','9','TELDEV1','TELTEST1')
+GO
+
+DELETE FROM prj_users_fiscal
+GO
+
+DELETE FROM prj_users_control
+GO
+
+DELETE FROM CORE_USERS WHERE CODE NOT IN ('1','10','3','9','TELDEV1', 'TELTEST1')
+GO
+
+-- Tablas propias de cada proyecto. ¿Hay que borrar?
+DELETE FROM prj_pricing_structure
+GO
+
+-- Tablas propias de cada proyecto. ¿Hay que borrar?
+DELETE FROM prj_pricing_priority
+GO
+
+DELETE FROM calendar_head
+GO
+
+DELETE FROM populations
+GO
+
+--DELETE FROM regions
+--GO
+
+DELETE FROM provinces
+GO
+
+--DELETE FROM countries where code not in (select code_country from prj_users)
+--GO
+
+DELETE FROM core_users_passwords WHERE (Code_User NOT IN (SELECT Code FROM core_users))
+GO
+
+DELETE FROM documents_gen
+GO
+
+--DELETE FROM contacts_array
+--GO
+
+DELETE FROM accounts_type
+GO
+
+DELETE FROM accounts_type_functions
+GO
+
+-- Tablas propias de cada proyecto. ¿Hay que borrar?
+DELETE FROM prj_pricing_condition
+GO
+
+-- Tablas propias de cada proyecto. ¿Hay que borrar?
+DELETE FROM prj_pricing_secuence
+GO
+
+-- Tablas propias de cada proyecto. ¿Hay que borrar?
+DELETE FROM prj_pricing_trademark
+GO
+
+DELETE FROM prj_return_cause
+GO
+
+DELETE FROM   prj_order_min_head
+GO
+
+DELETE FROM movements_type
+GO
+
+--DELETE FROM equipment_array
+--GO

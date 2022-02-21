@@ -1,0 +1,12 @@
+[Destino de OLE DB [2]] Error: SSIS Error Code DTS_E_OLEDBERROR.  An OLE DB error has occurred. Error code: 0x80004005.
+An OLE DB record is available.  Source: "Microsoft SQL Server Native Client 11.0"  
+Hresult: 0x80004005  Description: "Infracción de la restricción PRIMARY KEY 
+PK_ERP_IMPLT_hist_orders_header'. No se puede insertar una clave duplicada en el objeto 
+'dbo.ERP_IMPLT_hist_orders_header'. El valor de la clave duplicada es (0028349086).".
+
+[Destino de OLE DB [2]] Error: SSIS Error Code DTS_E_OLEDBERROR.  An OLE DB error has occurred. Error code: 0x80004005.
+An OLE DB record is available.  Source: "Microsoft SQL Server Native Client 11.0"  Hresult: 0x80004005  
+Description: "Infracción de la restricción PRIMARY KEY 'PK_ERP_IMPLT_hist_orders_header'. 
+No se puede insertar una clave duplicada en el objeto 'dbo.ERP_IMPLT_hist_orders_header'. 
+El valor de la clave duplicada es (0028659688).".
+

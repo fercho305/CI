@@ -1,0 +1,654 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/2/2020 10:56:09 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SERGIOW10"
+  DTS:CreatorName="TELYNET\Sergio Iñigo"
+  DTS:DTSID="{15FBED9C-1566-4422-943C-57CD94941589}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5583.0"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Portal_Dist"
+  DTS:PackageType="5"
+  DTS:VersionBuild="81"
+  DTS:VersionGUID="{74CC6C2E-8439-482B-A71F-667D17FA19AC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CorripioSTDB.STDB_Corripio_Prod]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{63C35F51-05D7-4968-AF1A-CD8B9FE87FBE}"
+      DTS:ObjectName="CorripioSTDB.STDB_Corripio_Prod">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SRVWSQLTNET;Initial Catalog=STDB_autoventa;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package1-{63C35F51-05D7-4968-AF1A-CD8B9FE87FBE}SERGIOW10\SERGIOW10_2016.STDB_Corripio_Prod;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Cargas"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2EBFCF31-DCB2-4C34-A8CF-B50A5E521263}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cargas"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63C35F51-05D7-4968-AF1A-CD8B9FE87FBE}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE IMPLT_loads_detail&#xA;GO&#xA;&#xA;INSERT INTO [dbo].[IMPLT_loads_detail]&#xA;           ([Code]&#xA;           ,[Num_Line] &#xA;           ,[Lot_Group]&#xA;           ,[Code_Product] &#xA;           ,[Date_Load]&#xA;           ,[Quantity]&#xA;           ,[Unit_Type]&#xA;           ,[Code_Warehouse_Sou]&#xA;           ,[Code_Route] , Code_Unit_Org, Code_Sales_Org&#xA;           ,[Source_Create]&#xA;           ,[Transfer_status]&#xA;           ,[Status_SAP])&#xA;SELECT compania + NUMERO AS Code, LINEA AS Num_Line, LOTE AS Lot_Group, Compania + PRODUCTO AS Code_Product,&#xA;convert(char(8),Fecha_carga, 112) AS Date_Load, &#xA;CANTIDAD * UNIDAD_EMPAQUE AS Quantity, &#xA;--CASE WHEN UNIDAD_EMPAQUE = 1.00 THEN 'UN' &#xA;--ELSE 'CS' &#xA;--END AS &#xA;'UN' AS Unit_Type, &#xA;ALMACEN_ORIGEN AS Code_Warehouse_Sou, compania + RUTA AS Code_Route,&#xA;Compania AS Code_Unit_Org, Compania + Division AS Code_Sales_Org,&#xA;'0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;   FROM [dbo].[Carga_Mercancia]&#xA;   WHERE DIVISION IN ('026','036','037','038')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Clientes"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Clientes"
+      DTS:DTSID="{F78FFCED-5DB7-4584-B96A-9003D90C9B02}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clientes"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63C35F51-05D7-4968-AF1A-CD8B9FE87FBE}"
+          SQLTask:SqlStatementSource="-- IMPLT_accounts&#xA;&#xA;TRUNCATE TABLE IMPLT_accounts&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_accounts (Code_ofClient, Name1, Name2, NIF, Code_Country, ZIP, Address1, Address2, Code_Province, Province, Population, Phone1, Phone2, Fax, E_mail, Code_Type, Code_Potential, Code_Status, Code_Agrupation1, &#xA;                         Code_Agrupation2, Code_Agrupation3, Code_ClassificationA, Code_ClassificationB, Code_ClassificationC, Code_ClassificationD, Code_Price_List, Latitude, Length, Code_Currency, Prospect, Code_Warehouse, &#xA;                         Code_Payment_Term, Gen_Account, Tax_type, Tax_type2, Contact_name, Owner, Code_Seller, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT &#xA;                         Compania + Cliente AS Code_ofClient, left(Nombre,75) AS Name1, NULL AS Name2, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; left(RNC,30) AS NIF, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; CASE WHEN Pais = 'REPUBLICA DOMINICANA' THEN 'RD' ELSE 'RD' END AS Code_Country, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; NULL AS ZIP, LEFT(Direccion, 75) AS Address1, &#xA;                         CASE WHEN len(Direccion) &gt; 75 AND len(Direccion) &lt; 150 &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;    THEN RIGHT(Direccion, len(Direccion) - 75) ELSE NULL END AS Address2, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; NULL AS Code_Province, LEFT(Sector, 50) AS Province, LEFT(Ciudad, 50) AS Population, &#xA;                         left(Telefono,30) AS Phone1, left(Telefono_contacto, 30) AS Phone2, NULL AS Fax, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; NULL AS E_mail, '02' AS Code_Type, NULL AS Code_Potential, '1' AS Code_Status, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; NULL AS Code_Agrupation1, NULL AS Code_Agrupation2, NULL &#xA;                         AS Code_Agrupation3, NULL AS Code_ClassificationA, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; CASE WHEN Aplica_Promocion = 'X' THEN '01' ELSE '02' END AS Code_ClassificationB, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; NULL AS Code_ClassificationC, NULL AS Code_ClassificationD, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; Tipo_Precio_RD AS Code_Price_List, latitud AS Latitude, longitud AS Length, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; Moneda AS Code_Currency, '0' AS Prospect, NULL AS Code_Warehouse, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; NULL AS Code_Payment_Term, '0' AS Gen_Account, ISNULL(Exento_itbis, '0') &#xA;                         AS Tax_type, NULL AS Tax_type2, LEFT(Contacto, 75) AS Contact_name, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; LEFT(Dueno, 75) AS Owner, NULL as Code_Seller, '0' AS Source_Create, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; 1 AS Transfer_status, NULL AS Status_SAP&#xA;FROM            Cliente&#xA;WHERE        (Cliente IS NOT NULL) AND (Division IN ('026','036','037','038'))&#xA;GO&#xA;&#xA;-- IMPLT_accounts_array&#xA;&#xA;TRUNCATE TABLE IMPLT_accounts_array&#xA;GO&#xA;&#xA;&#xA;INSERT INTO IMPLT_accounts_array (Code, Type, Description, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT '01' as Code, 2 as Type, 'Aplica promoción' as Description, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;UNION&#xA;SELECT '02' as Code, 2 as Type, 'No Aplica promoción' as Description, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;UNION&#xA;SELECT '1' as Code, 19 as Type, 'Por defecto' as Description, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;UNION&#xA;SELECT 'CF' as Code, 32 as Type, 'Consumidor Final' as Description, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;UNION&#xA;SELECT 'RD' as Code, 50 as Type, 'REPÚBLICA DOMINICANA' as Description, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;UNION&#xA;SELECT '1' as Code, 53 as Type, 'Lista precios 1' as Description, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;UNION&#xA;SELECT '2' as Code, 53 as Type, 'Lista precios 2' as Description, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;UNION&#xA;SELECT '3' as Code, 53 as Type, 'Lista precios 3' as Description, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;UNION&#xA;SELECT '4' as Code, 53 as Type, 'Lista precios 4' as Description, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;UNION&#xA;SELECT '5' as Code, 53 as Type, 'Lista precios 5' as Description, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;UNION&#xA;SELECT '6' as Code, 53 as Type, 'Lista precios 6' as Description, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;UNION&#xA;SELECT 'RD' as Code, 54 as Type, 'Peso Dominicano' as Description, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;UNION&#xA;SELECT 'DL' as Code, 54 as Type, 'Dólar Americano' as Description, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;GO&#xA;&#xA;-- IMPLT_accounts_org&#xA;&#xA;TRUNCATE TABLE IMPLT_accounts_org&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_accounts_org (Code_Account, Code_Unit_Org, Code_Sales_Org, Code_Status, Code_Payment, Code_Price_list, Code_Plant, Code_Currency, Price_Schema, IBAN, Code_Segment, Code_Payment_method, Code_Price_list2, Source_Create, &#xA;                         Transfer_status, Status_SAP)&#xA;SELECT DISTINCT      Compania + Cliente as   Code_Account, Compania as Code_Unit_Org, &#xA;Compania + Division as Code_Sales_Org, '1' as Code_Status, &#xA;isnull(Condicion_credito,'C') as  Code_Payment, &#xA;--IMPLT_W_Collecting_type.code AS Code_Payment,&#xA;Tipo_Precio_RD as Code_Price_list, &#xA;NULL as Code_Plant, Moneda as Code_Currency, &#xA;'1' as Price_Schema, NULL as IBAN, Code_Segment as Code_Segment, &#xA;NULL as Code_Payment_method, Tipo_Precio_Us as Code_Price_list2, &#xA;'0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;FROM            Cliente --CROSS JOIN IMPLT_W_Collecting_type&#xA;WHERE        (Cliente IS NOT NULL) AND (Division IN ('026','036','037','038'))&#xA;GO&#xA;&#xA;-- Poner el código de planilla&#xA;&#xA;UPDATE IMPLT_accounts_org set Code_Planilla = Vendedor.Compania + Vendedor.Codigo_plantilla&#xA;FROM            Visitas_Rutas INNER JOIN&#xA;                         Vendedor ON Visitas_Rutas.Ruta = Vendedor.Ruta &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; AND Visitas_Rutas.Division = Vendedor.Division &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; AND Visitas_Rutas.Compania = Vendedor.Compania &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; INNER JOIN&#xA;                         IMPLT_accounts_org ON Visitas_Rutas.Compania = IMPLT_accounts_org.Code_Unit_Org &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; AND Visitas_Rutas.Compania + Visitas_Rutas.Division = IMPLT_accounts_org.Code_Sales_Org &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; AND Visitas_Rutas.Compania + Visitas_Rutas.Cliente = IMPLT_accounts_org.Code_Account&#xA;GO&#xA;&#xA;&#xA;-- IMPLT_accounts_organ_credit&#xA;&#xA;TRUNCATE TABLE IMPLT_accounts_organ_credit&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_accounts_organ_credit (Code_Account, Code_Unit_Org, Code_Sales_Org, Credit_Limit, Credit_Consum, Lock_Credit, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT     DISTINCT   Compania +  Cliente AS Code_Account, Compania AS Code_Unit_Org, Compania + Division AS Code_Sales_Org, Limite_Credito_RD AS Credit_Limit, 0.000 AS Credit_Consum, '0' AS Lock_Credit, '0' AS Source_Create, 1 AS Transfer_status, NULL &#xA;                         AS Status_SAP&#xA;FROM            Cliente&#xA;WHERE        (Cliente IS NOT NULL) AND (Division IN ('026','036','037','038'))&#xA;GO&#xA;&#xA;-- IMPLT_accounts_organization&#xA;&#xA;TRUNCATE TABLE IMPLT_accounts_organization&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_accounts_organization (Code_Account, Code_Unit_Org, Code_Sales_Org, Code_Seller, Code_Status, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT      Compania + Cliente as   Code_Account, Compania as Code_Unit_Org, Compania + Division as Code_Sales_Org, '999999' as Code_Seller, '1' as Code_Status, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;FROM            Cliente&#xA;WHERE        (Cliente IS NOT NULL) AND (Division IN ('026','036','037','038'))&#xA;GO&#xA;&#xA;-- IMPLT_addresses&#xA;&#xA;TRUNCATE TABLE IMPLT_addresses&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_addresses (Code_ofClient, Code_Country, Code_Region, ZIP, Address1, Address2, Population, Phone1, Phone2, Fax, E_mail, Code_Status, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT &#xA;                         Cod_Direccion + '-' + Compania + Cliente AS Code_ofClient, 'RD' AS Code_Country, NULL AS Code_Region, NULL AS ZIP, LEFT(Direccion, 75) AS Address1, CASE WHEN len(Direccion) &gt; 75 AND len(Direccion) &#xA;                         &lt; 150 THEN RIGHT(Direccion, len(Direccion) - 75) END AS Address2, NULL AS Population, NULL AS Phone1, NULL AS Phone2, NULL AS Fax, NULL AS E_mail, CASE WHEN Inactivo = 'X' THEN '1' ELSE '0' END AS Code_Status, &#xA;                         '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;FROM            Direccion_Cliente&#xA;where Cliente in (select cliente from Cliente where (Cliente IS NOT NULL) AND (Division IN ('036','037','038')))&#xA;GO&#xA;&#xA;-- IMPLT_addresses_accounts&#xA;&#xA;TRUNCATE TABLE IMPLT_addresses_accounts&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_addresses_accounts(Code_Address, Code_Unit_Org, Code_Sales_Org, Code_Account, By_Default, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT &#xA;                        Direccion_Cliente.Cod_Direccion + '-' + Direccion_Cliente.Compania + Direccion_Cliente.Cliente  AS Code_Address, Direccion_Cliente.Compania AS Code_Unit_Org, &#xA;                         Direccion_Cliente.Compania + Cliente.Division AS Code_Sales_Org, Direccion_Cliente.Compania + Direccion_Cliente.Cliente AS Code_Account, '1' AS By_Default, '0' AS Source_Create, &#xA;                         1 AS Transfer_status, NULL AS Status_SAP&#xA;FROM            Direccion_Cliente INNER JOIN&#xA;                         Cliente ON Direccion_Cliente.Compania = Cliente.Compania AND Direccion_Cliente.Cliente = Cliente.Cliente&#xA;WHERE        (Cliente.Cliente IS NOT NULL) AND (Cliente.Division IN ('026','036','037','038'))&#xA;GO&#xA;&#xA;&#xA;-- IMPLT_addresses_org&#xA;&#xA;TRUNCATE TABLE IMPLT_addresses_org&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_addresses_org  (Code_Address, Code_Unit_Org, Code_Sales_Org, Code_Status, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT &#xA;                         Direccion_Cliente.Cod_Direccion + '-' + Direccion_Cliente.Compania + Direccion_Cliente.Cliente  AS Code_Address, Direccion_Cliente.Compania AS Code_Unit_Org, &#xA;                         Direccion_Cliente.Compania + Cliente.Division AS Code_Sales_Org, CASE WHEN Inactivo = 'X' THEN '1' ELSE '0' END AS Code_Status, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;FROM            Direccion_Cliente INNER JOIN&#xA;                         Cliente ON Direccion_Cliente.Compania = Cliente.Compania AND Direccion_Cliente.Cliente = Cliente.Cliente&#xA;WHERE        (Cliente.Cliente IS NOT NULL) AND (Cliente.Division IN ('026','036','037','038'))&#xA;GO&#xA;&#xA;&#xA;-- IMPLT_addresses_organization&#xA;&#xA;TRUNCATE TABLE IMPLT_addresses_organization&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_addresses_organization (Code_Address, Code_Unit_Org, Code_Sales_Org, Code_Seller, Code_Status, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT &#xA;                         Direccion_Cliente.Cod_Direccion + '-' + Direccion_Cliente.Compania + Direccion_Cliente.Cliente   AS Code_Address, Direccion_Cliente.Compania AS Code_Unit_Org, &#xA;                         Direccion_Cliente.Compania + Cliente.Division AS Code_Sales_Org, '999999' as Code_Seller, CASE WHEN Inactivo = 'X' THEN '1' ELSE '0' END AS Code_Status, '0' AS Source_Create, 1 AS Transfer_status, NULL AS Status_SAP&#xA;FROM            Direccion_Cliente INNER JOIN&#xA;                         Cliente ON Direccion_Cliente.Compania = Cliente.Compania AND Direccion_Cliente.Cliente = Cliente.Cliente&#xA;WHERE        (Cliente.Cliente IS NOT NULL) AND (Cliente.Division IN ('026','036','037','038'))&#xA;GO&#xA;&#xA;&#xA;-- IMPLT_payment_org_terms&#xA;&#xA;TRUNCATE TABLE IMPLT_payment_org_terms&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_payment_org_terms(Code, Code_Unit_Org, Code_Sales_Org, Description, Days, Credit, Days_EP, Discount, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT  DISTINCT   Compania +  Condicion_credito as Code, Compania as Code_Unit_Org, Compania + Division as Code_Sales_Org, left(Descripcion,50) as Description,  Dias_Credito as Days, '0' as Days_EP, case when Dias_Credito &gt; 0 then '1' else '0' end as Credit, '0' as Discount,  &#xA; '0' AS Source_Create, '1' AS transfer_status, NULL AS status_SAP&#xA;FROM            Condicion_Pago&#xA;WHERE Division IN ('026','036','037','038')&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Cobros"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Cobros"
+      DTS:DTSID="{cb0783ee-526d-452d-a9a3-52928a7ae801}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cobros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63C35F51-05D7-4968-AF1A-CD8B9FE87FBE}"
+          SQLTask:SqlStatementSource="--  IMPLT_collections_pending&#xA;&#xA;Truncate table  IMPLT_collections_pending&#xA;GO&#xA;&#xA;INSERT INTO  IMPLT_collections_pending (Num_Invoice, NumDocum, Date_Doc, Code_Account, Code_Type, Total_Amount, Total_Collected, Date_End, Code_Payment,  Code_Unit_Org, Code_Sales_Org, Code_Currency, Source_Create, &#xA;                         Transfer_status, Status_SAP)&#xA;SELECT  DISTINCT  Compania + Documento AS Num_Invoice, &#xA;case when tipo = 'FT' then cast(tipo as varchar(2)) + CONVERT(char(8), Fecha, 112) + case when Moneda = 'US' &#xA;then '1' else '2' end else cast(Tipo as varchar(2))  + CONVERT(char(8), Fecha, 112) + case when Moneda = 'US' &#xA;then '1' else '2' end  end AS NumDocum, CONVERT(char(8), Fecha, 112) AS Date_Doc,  &#xA;                        Compania + Cliente AS Code_Account,  Tipo AS Code_Type, &#xA;                       cast(replace(replace(case when left(tipo,1) = 'N' &#xA;&#x9;&#x9;&#x9;then '-' else '' end + cast(Monto as varchar(14)),',','.'),'--','-') as numeric(11,3)) AS Total_Amount, &#xA;&#x9;&#x9;&#x9;cast(replace(replace(case when left(tipo,1) = 'N' then '-' else '' end &#xA;&#x9;&#x9;&#x9;+ cast(Monto_Pagado as varchar(14)),',','.'),'--','-') as numeric(11,3)) AS Total_Collected,&#xA;                         convert(char(8),Fecha_vencimiento, 112) AS Date_End, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; Condicion_credito AS Code_Payment, Compania AS Code_Unit_Org, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; Compania + Division AS Code_Sales_Org,  &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; Case when Moneda = 'RD' Then 'PE'  else 'DL' end AS Code_Currency, '0' as Source_Create, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '1' AS transfer_status, NULL as status_SAP&#xA;FROM            Facturas &#xA;where isnumeric (Compania + Documento) = 1 and Compania + Cliente is not null and Compania + Documento not in ('')&#xA;and division IN ('026', '036', '037', '038') and cliente in (select cliente from cliente where cliente is not Null)&#xA;order by Compania + Documento, case when tipo = 'FT' then cast(tipo as varchar(2)) + CONVERT(char(8), Fecha, 112) + case when Moneda = 'US' then '1' else '2' end else cast(tipo as varchar(2))  + CONVERT(char(8), Fecha, 112) + case when Moneda = 'US' then '1' else '2' end  end &#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fiscal"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0B1391A4-DF97-411C-BFBA-BE991297193F}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fiscal"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63C35F51-05D7-4968-AF1A-CD8B9FE87FBE}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE IMPLT_users_fiscal&#xA;GO&#xA;&#xA;INSERT INTO [dbo].[IMPLT_users_fiscal]&#xA;           ([Code_Seller]&#xA;           ,[Type]&#xA;           ,[Code_Unit_Org]&#xA;           ,[Code_Sales_Org]&#xA;           ,[Counter_Ini]&#xA;           ,[Counter_Fin]&#xA;           ,[N_Counter]&#xA;           ,[Base]&#xA;           ,[Date_Ini]&#xA;           ,[Date_End]&#xA;           ,[Internal_Request]&#xA;           ,[Sub_Number]&#xA;           ,[Code_Route])&#xA;SELECT COMPANIA + AGENTE AS Code_Seller, TIPO_DOCUMENTO_NCF AS Type,&#xA;          COMPANIA AS Code_Unit_Org,&#xA;           Compania + DIVISION AS Code_Sales_Org,&#xA;           Secuencia_Desde AS Counter_Ini,&#xA;           Secuencia_Hasta AS Counter_Fin,&#xA;           Secuencia AS N_Counter,&#xA;           Serie + TIPO_DOCUMENTO_NCF AS Base,&#xA;           convert(char(8),Fecha_desde, 112) AS Date_Ini,&#xA;           convert(char(8),Fecha_hasta, 112) AS Date_End,&#xA;           Numero_Confirmacion AS Internal_Request,&#xA;           SUB_NUMBER AS Sub_Number,&#xA;          Compania + RUTA  AS Code_Route&#xA;           FROM Secuencia_NCF_Vendedor&#xA;WHERE DIVISION IN ('026','036','037','038')&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Grupos de articulos"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Grupos de articulos"
+      DTS:DTSID="{e5f90488-956c-4c67-9e7c-f07260411ab6}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Grupos de articulos"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63C35F51-05D7-4968-AF1A-CD8B9FE87FBE}"
+          SQLTask:SqlStatementSource="--IMPLT_products_assor&#xA;&#xA;TRUNCATE TABLE IMPLT_products_assor&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_products_assor (Code_Assort, Code_Unit_Org, Code_Sales_Org, Description, Date_Ini, Date_End, Active, Code_Schedule, Code_Sucursal, Code_Group, Warehouse_C, Order_Split, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT  DISTINCT  Compania + Division + Codigo_planilla + Codigo_Grupo  as Code_Assort, Compania as Code_Unit_Org, Compania + Division as Code_Sales_Org, left(Descripcion,50) as Description, '20200101' as Date_Ini, '20990101' as Date_End, '1' as Active,&#xA;Compania + Codigo_planilla as Code_Schedule, Compania + Division + Sucursal as Code_Sucursal, Compania + Division + Codigo_planilla + Codigo_Grupo as Code_Group, Compania + Almacen as Warehouse_C, case when Pedido_Separado = 'X' then '1' else '0' end Order_Split, '0' as Source_Create, '1' AS transfer_status, NULL as status_SAP&#xA;FROM     Grupo_Articulos&#xA;WHERE Division IN ('026','036','037','038')&#xA;GO&#xA;&#xA;&#xA;-- IMPLT_products_assor_account&#xA;&#xA;TRUNCATE TABLE IMPLT_products_assor_account&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_products_assor_account (Code_Assort, Code_Account, Code_Unit_Org, Code_Sales_Org, Date_Ini, Date_End, Active, Code_Schedule, Code_Sucusal, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT &#xA;                         IMPLT_products_assor.Code_Assort, IMPLT_accounts_org.Code_Account, IMPLT_products_assor.Code_Unit_Org, IMPLT_products_assor.Code_Sales_Org, IMPLT_products_assor.Date_Ini, IMPLT_products_assor.Date_End, &#xA;                         IMPLT_products_assor.Active, IMPLT_products_assor.Code_Schedule, IMPLT_products_assor.Code_Sucursal, IMPLT_products_assor.Source_Create, IMPLT_products_assor.Transfer_status, &#xA;                         IMPLT_products_assor.Status_SAP&#xA;FROM            IMPLT_accounts_org INNER JOIN&#xA;                         IMPLT_products_assor ON IMPLT_accounts_org.Code_Unit_Org = IMPLT_products_assor.Code_Unit_Org AND IMPLT_accounts_org.Code_Sales_Org = IMPLT_products_assor.Code_Sales_Org AND &#xA;                         IMPLT_accounts_org.Code_Planilla = IMPLT_products_assor.Code_Schedule&#xA;GO&#xA;&#xA;&#xA;&#xA;-- IMPLT_products_assort_det&#xA;&#xA;-- Articulo problematico que al quitar/ nos queda igual que uno que ya existe&#xA;Update Grupos_Articulos_Detail set articulo = '_' + Articulo where articulo = 'TURHN1/2X20'&#xA;go&#xA;&#xA;TRUNCATE TABLE IMPLT_products_assort_det&#xA;GO&#xA;&#xA;INSERT INTO  IMPLT_products_assort_det (Code_Assort, Code_Product, Code_Unit_Org, Code_Sales_Org, Orden, Excluded, Code_Schedule, Code_Sucursal, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT Compania + Division + Codigo_planilla + Codigo_grupo AS Code_Assort, REPLACE(Compania + Articulo, '/', '') AS Code_Product, Compania as Code_Unit_Org, Compania + Division as Code_Sales_Org,&#xA;&#x9;&#x9;&#x9;min(Secuencia) AS Orden, '0' as Excluded, Compania + Codigo_planilla as Code_Schedule, Compania + Division + Sucursal as Code_Sucursal, '0' AS Source_Create, '1' AS transfer_status, NULL AS status_SAP&#xA;FROM        Grupos_Articulos_Detail &#xA;where Division IN ('026','036','037','038')&#xA;GROUP BY Compania, Division, Codigo_planilla, Codigo_grupo, Articulo, Codigo_planilla, Sucursal&#xA;GO  " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Organizacion"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Organizacion"
+      DTS:DTSID="{430eabfd-d6f6-4101-88db-61b7fbdc5d33}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Organizacion"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63C35F51-05D7-4968-AF1A-CD8B9FE87FBE}"
+          SQLTask:SqlStatementSource="-- IMPLT_unit_organization&#xA;&#xA;TRUNCATE TABLE IMPLT_unit_organization&#xA;GO&#xA;&#xA;INSERT INTO   IMPLT_unit_organization (Code_Unit_Org, Description, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT Compania as Code_Unit_Org, left(Nombre,50) as Description, '0' AS Source_Create, '1' AS transfer_status, NULL AS status_SAP&#xA;FROM        Compania&#xA;where compania = '01'&#xA;GO  &#xA;&#xA;&#xA;&#xA;-- IMPLT_sales_organization&#xA;&#xA;TRUNCATE TABLE IMPLT_sales_organization&#xA;GO&#xA;&#xA;INSERT INTO   IMPLT_sales_organization (Code_Sales_Org, Description,  Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT Compania + Divison as Code_Sales_Org, left(Nombre,50) as Description, '0' AS Source_Create, '1' AS transfer_status, NULL AS status_SAP&#xA;FROM        Divisiones&#xA;where Divison IN ('026','036','037','038')&#xA;GO  &#xA;&#xA;&#xA;&#xA;-- IMPLT_unit_sales_organization&#xA;&#xA;TRUNCATE TABLE IMPLT_unit_sales_organization&#xA;GO&#xA;&#xA;INSERT INTO   IMPLT_unit_sales_organization (Code_Sales_Org, Code_Unit_Org, Acum_Discount, Split_Ware, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT Compania + Divison as Code_Sales_Org, Compania as Code_Unit_Org,&#xA;&#x9;&#x9;&#x9;case when Acumula_Tasa_Dto = 'X' then '1' else '0' end as Acum_Discount,case when isnull(Almacen,'') = '' then '0' else '1' end as Warehouses_C, '0' AS Source_Create, '1' AS transfer_status, NULL AS status_SAP&#xA;FROM        Divisiones&#xA;where Divison IN ('026','036','037','038')&#xA;GO  &#xA;&#xA;&#xA;&#xA;-- IMPLT_document_type&#xA;&#xA;TRUNCATE TABLE IMPLT_document_type&#xA;GO&#xA;&#xA;INSERT INTO   IMPLT_document_type (Code_Unit_Org, Code_Sales_Org, Code_Sucursal, Type, Document_ID, Warehouse_C, Order_Type, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT Compania as Code_Unit_Org, Compania + Division as Code_Sales_Org, Compania + Division + Sucursal as Sucursal, Documento as Document_ID, Almacen as Warehouse, Tipo as Type, &#xA;case when Tipo = 'PE' then 'ZOR' else 'ZDEV' end as Order_Type, '0' AS Source_Create, '1' AS transfer_status, NULL AS status_SAP&#xA;FROM        Documentos&#xA;where Division IN ('026','036','037','038')&#xA;GO  &#xA;&#xA;&#xA;&#xA;-- IMPLT_unit_sales_organ_split&#xA;&#xA;TRUNCATE TABLE IMPLT_unit_sales_organ_split&#xA;GO&#xA;&#xA;INSERT INTO  IMPLT_unit_sales_organ_split ( Code_Unit_Org_Split, Code_Sales_Org_Split, Code_Sucursal_Split,  Code_Unit_Org, Code_Sales_Org, Code_Sucursal, Split, Split_Ware, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT Compania_Split as Code_Unit_Org_Split, Compania_Split + Division_Split as Code_Sales_Org_Split,  Compania_Split + Division_Split + Division_Split as Code_Sucursal_Split, &#xA;Compania as Code_Unit_Org, Compania + Division as Code_Sales_Org,  Compania + Division + Sucursal as Code_Sucursal, '1' as Split, '0' as Split_Ware, &#xA; '0' AS Source_Create, '1' AS transfer_status, NULL AS status_SAP&#xA;FROM        Compania_Split&#xA;where Division IN ('026','036','037','038')&#xA;GO  &#xA;&#xA;-- Insertamos los que no hay que hacer split pero los necesitamos para los filtros de producto&#xA;insert into  IMPLT_unit_sales_organ_split ( Code_Unit_Org_Split, Code_Sales_Org_Split, Code_Sucursal_Split, Code_Unit_Org, Code_Sales_Org, Code_Sucursal, Split, Split_Ware, Source_Create, Transfer_status, Status_SAP)&#xA;select  DISTINCT  Code_Unit_Org as Code_Unit_Org_Split, Code_Sales_Org as Code_Sales_Org_Split, Code_Sales_Org + '001' as Sucursal_Split, Code_Unit_Org, Code_Sales_Org, Code_Sales_Org + '001' as Sucursal,  '0' as Split, '0' Split_Ware, '0' AS Source_Create, '1' AS transfer_status, NULL AS status_SAP&#xA;FROM&#xA;(SELECT        Code_Unit_Org, Code_Sales_Org&#xA;FROM            IMPLT_unit_sales_organization&#xA;except&#xA;SELECT        Code_Unit_Org_Split, Code_Sales_Org_Split&#xA;FROM           IMPLT_unit_sales_organ_split) as SPLIT_NEW  &#xA;GO&#xA;&#xA;&#xA;-- Actualizamos el flag de Split por almacén&#xA;UPDATE  IMPLT_unit_sales_organ_split set Split_Ware = IMPLT_unit_sales_organization.Split_Ware&#xA;FROM            IMPLT_unit_sales_organ_split INNER JOIN&#xA;                         IMPLT_unit_sales_organization ON IMPLT_unit_sales_organ_split.Code_Unit_Org = IMPLT_unit_sales_organization.Code_Unit_Org AND &#xA;                         IMPLT_unit_sales_organ_split.Code_Sales_Org = IMPLT_unit_sales_organization.Code_Sales_Org&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Pedidos"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8FB8ECAB-9153-4B54-9FB3-3B02AC64F082}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Pedidos"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63C35F51-05D7-4968-AF1A-CD8B9FE87FBE}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [IMPLT_hist_orders]&#xA;GO&#xA;&#xA;INSERT INTO [dbo].[IMPLT_hist_orders]&#xA;           ([Order_Num], [Num_Line], [Order_Num_ofClient], [Type_Rec], [Date_Delivery],&#xA;           [Order_Date], [Code_Account], [Code_Product], [Lot_Number], [Quantity],&#xA;           [Quantity_Order], [Unit_Measure], [Price_Br], [Price], [Total_Amount],&#xA;           [Por_Discount1], [Amount_Discount1], [Por_Discount2], [Amount_Discount2],&#xA;           [Por_Discount3], [Amount_Discount3], [Por_Tax1], [Amount_Tax1], [Por_Tax2],&#xA;           [Amount_Tax2], [Code_Currency], [Order_Num_Cli], [Code_Paymentway], [Code_Seller],&#xA;           [Order_Type], [Sale_Type], [Code_ReturnCause], [Code_Promotion], [Code_Status],&#xA;&#x9;&#x9;   Code_Unit_Org, Code_Sales_Org,&#xA;           [Source_Create], [Transfer_status], [Status_SAP])&#xA;SELECT &#xA;COMPANIA + NUMERO_SOLICITUD AS Order_Num, NUMERO_LINEA AS Num_Line, Compania + Numero_Solicitud AS  Order_Num_ofClient,&#xA;TIPO_SOLICITUD AS Type_Rec, convert(char(8),Fecha_emision, 112)+1 AS Date_Delivery, &#xA;convert(char(8),Fecha_emision, 112) AS Order_Date, &#xA;Compania + CLIENTE AS Code_account, &#xA;Compania + Articulo AS Code_Product, Lote AS Lot_Number, Cantidad_Pedido AS Quantity,&#xA;Cantidad_Pedido AS Quantity_Order, 'UN' AS Unit_Measure, PRECIO_BRUTO AS Price_Br, PRECIO_NETO AS Price, &#xA;TOTAL_SIN_IMPUESTOS AS Total_Amount, TASA_DESCUENTO_1 AS Por_Discount1, &#xA;MONTO_DESCUENTO AS Amount_Discount1, TASA_DESCUENTO_2 AS Por_Discount2, &#xA;MONTO_DESCUENTO_2 AS Amount_Discount2,&#xA;NULL AS Por_Discount3, NULL AS Amount_Discount3, &#xA;TASA_RECARGO AS Por_Tax1, MONTO_RECARGO AS Amount_Tax1, NULL AS Por_Tax2,&#xA;NULL AS Amount_Tax2, MONEDA AS Code_Currency, NUMERO_SOLICITUD AS Order_Num_Cli, &#xA;NULL AS Code_Paymentway, VENDEDOR AS Code_Seller,&#xA;&#xA;CASE WHEN TIPO_VENTA = 'VENTA' THEN 'ZOR'&#xA;ELSE 'ZDEV'&#xA;END AS Order_Type, &#xA;&#xA;CASE WHEN TIPO_VENTA = 'VENTA' THEN 0&#xA;ELSE 1&#xA;END AS Sale_Type,&#xA; NULL AS Code_ReturnCause, &#xA;NULL AS Code_Promotion, NULL AS Code_Status,&#xA;Compania AS Code_Unit_Org ,&#xA;Compania + Division AS Code_Sales_Org,&#xA;'0' as Source_Create, '1' AS transfer_status, NULL as status_SAP&#xA;FROM Pedidos_Historicos&#xA;WHERE DIVISION IN ('026','036','037','038') AND TIPO_VENTA &lt;&gt; 'REGALO'&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Pricing"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Pricing"
+      DTS:DTSID="{15ca10cb-574e-4936-8a7f-4b184fd1657f}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Pricing"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63C35F51-05D7-4968-AF1A-CD8B9FE87FBE}"
+          SQLTask:SqlStatementSource="&#xA;UPDATE Productos set Moneda_Precio1 = 'PE' where Moneda_Precio1 = 'RD'&#xA;GO&#xA;&#xA;UPDATE Productos set Moneda_Precio2 = 'PE' where Moneda_Precio2 = 'RD'&#xA;GO&#xA;&#xA;UPDATE Productos set Moneda_Precio3 = 'PE' where Moneda_Precio3 = 'RD'&#xA;GO&#xA;&#xA;UPDATE Productos set Moneda_Precio4 = 'PE' where Moneda_Precio4 = 'RD'&#xA;GO&#xA;&#xA;UPDATE Productos set Moneda_Precio5 = 'PE' where Moneda_Precio5 = 'RD'&#xA;GO&#xA;&#xA;UPDATE Productos set Moneda_Precio6 = 'PE' where Moneda_Precio6 = 'RD'&#xA;GO&#xA;&#xA;UPDATE Productos set Moneda_Precio1 = 'DL' where Moneda_Precio1 = 'US'&#xA;GO&#xA;&#xA;UPDATE Productos set Moneda_Precio2 = 'DL' where Moneda_Precio2 = 'US'&#xA;GO&#xA;&#xA;UPDATE Productos set Moneda_Precio3 = 'DL' where Moneda_Precio3 = 'US'&#xA;GO&#xA;&#xA;UPDATE Productos set Moneda_Precio4 = 'DL' where Moneda_Precio4 = 'US'&#xA;GO&#xA;&#xA;UPDATE Productos set Moneda_Precio5 = 'DL' where Moneda_Precio5 = 'US'&#xA;GO&#xA;&#xA;UPDATE Productos set Moneda_Precio6 = 'DL' where Moneda_Precio6 = 'US'&#xA;GO&#xA;&#xA;&#xA;--   IMPLT_pricing&#xA;&#xA;TRUNCATE TABLE   IMPLT_pricing&#xA;GO&#xA;&#xA;INSERT INTO  IMPLT_pricing (Secuence, Code_Table, Code1, Code2, Code3, Code4, Code5, Code6, Code7, &#xA;Code8, Value, Base, Unit_Measure, Type_Value, Code_Currency, Date_Ini, Date_Fin, ValueKey, ID_ERP, &#xA;Source_Create, &#xA;                         Transfer_status, Status_SAP)&#xA;SELECT        Secuence, &#xA;Code_Table, &#xA;Code1, &#xA;Code2, &#xA;'RD' AS Code3, &#xA;Code4, &#xA;Code5, &#xA;Code6, &#xA;Code7, &#xA;Code8, &#xA;cast(max(Value) AS varchar(12)) as Value, &#xA;Base, &#xA;Unit_Measure, &#xA;Type_Based AS Type_Value, &#xA;'RD' AS Code_Currency, &#xA;Date_Ini, &#xA;Date_Fin, &#xA;ValueKey, &#xA;ID_ERP, &#xA;--'' AS Articulo, &#xA;'0' AS Source_Create, &#xA;1 AS transfer_status, &#xA;0  AS status_SAP&#xA;FROM            Vista_Pricing&#xA;WHERE        (Code1 IN ('01', 'RD', 'US'))&#xA;GROUP BY  Secuence, Code_Table, Code1, Code2, Code3, Code4, Code5, Code6, Code7, Code8, Base, &#xA;Unit_Measure, Type_Based, Code_Currency, Date_Ini, Date_Fin, ValueKey, ID_ERP, Articulo &#xA;UNION&#xA;SELECT        'MWST' AS Secuence, 'A003' AS Code_Table,&#xA;'RD' AS Code1, '0' AS Code2, '0' AS Code3, &#xA;NULL AS Code4, NULL AS Code5, NULL AS Code6, NULL&#xA;                         AS Code7, NULL AS Code8, '0.000' AS Value, '1.000' AS Base,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '%' AS Unit_Measure, '1' AS Type_Value, 'RD' AS Code_Currency,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '20140101' AS Date_Ini, '20990101' AS Date_Fin,&#xA; 'RD00' AS ValueKey, 'MWSTA003RD00' AS ID_ERP,  --'' AS Articulo,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '0' AS Source_Create, &#xA;                         1 AS transfer_status, 0  AS status_SAP&#xA;UNION&#xA;SELECT DISTINCT&#xA;                         'MWST' AS Secuence, 'A003' AS Code_Table, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; 'RD' AS Code1, '0' AS Code2, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '01' AS Code3, NULL AS Code4, NULL&#xA;                         AS Code5, NULL AS Code6, NULL AS Code7, NULL AS Code8,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; cast(Tasa_itbis AS varchar(12)) AS Value, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '1.000' AS Base,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '%' AS Unit_Measure, '1' AS Type_Value,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; 'RD' AS Code_Currency,    '20140101' AS Date_Ini, '20990101' AS Date_Fin, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; 'RD001' AS ValueKey, 'MWSTA003RD001' AS ID_ERP, --'' AS Articulo,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  '0' AS Source_Create, &#xA;                         1 AS transfer_status, 0  AS status_SAP&#xA;FROM            Productos&#xA;WHERE        Tasa_itbis = 18&#xA;UNION&#xA;SELECT DISTINCT&#xA;                         'MWST' AS Secuence, 'A003' AS Code_Table, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; 'RD' AS Code1, '0' AS Code2, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '02' AS Code3, NULL AS Code4, NULL&#xA;                         AS Code5, NULL AS Code6, NULL AS Code7, NULL AS Code8,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; cast(Tasa_itbis AS varchar(12)) AS Value, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '1.000' AS Base,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '%' AS Unit_Measure, '1' AS Type_Value,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; 'RD' AS Code_Currency,    '20140101' AS Date_Ini, '20990101' AS Date_Fin, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; 'RD002' AS ValueKey, 'MWSTA002RD002' AS ID_ERP, --'' AS Articulo,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  '0' AS Source_Create, &#xA;                         1 AS transfer_status, 0  AS status_SAP&#xA;FROM            Productos&#xA;WHERE        Tasa_itbis = 16&#xA;UNION&#xA;SELECT DISTINCT&#xA;                         'TMWST' AS Secuence, 'A003' AS Code_Table, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; 'RD' AS Code1, '0' AS Code2, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '01' AS Code3, NULL AS Code4, NULL&#xA;                         AS Code5, NULL AS Code6, NULL AS Code7, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; NULL AS Code8,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; cast(-1 * (1 + (Tasa_itbis/100)) AS varchar(12)) AS Value, '1.000' AS Base, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '%' AS Unit_Measure, '1' AS Type_Value,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; 'RD' AS Code_Currency,   &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '20140101' AS Date_Ini, '20990101' AS Date_Fin, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; 'RD001' AS ValueKey, 'TMWSTA003RD001' AS ID_ERP, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; --'' AS Articulo,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '0' AS Source_Create, &#xA;                         1 AS transfer_status, 0  AS status_SAP&#xA;FROM            Productos&#xA;WHERE        Tasa_itbis = 18&#xA;UNION&#xA;SELECT DISTINCT&#xA;                         'TMWST' AS Secuence, 'A003' AS Code_Table, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; 'RD' AS Code1, '0' AS Code2, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '02' AS Code3, NULL AS Code4, NULL&#xA;                         AS Code5, NULL AS Code6, NULL AS Code7, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; NULL AS Code8,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; cast(-1 * (1 + (Tasa_itbis/100)) AS varchar(12)) AS Value, '1.000' AS Base, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '%' AS Unit_Measure, '1' AS Type_Value,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; 'RD' AS Code_Currency,   &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '20140101' AS Date_Ini, '20990101' AS Date_Fin, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; 'RD002' AS ValueKey, 'TMWSTA002RD002' AS ID_ERP, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; --'' AS Articulo,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '0' AS Source_Create, &#xA;                         1 AS transfer_status, 0  AS status_SAP&#xA;FROM            Productos&#xA;WHERE        Tasa_itbis = 16&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Productos"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Productos"
+      DTS:DTSID="{9146355f-b30f-453a-b9f3-8e051f923446}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Productos"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63C35F51-05D7-4968-AF1A-CD8B9FE87FBE}"
+          SQLTask:SqlStatementSource="-- Articulo problematico que al quitar/ nos queda igual que uno que ya existe&#xA;Update Productos set articulo = '_' + Articulo where articulo = 'TURHN1/2X20'&#xA;go&#xA;&#xA;-- Grabamos los codigos de los productos ya que tenemos que eliminar caracteres extraños&#xA;--Inicia linea de comentarios por Rafael Contreras, no entiendo qué hace esto aquí, que se supone es Hydra&#xA;/*&#xA;insert into prj_assig_products_corr (Code_ERP, Code_ofClient)&#xA;SELECT  DISTINCT     Compania +  Articulo as Code_ERP, &#xA;replace(Compania +  Articulo ,'/','')  as Code_ofClient &#xA;FROM            Productos&#xA;where Compania = '01' and Compania +  Articulo not in (select Code_ERP from prj_assig_products_corr)&#xA;GO&#xA;*/&#xA;-- IMPLT_products&#xA;&#xA;TRUNCATE TABLE IMPLT_products&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_products (Code_ofClient, Description, Description_short, Code_Hierarchy1, &#xA;Code_Hierarchy2, Code_Hierarchy3, Code_Hierarchy4, Code_ClassificationA, Code_ClassificationB, &#xA;Code_ClassificationC, Code_ClassificationD, &#xA;                         Code_ClassificationE, Code_Status, Ean14, Factor_Conversion, Unit_Type_Sales, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; Unit_Type_Inv, Weight, Unit_Type_Weight, Factor_Convert_W, Trazability, Volume, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; Unit_Type_Volume, Tax1, Tax2, Code_Empty, &#xA;                         Code_Unit_Type_Empty, Code_Empty_Box, Code_Unit_Type_Box, Source_Create, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; Transfer_status, Status_SAP)&#xA;SELECT  DISTINCT    replace( Compania +  Articulo,'/','') as Code_ofClient, &#xA;left(Descripcion,50) as Description, NULL as Description_short, '01' as Code_Hierarchy1, &#xA;NULL as Code_Hierarchy2, NULL as Code_Hierarchy3, NULL as Code_Hierarchy4,&#xA;NULL as Code_ClassificationA, Descripcion_Marca as Code_ClassificationB, NULL as Code_ClassificationC, &#xA;NULL as Code_ClassificationD, NULL as Code_ClassificationE, '1' as Code_Status, NULL as Ean14, &#xA;Empaque as Factor_Conversion, 'UN' as Unit_Type_Sales, 'UN' as Unit_Type_Inv,&#xA; 1 as Weight, 'KG' as Unit_Type_Weight, 1 as Factor_Convert_W, '0' as Trazability, 1 as Volume, &#xA; 'L' as Unit_Type_Volume, &#xA; CASE WHEN Exento_itbis = 'X' THEN '0' &#xA; ELSE CASE WHEN Tasa_itbis = 16.00 THEN '2'&#xA; ELSE '1' &#xA; END END AS Tax1, &#xA; NULL as Tax2, &#xA; NULL as Code_Empty,&#xA; NULL as  Code_Unit_Type_Empty, NULL as Code_Empty_Box, NULL as Code_Unit_Type_Box, '0' AS Source_Create, &#xA; '1' AS transfer_status, NULL AS status_SAP&#xA;FROM    Productos&#xA;WHERE Division IN ('026','036','037','038') &#xA;GO&#xA;&#xA;&#xA;-- IMPLT_products_array&#xA;&#xA;TRUNCATE TABLE IMPLT_products_array&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_products_array (Code, Type, Description, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT '%' as Code, 50 as Type, '%' as Description , '0' AS Source_Create, '0' AS transfer_status, '1' AS status_SAP&#xA;UNION&#xA;SELECT 'UN' as Code, 50 as Type, 'UN' as Description , '0' AS Source_Create, '0' AS transfer_status, '1' AS status_SAP&#xA;&#xA;&#xA;&#xA;-- IMPLT_products_measure&#xA;&#xA;TRUNCATE TABLE IMPLT_products_measure&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_products_measure (Code_Product, Unit_Measure, Factor_Conversion, &#xA;Source_Create, Transfer_status, Status_SAP)&#xA;SELECT  DISTINCT    replace( Compania +  Articulo,'/','') as Code_ofClient,  &#xA;'UN' as Unit_Measure, 1 as Factor_Conversion, '0' AS Source_Create, '1' AS transfer_status, &#xA;NULL  AS status_SAP&#xA;FROM    Productos&#xA;WHERE Division IN ('026','036','037','038')&#xA;GO&#xA;&#xA;&#xA;-- IMPLT_products_organization&#xA;&#xA;TRUNCATE TABLE IMPLT_products_organization&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_products_organization (Code_Product, Code_Unit_Org, Code_Sales_Org, Code_Status, Unit_Box, Unit_Type_Sales, Unit_Type_Inv, Factor_Conversion, Trazability, Max_Discount, Quantity_Min, Price_Min, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT  DISTINCT    replace( Compania +  Articulo,'/','') as Code_Product,  Compania as Code_Unit_Org, Compania + Division as Code_Sales_Org, '1' as Code_status, empaque as Unit_Box, 'CS' as Unit_Type_Sales, 'UN' as Unit_Type_Inv, Empaque as Factor_Conversion, '0' as Trazability, Maximo_Descuento as Max_Discount, &#xA;Cantidad_Minimo_Venta as Quantity_Min,  Precio_Minimo_Venta as Price_Min, '0' AS Source_Create, '1' AS transfer_status, NULL  AS status_SAP&#xA;FROM    Productos&#xA;WHERE Division IN ('026','036','037','038') &#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Promociones New"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{316A4F38-E5B9-449D-884D-60F6841C531E}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Promociones New"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63C35F51-05D7-4968-AF1A-CD8B9FE87FBE}"
+          SQLTask:SqlStatementSource="--promotions_head&#xA;TRUNCATE TABLE IMPLT_promotions_head&#xA;GO&#xA;&#xA;INSERT INTO [dbo].IMPLT_promotions_head&#xA;           (Code,&#xA;           Code_ofClient,&#xA;           Code_Unit_Org,&#xA;           Code_Sales_Org,&#xA;           Description,&#xA;           Code_Type,&#xA;           Date_Ini,&#xA;           Date_End,&#xA;           Order_Apply,&#xA;           Cumulative,&#xA;           Only_OneTime,&#xA;           Per_Client,&#xA;           By_Default,&#xA;           Quantity_from,&#xA;           Quantity_Mult,&#xA;           Code_Type_Apply,&#xA;           Apply_to,&#xA;           Quantity_Gift,&#xA;           Code_Product_Gift,&#xA;           Unit_Sales,&#xA;           Maximun_Gift,&#xA;           Modificable,&#xA;           Activable,&#xA;           Quantity_Ini,&#xA;           Quantity_Fin,&#xA;&#x9;&#x9;   Descuento,&#xA;           Source_Create,&#xA;           Transfer_status,&#xA;           Status_SAP)&#xA;     SELECT DISTINCT '1' + PROMO_TELYNET_CABECERA.Compania + PROMO_TELYNET_CABECERA.Division + &#xA;&#x9; CASE WHEN left(PROMO_TELYNET_CABECERA.codigo_promo,1) = 'P' THEN '1' ELSE '2' END &#xA;&#x9; + replace(left(right(PROMO_TELYNET_CABECERA.codigo_promo,len(PROMO_TELYNET_CABECERA.codigo_promo)-2),&#xA;&#x9; len(PROMO_TELYNET_CABECERA.codigo_promo)-4),'-','')&#xA;&#x9; + replace(right(PROMO_TELYNET_CABECERA.codigo_promo,2),'-','')&#xA;      AS Code,&#xA;&#x9;   PROMO_TELYNET_CABECERA.codigo_promo AS Code_ofClient,&#xA;           PROMO_TELYNET_CABECERA.Compania AS Code_Unit_Org,&#xA;           PROMO_TELYNET_CABECERA.Compania + PROMO_TELYNET_CABECERA.Division AS Code_Sales_Org,&#xA;           PROMO_TELYNET_CABECERA.descripcion AS Description,&#xA;           left(PROMO_TELYNET_CABECERA.codigo_promo,1) AS Code_Type,&#xA;           convert(varchar,PROMO_TELYNET_CABECERA.fecha_inicio,112)AS Date_Ini,&#xA;           convert(varchar,PROMO_TELYNET_CABECERA.fecha_fin,112)AS Date_End,&#xA;           '1' AS Order_Apply,&#xA;           '1' AS Cumulative,&#xA;           '1' AS Only_OneTime,&#xA;           '-1' AS Per_Client,&#xA;           '1' AS By_Default,&#xA;           PROMO_TELYNET_CABECERA.Cantidad_desde AS Quantity_from,&#xA;           PROMO_TELYNET_CABECERA.Factor AS Quantity_Mult,&#xA;           '99' AS Code_Type_Apply,&#xA;           '14' AS Apply_to,&#xA;           PROMO_TELYNET_CABECERA.Cantidad_regalo AS Quantity_Gift,&#xA;           PROMO_TELYNET_CABECERA.Producto_regalo AS Code_Product_Gift,&#xA;           PROMO_TELYNET_CABECERA.Unidad_regalo AS Unit_Sales,&#xA;           PROMO_TELYNET_CABECERA.Maximo_regalo AS Maximun_Gift,&#xA;           '1' AS Modificable,&#xA;           '1' AS Activable,&#xA;           PROMO_TELYNET_AGENTE.cantidad_desde AS Quantity_Ini,&#xA;           PROMO_TELYNET_AGENTE.cantidad_hasta AS Quantity_Fin,&#xA;&#x9;&#x9;   PROMO_TELYNET_CABECERA.DESCUENTO AS descuento,&#xA;           '0' AS Source_Create,&#xA;           1 AS Transfer_status,&#xA;           0 AS Status_SAP&#xA;&#x9;&#x9;   FROM PROMO_TELYNET_CABECERA&#xA;&#x9;&#x9;   INNER JOIN PROMO_TELYNET_AGENTE &#xA;&#x9;&#x9;   ON PROMO_TELYNET_CABECERA.codigo_promo = PROMO_TELYNET_AGENTE.codigo_promo&#xA;&#x9;&#x9;   AND PROMO_TELYNET_AGENTE.Division = PROMO_TELYNET_CABECERA.Division&#xA;&#x9; where PROMO_TELYNET_CABECERA.Division IN ('026')&#xA;&#xA;&#x9; --------------------------------------------------------------------------------&#xA;-------------------------------------------------------------------------------------------&#xA;--Promotions Organization&#xA;TRUNCATE TABLE IMPLT_promotions_organization&#xA;GO&#xA;&#xA;INSERT INTO [dbo].IMPLT_promotions_organization&#xA;           (Code_Promotion,&#xA;           Code_Unit_Org,&#xA;           Code_Sales_Org,&#xA;           Date_Ini,&#xA;           Date_End,&#xA;           Source_Create,&#xA;           Transfer_status,&#xA;           Status_SAP)&#xA;&#x9;&#x9;   SELECT codigo_promo AS Code_Promotion,&#xA;           Compania AS Code_Unit_Org,&#xA;           Compania + Division AS Code_Sales_Org,&#xA;           convert(varchar,fecha_inicio,112)AS Date_Ini,&#xA;           convert(varchar,fecha_fin,112)AS Date_End,&#xA;           '0' AS Source_Create,&#xA;           1 AS Transfer_status,&#xA;           0 AS Status_SAP&#xA;&#x9;&#x9;   FROM PROMO_TELYNET_CABECERA&#xA;&#x9;&#x9;   where PROMO_TELYNET_CABECERA.Division IN ('026')&#xA;&#xA;&#x9;&#x9;   &#x9; --------------------------------------------------------------------------------&#xA;-------------------------------------------------------------------------------------------&#xA;--Promotions Gift&#xA;TRUNCATE TABLE IMPLT_promotions_gift&#xA;GO&#xA;&#xA;INSERT INTO [dbo].[IMPLT_promotions_gift]&#xA;           (Code_Promotion,&#xA;           Code_Unit_Org,&#xA;           Code_Sales_Org,&#xA;           Code_Product,&#xA;           Type_Unit,&#xA;           Quantity,&#xA;           Source_Create,&#xA;           Transfer_status,&#xA;           Status_SAP)&#xA;    SELECT DISTINCT Codigo_Promo AS Code_Promotion,&#xA;&#x9;Compania AS Code_Unit_Org,&#xA;    Compania + Division AS Code_Sales_Org,&#xA;           Compania + producto AS Code_Product,&#xA;           unidad_venta AS Type_Unit,&#xA;           cantidad AS Quantity,&#xA;           '0' AS Source_Create,&#xA;           1 AS Transfer_status,&#xA;           0 AS Status_SAP&#xA;&#x9;&#x9;   FROM PROMO_TELYNET_producto&#xA;&#x9;&#x9;   where PROMO_TELYNET_producto.Division IN ('026')&#xA;&#x9;&#x9;   &#x9; --------------------------------------------------------------------------------&#xA;-------------------------------------------------------------------------------------------&#xA;--Promotions PRODUCTS&#xA;TRUNCATE TABLE IMPLT_promotions_products&#xA;GO&#xA;&#xA;INSERT INTO [dbo].IMPLT_promotions_products&#xA;           (Code_Promotion,&#xA;           Code_Product,&#xA;           Unit_Sales,&#xA;           Quantity,&#xA;           Source_Create,&#xA;           Transfer_status,&#xA;           Status_SAP)&#xA;&#x9;&#x9;   SELECT &#xA;&#x9;&#x9;   Codigo_Promo AS Code_Promotion,&#xA;           Compania + producto AS Code_Product,&#xA;           unidad_venta AS Unit_Sales,&#xA;           cantidad AS Quantity,&#xA;           '0' AS Source_Create,&#xA;           1 AS Transfer_status,&#xA;           0 AS Status_SAP&#xA;&#x9;&#x9;   FROM PROMO_TELYNET_producto&#xA;&#x9;&#x9;   where PROMO_TELYNET_producto.Division IN ('026')&#xA;     &#x9;&#x9;   &#x9; &#xA;&#x9;--------------------------------------------------------------------------------&#xA;-------------------------------------------------------------------------------------------&#xA;--Promotions Destiny&#xA;TRUNCATE TABLE IMPLT_promotions_destiny&#xA;GO&#xA;&#xA;INSERT INTO [dbo].IMPLT_promotions_destiny&#xA;           (Code_Promo,&#xA;           Code_Unit_Org,&#xA;           Code_Sales_Org,&#xA;           Code_Product,&#xA;           Type_Unit,&#xA;           Quantity,&#xA;           Source_Create,&#xA;           Transfer_status,&#xA;           Status_SAP)&#xA;&#x9;&#x9;   SELECT Codigo_promo AS Code_Promo,&#xA;           Compania AS Code_Unit_Org,&#xA;           Compania + Division AS Code_Sales_Org,&#xA;           Compania + Producto AS Code_Product,&#xA;           unidad_venta AS Type_Unit,&#xA;           Cantidad AS Quantity,&#xA;           '0' AS Source_Create,&#xA;           1 AS Transfer_status,&#xA;           0 AS Status_SAP&#xA;&#x9;&#x9;   FROM PROMO_TELYNET_PRODUCTO&#xA;&#x9;&#x9;   where PROMO_TELYNET_PRODUCTO.Division IN ('026')&#xA;&#xA;&#x9;--------------------------------------------------------------------------------&#xA;-------------------------------------------------------------------------------------------&#xA;--Promotions SELLER&#xA; TRUNCATE TABLE IMPLT_promotions_sellers&#xA;GO    &#xA;&#xA;INSERT INTO [dbo].[IMPLT_promotions_sellers]&#xA;           (Code_Promo,&#xA;           Code_Unit_Org,&#xA;           Code_Sales_Org,&#xA;           Code_Seller,&#xA;           Quantity,&#xA;           Date_Ini,&#xA;           Date_End,&#xA;           Modificable,&#xA;           Activable,&#xA;           Quantity_Ini,&#xA;           Quantity_Fin,&#xA;           Source_Create,&#xA;           Transfer_status,&#xA;           Status_SAP)&#xA;&#x9;&#x9;   SELECT PROMO_TELYNET_AGENTE.Codigo_promo AS Code_Promo,&#xA;           PROMO_TELYNET_AGENTE.Compania AS Code_Unit_Org,&#xA;           PROMO_TELYNET_AGENTE.Compania + PROMO_TELYNET_AGENTE.Division AS Code_Sales_Org,&#xA;           PROMO_TELYNET_AGENTE.Compania + PROMO_TELYNET_AGENTE.Agente AS Code_Seller,&#xA;           PROMO_TELYNET_PRODUCTO.Cantidad AS Quantity,&#xA;           convert(varchar,fecha_inicio,112)AS Date_Ini,&#xA;           convert(varchar,fecha_fin,112)AS Date_End,&#xA;           CASE WHEN Puede_Modificar = 'SI' THEN '1'&#xA;&#x9;&#x9;   ELSE '' END AS Modificable,&#xA;&#x9;&#x9;   CASE WHEN Puede_Desactivar = 'SI' THEN '1'&#xA;&#x9;&#x9;   ELSE '' END AS Activable,&#xA;           Cantidad_desde AS Quantity_Ini,&#xA;           Cantidad_Hasta AS Quantity_Fin,&#xA;           '0' AS Source_Create,&#xA;           1 AS Transfer_status,&#xA;           0 AS Status_SAP&#xA;&#x9;&#x9;   FROM PROMO_TELYNET_AGENTE&#xA;&#x9;&#x9;   INNER JOIN PROMO_TELYNET_PRODUCTO &#xA;&#x9;&#x9;   ON PROMO_TELYNET_AGENTE.Codigo_promo = PROMO_TELYNET_PRODUCTO.Codigo_promo&#xA;&#x9;&#x9;   AND PROMO_TELYNET_AGENTE.Division = PROMO_TELYNET_PRODUCTO.Division&#xA;&#x9;&#x9;   where PROMO_TELYNET_AGENTE.Division IN ('026')&#xA;     &#xA;&#x9;--------------------------------------------------------------------------------&#xA;-------------------------------------------------------------------------------------------&#xA;--Promotions type user&#xA; TRUNCATE TABLE IMPLT_promotions_type_user&#xA;GO   &#xA;     &#xA;INSERT INTO [dbo].[IMPLT_promotions_Type_User]&#xA;           (Code_Promo,&#xA;           Code_Type,&#xA;           Date_Ini,&#xA;           Date_End,&#xA;           Source_Create,&#xA;           Transfer_status,&#xA;           Status_SAP)&#xA; SELECT   PROMO_TELYNET_AGENTE.Codigo_promo AS Code_Promo,&#xA;          '16' AS Code_Type,&#xA;           convert(varchar,fecha_inicio,112)AS Date_Ini,&#xA;           convert(varchar,fecha_fin,112)AS Date_End,&#xA;           '0' AS Source_Create,&#xA;           1 AS Transfer_status,&#xA;           0 AS Status_SAP &#xA;&#x9;&#x9;   FROM PROMO_TELYNET_AGENTE&#xA;&#x9;&#x9;   WHERE Division IN ('026')&#xA;&#x9;&#x9;   AND tipo_Agente = 'AUTOVENTA'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Promociones viejo"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Promociones"
+      DTS:Disabled="True"
+      DTS:DTSID="{6111a5a7-2564-4938-b262-8e2de12da6d1}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Promociones viejo"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63C35F51-05D7-4968-AF1A-CD8B9FE87FBE}"
+          SQLTask:SqlStatementSource="-- GRUPOS OBJETIVO DE CLIENTES&#xA;&#xA;-- IMPLT_target_accounts_header&#xA;&#xA;TRUNCATE TABLE IMPLT_target_accounts_header&#xA;GO&#xA;&#xA;INSERT INTO  IMPLT_target_accounts_header (Code_Group, Description, Code_Unit_Org, Code_Sales_Org,  Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT Compania + Division + Grupo_cliente as Code_Group, left(Descripcion,50) as Description, Compania as Code_Unit_Org, Compania + Division Code_Sales_Org,&#xA; '0' AS Source_Create, '1' AS transfer_status, NULL AS status_SAP&#xA;FROM        grupo_cliente_promo_header&#xA;where Compania = '01'&#xA;GO  &#xA;&#xA;&#xA;-- IMPLT_target_accounts_detail&#xA;&#xA;TRUNCATE TABLE IMPLT_target_accounts_detail&#xA;GO&#xA;&#xA;INSERT INTO  IMPLT_target_accounts_detail (Code_Account, Code_Unit_Org, Code_Sales_Org,  Code_Group, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT Compania + Cliente as Code_Account, Compania as Code_Unit_Org, Compania + Division Code_Sales_Org, Compania + Division + Grupo_cliente as Code_Group,  &#xA; '0' AS Source_Create, '1' AS transfer_status, NULL AS status_SAP&#xA;FROM        grupo_cliente_promo_detail&#xA;where Compania = '01'&#xA;GO  &#xA;&#xA;&#xA;-- PROMOCIONES&#xA;&#xA;UPDATE promociones_header set type = NULL&#xA;GO&#xA;&#xA;-- IMPLT_promotions_head&#xA;&#xA;TRUNCATE TABLE IMPLT_promotions_head&#xA;GO&#xA;&#xA;-- Tomamos como tipo 30 las de Producto que no tienen rangos de regalo&#xA;update promociones_header set Type = '30' &#xA;from promociones_header as PH INNER JOIN&#xA;promociones_detail as PD ON PH.Promocion = PD.Promocion AND &#xA;PH.Secuencia = PD.Secuencia AND PH.tipo_promocion = PD.tipo_promocion AND &#xA;PH.Division = PD.Division AND PH.Compania = PD.Compania&#xA;WHERE        (PH.tipo_promocion = 'P') AND (ISNULL(PD.Cantidad_desde, 0) + ISNULL(PD.Cantidad_hasta, 0) &#xA; + ISNULL(PD.Monto_desde, 0) + ISNULL(PD.Monto_hasta, 0) = 0) AND (PH.Type IS NULL)&#xA;GO&#xA;&#xA;update promociones_header set Type = '30' &#xA;from promociones_header as PH INNER JOIN&#xA;promociones_detail as PD ON PH.Promocion = PD.Promocion AND &#xA;PH.Secuencia = PD.Secuencia AND PH.tipo_promocion = PD.tipo_promocion AND &#xA;PH.Division = PD.Division AND PH.Compania = PD.Compania&#xA;WHERE        (PH.tipo_promocion = 'P') AND (ISNULL(PD.Monto_desde, 0) + ISNULL(PD.Monto_hasta, 0) = 0) AND (PH.Type IS NULL)&#xA;GO&#xA;&#xA;update promociones_header set Type = '31' &#xA;from promociones_header as PH INNER JOIN&#xA;promociones_detail as PD ON PH.Promocion = PD.Promocion AND &#xA;PH.Secuencia = PD.Secuencia AND PH.tipo_promocion = PD.tipo_promocion AND &#xA;PH.Division = PD.Division AND PH.Compania = PD.Compania&#xA;WHERE        (PH.tipo_promocion = 'P') AND (ISNULL(PD.Cantidad_desde, 0) + ISNULL(PD.Cantidad_hasta, 0)  = 0) AND (PH.Type IS NULL)&#xA;GO&#xA;&#xA;&#xA;-- Tomamos como tipo 23 las de Descuento que no tienen rangos de regalo&#xA;update promociones_header set Type = '32' &#xA;from promociones_header as PH INNER JOIN&#xA;descuento_detail as PD ON PH.Promocion = PD.Promocion AND &#xA;PH.Division = PD.Division AND PH.Compania = PD.Compania&#xA;WHERE        (PH.tipo_promocion = 'E') AND (cast(ISNULL(PD.Cantidad_desde, 0) as numeric(18,0)) + cast(ISNULL(PD.Cantidad_hasta, 0) as numeric(18,0)) &#xA;                         + cast(ISNULL(PD.Monto_desde, 0.00) as numeric(15,3)) + cast(ISNULL(PD.Monto_hasta, 0.00) as numeric(15,3)) = 0) AND (PH.Type IS NULL) and PD.nivel_precio is null&#xA;GO&#xA;&#xA;update promociones_header set Type = '32' &#xA;from promociones_header as PH INNER JOIN&#xA;descuento_detail as PD ON PH.Promocion = PD.Promocion AND &#xA;PH.Secuencia = PD.Secuencia AND PH.tipo_promocion = PD.tipo_promocion AND &#xA;PH.Division = PD.Division AND PH.Compania = PD.Compania&#xA;WHERE        (PH.tipo_promocion = 'E') AND (cast(ISNULL(PD.Monto_desde, 0.00) as numeric(15,3)) + cast(ISNULL(PD.Monto_hasta, 0.00) as numeric(15,3)) = 0) AND (PH.Type IS NULL) and PD.nivel_precio is null&#xA;GO&#xA;&#xA;&#xA;update promociones_header set Type = '33' &#xA;from promociones_header as PH INNER JOIN&#xA;Descuento_detail as PD ON PH.Promocion = PD.Promocion AND &#xA;PH.Secuencia = PD.Secuencia AND PH.tipo_promocion = PD.tipo_promocion AND &#xA;PH.Division = PD.Division AND PH.Compania = PD.Compania&#xA;WHERE        (PH.tipo_promocion = 'E') AND (cast(ISNULL(PD.Cantidad_desde, 0) as numeric(18,0)) + cast(ISNULL(PD.Cantidad_hasta, 0) as numeric(18,0)) = 0) AND (PH.Type IS NULL) and PD.nivel_precio is null&#xA;GO&#xA;&#xA;-- Tomamos como tipo 25 las de Descuento que no tienen rangos de regalo&#xA;update promociones_header set Type = '34' &#xA;from promociones_header as PH INNER JOIN&#xA;descuento_detail as PD ON PH.Promocion = PD.Promocion AND &#xA;PH.Secuencia = PD.Secuencia AND PH.tipo_promocion = PD.tipo_promocion AND &#xA;PH.Division = PD.Division AND PH.Compania = PD.Compania&#xA;WHERE        (PH.tipo_promocion = 'E') AND (cast(ISNULL(PD.Cantidad_desde, 0) as numeric(18,0)) + cast(ISNULL(PD.Cantidad_hasta, 0) as numeric(18,0)) &#xA;                         + cast(ISNULL(PD.Monto_desde, 0.00) as numeric(15,3)) + cast(ISNULL(PD.Monto_hasta, 0.00) as numeric(15,3)) = 0) AND (PH.Type IS NULL) and PD.nivel_precio is not null&#xA;GO&#xA;&#xA;update promociones_header set Type = '34' &#xA;from promociones_header as PH INNER JOIN&#xA;descuento_detail as PD ON PH.Promocion = PD.Promocion AND &#xA;PH.Secuencia = PD.Secuencia AND PH.tipo_promocion = PD.tipo_promocion AND &#xA;PH.Division = PD.Division AND PH.Compania = PD.Compania&#xA;WHERE        (PH.tipo_promocion = 'E') AND (cast(ISNULL(PD.Monto_desde, 0.00) as numeric(15,3)) + cast(ISNULL(PD.Monto_hasta, 0.00) as numeric(15,3)) = 0) AND (PH.Type IS NULL) and PD.nivel_precio is not null&#xA;GO&#xA;&#xA;&#xA;update promociones_header set Type = '35' &#xA;from promociones_header as PH INNER JOIN&#xA;descuento_detail as PD ON PH.Promocion = PD.Promocion AND &#xA;PH.Secuencia = PD.Secuencia AND PH.tipo_promocion = PD.tipo_promocion AND &#xA;PH.Division = PD.Division AND PH.Compania = PD.Compania&#xA;WHERE        (PH.tipo_promocion = 'E') AND (cast(ISNULL(PD.Cantidad_desde, 0) as numeric(18,0)) + cast(ISNULL(PD.Cantidad_hasta, 0) as numeric(18,0)) = 0) AND (PH.Type IS NULL) and PD.nivel_precio is not null&#xA;GO&#xA;&#xA;&#xA;INSERT INTO IMPLT_promotions_head (Code, Code_ofClient, Description, Date_Ini, Date_End, Apply_to, Type, Order_Apply, Cumulative, Quantity_from, Quantity_Mult, Maximun_Gift, Price_Gift, Unit_Sales, Per_Client, &#xA;                         Condition_List, Head_Table, Head_Line, Modificable, Activable, By_Default, Only_OneTime, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT &#xA;                         '1' + PH.Compania + PH.Division + CASE WHEN PH.tipo_promocion = 'P' THEN '1' ELSE '2' END + REPLACE(SPACE(5&#xA;                          - LEN(PH.Promocion)), ' ', '0') + PH.Promocion + REPLACE(SPACE(3 - LEN(PH.Secuencia)), ' ', '0') &#xA;                         + PH.Secuencia AS Code, REPLACE(SPACE(5 - LEN(PH.Promocion)), ' ', '0') &#xA;                         + PH.Promocion + REPLACE(SPACE(3 - LEN(PH.Secuencia)), ' ', '0') + PH.Secuencia AS Code_ofClient, &#xA;                         'Promo: ' + PH.Promocion + ' - Sec: ' + PH.Secuencia AS Description, CONVERT(char(8), &#xA;                         PH.Fecha_inicio, 112) AS Date_Ini, CONVERT(char(8), PH.Fecha_fin, 112) AS Date_End, case when PH.grupo_cliente is null then '14' else '68' end AS Apply_to, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; Type, 1 as Order_Apply, '1' as Cumulative, cast(PH.Factor_cantidad as numeric(11,3)) as Quantity_from, cast(PH.Factor_cantidad as numeric(11,3)) as Quantity_Mult,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; -1 as Maximun_Gift, cast(PH.Factor_monto as numeric(11,3)) as Price_Gift, 'UN' as Unit_Sales, case when PH.Primera_compra is null then -1 else 1 end Per_Client,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; case when PH.Tipo_factor = 'SIN_DESCUENTO' then '1' when PH.Tipo_factor = 'CON_DESCUENTO' then '2' when PH.Tipo_factor = 'CON_ITBIS' then '3' else PH.Tipo_factor end as Condition_List,&#xA;                         '1' as Head_Table, '1' as Head_Line,  '0' as Modificable, '0' as Activable, '1' as By_Default, '1' as Only_OneTime, '0' as Source_Create, '0' AS transfer_status, NULL as status_SAP  &#xA;FROM            promociones_header as PH INNER JOIN&#xA;                         promociones_detail as PD ON PH.Promocion = PD.Promocion AND &#xA;                         PH.Secuencia = PD.Secuencia AND PH.tipo_promocion = PD.tipo_promocion AND &#xA;                         PH.Division = PD.Division AND PH.Compania = PD.Compania&#xA;WHERE PH.Compania = '01'&#xA;UNION&#xA;SELECT &#xA;                         '1' + PH.Compania + PH.Division + CASE WHEN PH.tipo_promocion = 'P' THEN '1' ELSE '2' END + REPLACE(SPACE(5&#xA;                          - LEN(PH.Promocion)), ' ', '0') + PH.Promocion + REPLACE(SPACE(3 - LEN(PH.Secuencia)), ' ', '0') &#xA;                         + PH.Secuencia AS Code, REPLACE(SPACE(5 - LEN(PH.Promocion)), ' ', '0') &#xA;                         + PH.Promocion + REPLACE(SPACE(3 - LEN(PH.Secuencia)), ' ', '0') + PH.Secuencia AS Code_ofClient, &#xA;                         'Promo: ' + PH.Promocion + ' - Sec: ' + PH.Secuencia AS Description, CONVERT(char(8), &#xA;                         PH.Fecha_inicio, 112) AS Date_Ini, CONVERT(char(8), PH.Fecha_fin, 112) AS Date_End, case when PH.grupo_cliente is null then '14' else '68' end  AS Apply_to, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; Type, 1 as Order_Apply, '1' as Cumulative, cast(PH.Factor_cantidad as numeric(11,3)) as Quantity_from, cast(PH.Factor_cantidad as numeric(11,3)) as Quantity_Mult,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; -1 as Maximun_Gift, cast(PH.Factor_monto as numeric(11,3)) as Price_Gift, 'UN' as Unit_Sales, case when PH.Primera_compra is null then -1 else 1 end Per_Client,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; case when PH.Tipo_factor = 'SIN_DESCUENTO' then '1' when PH.Tipo_factor = 'CON_DESCUENTO' then '2' when PH.Tipo_factor = 'CON_ITBIS' then '3' else PH.Tipo_factor end as Condition_List,&#xA;                         '1' as Head_Table, '1' as Head_Line,  '0' as Source_Create, '0' as Modificable, '0' as Activable, '1' as By_Default, '1' as Only_OneTime, '1' AS transfer_status, NULL as status_SAP  &#xA;FROM            promociones_header as PH INNER JOIN&#xA;                         descuento_detail as PD ON PH.Promocion = PD.Promocion AND &#xA;                         PH.Secuencia = PD.Secuencia AND PH.tipo_promocion = PD.tipo_promocion AND &#xA;                         PH.Division = PD.Division AND PH.Compania = PD.Compania&#xA;WHERE PH.Compania = '01'&#xA;GO&#xA;&#xA;&#xA;&#xA;-- IMPLT_promotions_products&#xA;&#xA;TRUNCATE TABLE IMPLT_promotions_products&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_promotions_products  (Code_Promotion, Code_Product, Unit_Sales, Quantity, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT        '1' + PH.Compania + PH.Division + CASE WHEN PH.tipo_promocion = 'P' THEN '1' ELSE '2' END + REPLACE(SPACE(5 - LEN(PH.Promocion)), ' ', '0') &#xA;                         + PH.Promocion + REPLACE(SPACE(3 - LEN(PH.Secuencia)), ' ', '0') + PH.Secuencia AS Code_Promotion, GAD.Compania + GAD.Articulo AS Code_Product, 'UN' AS Unit_Sales, &#xA;                         CASE WHEN GAH.Requiere_cantidad_articulo = 'X' THEN Cantidad ELSE NULL END AS Quantity, '0' AS Source_Create, '1' AS transfer_status, &#xA;                         NULL AS status_SAP&#xA;FROM            promociones_header AS PH INNER JOIN&#xA;                         grupo_articulo_promo_header AS GAH ON PH.Compania = GAH.Compania AND PH.Division = GAH.Division AND &#xA;                         PH.Grupo_articulo = GAH.Grupo_articulo INNER JOIN&#xA;                         grupo_articulo_promo_detail AS GAD ON PH.Compania = GAD.Compania AND PH.Division = GAD.Division AND &#xA;                         PH.Grupo_articulo = GAD.Grupo_articulo &#xA;WHERE        (PH.Articulo IS NULL) and PH.Compania = '01'&#xA;UNION&#xA;SELECT        '1' + PH.Compania + PH.Division + CASE WHEN PH.tipo_promocion = 'P' THEN '1' ELSE '2' END + REPLACE(SPACE(5 - LEN(PH.Promocion)), ' ', '0') &#xA;                         + PH.Promocion + REPLACE(SPACE(3 - LEN(PH.Secuencia)), ' ', '0') + PH.Secuencia AS Code_Promotion, PH.Compania + PH.Articulo AS Code_Product, 'UN' AS Unit_Sales, &#xA;                         PH.Factor_cantidad AS Quantity, '0' AS Source_Create, '1' AS transfer_status, NULL AS status_SAP&#xA;FROM            STDB_Corripio_Prod.dbo.promociones_header AS PH &#xA;WHERE        (PH.Articulo IS NOT NULL) and Compania = '01'&#xA;GO&#xA;&#xA;&#xA;-- IMPLT_promotions_destiny&#xA;&#xA;TRUNCATE TABLE IMPLT_promotions_destiny&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_promotions_destiny (Code_Promotion, Code_Variable, Code, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT    '1' + PH.Compania + PH.Division + CASE WHEN PH.tipo_promocion = 'P' THEN '1' ELSE '2' END + REPLACE(SPACE(5&#xA;                          - LEN(PH.Promocion)), ' ', '0') + PH.Promocion + REPLACE(SPACE(3 - LEN(PH.Secuencia)), ' ', '0') &#xA;                         + PH.Secuencia AS Code_Promo,  '14' as Code_Variable, PH.Compania + PH.Cliente as Code, '0' as Source_Create, '1' AS transfer_status, NULL as status_SAP   &#xA;FROM            promociones_header as PH &#xA;where cliente is not null and Compania = '01'&#xA;UNION&#xA;SELECT        '1' + PH.Compania + PH.Division + CASE WHEN PH.tipo_promocion = 'P' THEN '1' ELSE '2' END + REPLACE(SPACE(5 - LEN(PH.Promocion)), ' ', '0') &#xA;                         + PH.Promocion + REPLACE(SPACE(3 - LEN(PH.Secuencia)), ' ', '0') + PH.Secuencia AS Code_Promo, '68' AS Code_Variable, PH.Compania + PH.Division +&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  Grupo_Cliente as Code,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '0' as Source_Create, '1' AS transfer_status, NULL as status_SAP&#xA;FROM            promociones_header AS PH &#xA;where PH.Grupo_Cliente is not null and Compania = '01'&#xA;GO&#xA;&#xA;&#xA;-- IMPLT_promotions_organization&#xA;&#xA;TRUNCATE TABLE IMPLT_promotions_organization&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_promotions_organization (Code_Promotion, Code_Unit_Org, Code_Sales_Org, Date_Ini, Date_End, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT DISTINCT &#xA;                         '1' + Compania + Division + CASE WHEN PH.tipo_promocion = 'P' THEN '1' ELSE '2' END + REPLACE(SPACE(5 - LEN(Promocion)), ' ', '0') &#xA;                         + Promocion + REPLACE(SPACE(3 - LEN(Secuencia)), ' ', '0') + Secuencia AS Code, Compania AS Code_Unit_Org, Compania + Division AS Code_Sales_Org, &#xA;                         CONVERT(char(8), Fecha_inicio, 112) AS Date_Ini, CONVERT(char(8), Fecha_fin, 112) AS Date_End, '0' AS Source_Create, '1' AS transfer_status, &#xA;                         NULL AS status_SAP&#xA;FROM            STDB_Corripio_Prod.dbo.promociones_header AS PH&#xA;GO&#xA;&#xA;&#xA;&#xA;--  IMPLT_promotions_sellers&#xA;&#xA;TRUNCATE TABLE  IMPLT_promotions_sellers&#xA;GO&#xA;&#xA;INSERT INTO  IMPLT_promotions_sellers (Code_Promotion, Code_Seller, Guid_Prom, Quantity, Date_Ini, Date_End, Modificable, Activable, Quantity_Ini, Quantity_End, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT Code_Promotion, Code_Seller, 100000000 + ROW_NUMBER() OVER (ORDER BY Code_Promotion, Code_Seller) as Guid_Prom, Quantity, Date_Ini, Date_End, Modificable, Activable, Quantity_Ini, Quantity_End, Source_Create, Transfer_status, Status_SAP FROM&#xA;(SELECT    '1' + PH.Compania + PH.Division + CASE WHEN PH.tipo_promocion = 'P' THEN '1' ELSE '2' END + REPLACE(SPACE(5&#xA;                          - LEN(PH.Promocion)), ' ', '0') + PH.Promocion + REPLACE(SPACE(3 - LEN(PH.Secuencia)), ' ', '0') &#xA;                         + PH.Secuencia AS Code_Promotion,  CC.Compania + CC.Cliente_Portal as Code_Seller, NULL as Quantity, replace(Fecha_inicio,'-','') as Date_Ini, replace(Fecha_fin,'-','') as Date_End,  &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '0' as Modificable, '0' as Activable, NULL as Quantity_Ini, NULL as Quantity_End, '0' as Source_Create, '1' AS transfer_status, NULL as status_SAP   &#xA;FROM          promociones_header as PH INNER JOIN (SELECT Cliente, Compania, Division, Cliente_Portal FROM Cliente WHERE Cliente_Portal is not NULL) as CC&#xA;ON PH.Compania = CC.Compania and PH.Division = CC.Division and PH.Cliente = CC.Cliente &#xA;where PH.cliente is not null &#xA;UNION&#xA;SELECT        '1' + PH.Compania + PH.Division + CASE WHEN PH.tipo_promocion = 'P' THEN '1' ELSE '2' END + REPLACE(SPACE(5 - LEN(PH.Promocion)), ' ', '0') &#xA;                         + PH.Promocion + REPLACE(SPACE(3 - LEN(PH.Secuencia)), ' ', '0') + PH.Secuencia AS Code_Promotion, CC.Compania + CC.Cliente_Portal as Code_Seller, NULL as Quantity, replace(Fecha_inicio,'-','') as Date_Ini, replace(Fecha_fin,'-','') as Date_End,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '0' as Modificable, '0' as Activable, NULL as Quantity_Ini, NULL as Quantity_End, '0' as Source_Create, '1' AS transfer_status, NULL as status_SAP&#xA;FROM            promociones_header AS PH INNER JOIN&#xA;                         grupo_cliente_promo_detail AS GCP ON PH.Compania = GCP.Compania AND PH.Division = GCP.Division AND &#xA;                         PH.Grupo_cliente = GCP.Grupo_cliente INNER JOIN (SELECT Cliente, Compania, Division, Cliente_Portal FROM Cliente WHERE Cliente_Portal is not NULL) as CC&#xA;&#x9;&#x9;&#x9;&#x9;ON CC.Compania = GCP.Compania and CC.Division = GCP.Division and CC.Cliente = GCP.Cliente &#xA;where PH.cliente is null) as PS &#xA;GO&#xA;&#xA;&#xA;&#xA;-- IMPLT_promotions_gift&#xA;&#xA;TRUNCATE TABLE  IMPLT_promotions_gift&#xA;GO&#xA;&#xA;INSERT INTO  IMPLT_promotions_gift(Code_Promotion, Code_Product_Gift, Num_Line, Quantity_from, Quantity_to,  Amount_from,Amount_Gift,  Discount, Price_Level, Price, Quantity_Gift, Amount_to, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT       '1' + PH.Compania + PH.Division + CASE WHEN PH.tipo_promocion = 'P' THEN '1' ELSE '2' END + REPLACE(SPACE(5 - LEN(PH.Promocion)), ' ', '0') &#xA;                         + PH.Promocion + REPLACE(SPACE(3 - LEN(PH.Secuencia)), ' ', '0') + PH.Secuencia AS Code_Promotion, &#xA;                         IMPLT_promotions_products.Code_Product AS Code_Product_Gift, NULL as Num_Line, cast(PH.Cantidad_desde as numeric(11,3)) AS Quantity_from, cast(left(PH.Cantidad_hasta,8) as numeric(11,3)) AS Quantity_to, &#xA;                         cast(PH.Monto_desde as numeric(11,3)) AS Amount_from, NULL AS Amount_gift, cast(PH.Descuento as numeric(11,3)) AS Discount, PH.Nivel_precio AS Price_Level, NULL as Price, NULL AS Quantity_Gift, &#xA;                         right(PH.Monto_hasta,11) AS Amount_to, '0' AS Source_Create, '1' AS transfer_status, NULL AS status_SAP&#xA;FROM           descuento_detail AS PH INNER JOIN&#xA;                         IMPLT_promotions_products ON &#xA;                         '1' + PH.Compania + PH.Division + CASE WHEN PH.tipo_promocion = 'P' THEN '1' ELSE '2' END + REPLACE(SPACE(5 - LEN(PH.Promocion)), ' ', '0') &#xA;                         + PH.Promocion + REPLACE(SPACE(3 - LEN(PH.Secuencia)), ' ', '0') + PH.Secuencia = IMPLT_promotions_products.Code_Promotion&#xA;WHERE PH.Compania = '01'&#xA;UNION&#xA;SELECT        '1' + PH.Compania + PH.Division + CASE WHEN PH.tipo_promocion = 'P' THEN '1' ELSE '2' END + REPLACE(SPACE(5 - LEN(PH.Promocion)), ' ', '0') &#xA;                         + PH.Promocion + REPLACE(SPACE(3 - LEN(PH.Secuencia)), ' ', '0') + PH.Secuencia AS Code_Promotion, PH.Compania + PH.Articulo as Code_Product_Gift, NULL as Num_Line, cast(PH.Cantidad_desde as numeric(11,3)) AS Quantity_from, &#xA;                         cast(left(PH.Cantidad_hasta,8) as numeric(11,3)) AS Quantity_to, cast(PH.Monto_desde as numeric(11,3)) AS Amount_from, cast(Cantidad as numeric(11,3)) AS Amount_gift, cast(PH.Descuento as numeric(11,3)) AS Discount, NULL as Price_Level, Precio as Price, cast(PH.Cantidad as numeric(11,3)) AS Quantity_Gift, &#xA;                         cast(left(PH.Monto_hasta,8) as numeric(11,3)) AS Amount_to, '0' AS Source_Create, '1' AS transfer_status, NULL AS status_SAP &#xA;FROM            promociones_detail AS PH&#xA;WHERE PH.Compania = '01' &#xA;GO&#xA;&#xA;&#xA;&#xA;update       IMPLT_promotions_gift set Quantity_from = 1, Quantity_to = 9999999, Num_line = 1&#xA;WHERE        (Code_Promotion IN&#xA;                             (SELECT        Code&#xA;                               FROM            IMPLT_promotions_head&#xA;                               WHERE        (Type IN ('30', '32', '34')))) AND ((Quantity_from IS NULL) OR&#xA;                         (Quantity_to IS NULL)) &#xA;GO&#xA;&#xA;update       IMPLT_promotions_gift set Amount_from = 1, Amount_to = 9999999, Num_line = 1&#xA;WHERE        (Code_Promotion IN&#xA;                             (SELECT        Code&#xA;                               FROM            IMPLT_promotions_head&#xA;                               WHERE        (Type IN ('31', '33', '35')))) AND ((Amount_from IS NULL) OR&#xA;                         (Amount_to IS NULL)) and (Code_Promotion = '101028200204001')&#xA;GO&#xA;&#xA;update       IMPLT_promotions_gift set Num_line = Quantity_from  &#xA;WHERE        (Code_Promotion IN&#xA;                             (SELECT        Code&#xA;                               FROM            IMPLT_promotions_head&#xA;                               WHERE        (Type IN ('30', '32', '34')))) AND Num_Line is null &#xA;GO&#xA;&#xA;update       IMPLT_promotions_gift set Num_line = Amount_from  &#xA;WHERE        (Code_Promotion IN&#xA;                             (SELECT        Code&#xA;                               FROM            IMPLT_promotions_head&#xA;                               WHERE        (Type IN ('31', '33', '35')))) AND Num_Line is null &#xA;GO&#xA;&#xA;&#xA;&#xA;-- IMPLT_promotions_conf&#xA;&#xA;TRUNCATE TABLE IMPLT_promotions_conf&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_promotions_conf (Code_Unit_Org, Code_Sales_Org, Cumulative, Source_Create, transfer_status, status_SAP)&#xA;SELECT    Compania as Code_Unit_Org, Compania + Divison as Code_Sales_Org, case when Acumula_Tasa_Dto = 'X' then '1' else '0' end as Cumulative,&#xA;'0' as Source_Create, '0' AS transfer_status, NULL as status_SAP&#xA;FROM   Divisiones&#xA;where Compania = '01'&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Vendedores y Rutas"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Vendedores y Rutas"
+      DTS:DTSID="{5f26c8e6-bde7-4d5b-9463-317beb46f0e5}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Vendedores y Rutas"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63C35F51-05D7-4968-AF1A-CD8B9FE87FBE}"
+          SQLTask:SqlStatementSource="-- IMPLT_sellers&#xA;&#xA;TRUNCATE TABLE IMPLT_sellers&#xA;GO&#xA;&#xA;INSERT INTO IMPLT_sellers (Code_Seller, Name, Type, Code_Warehouse, Code_Seller_Del, Code_Manager, &#xA;Code_Country, Substitute, Code_Planilla, Code_Sales_Org, Source_Create, Transfer_status, Status_SAP)&#xA;SELECT       Compania + Vendedor as Code_Seller, max(left(Nombre,50)) as Name, '16' as Type, &#xA;Compania + Ruta as Code_Warehouse, NULL as Code_Seller_Del, '999999' as Code_Manager, 'RD' as Code_Country, &#xA;'0' as Substitute, &#xA;max(Codigo_plantilla) as Code_Planilla, &#xA;Compania + Division AS Code_Sales_Org,&#xA;'0' AS Source_Create, '1' AS transfer_status, &#xA;NULL  AS status_SAP&#xA;FROM            Vendedor&#xA;where Division IN ('026','036','037','038') and tipo = 'AUTOVENTA'&#xA;group by Compania, Division, Vendedor, Ruta&#xA;/*UNION&#xA;SELECT    Compania  + Cliente as  Code_Seller, left(Nombre,50) as Name, &#xA;'18' as Type, '001' as Code_Warehouse, NULL as Code_Seller_Del, '9999' as Code_Manager, &#xA;'RD' as Code_Country, '0' as Substitute, NULL as Code_Planilla, &#xA;'0' AS Source_Create, '1' AS transfer_status, NULL  AS status_SAP&#xA;FROM            Cliente&#xA;where Division IN ('036','037','038') and Cliente is not NULL and len(Compania  + Cliente) &lt; 13&#xA;GO*/&#xA;&#xA;&#xA;--  IMPLT_sellers_org&#xA;&#xA;TRUNCATE TABLE  IMPLT_sellers_org&#xA;GO&#xA;&#xA;INSERT INTO  IMPLT_sellers_org (Code_Seller, Code_Unit_Org, Code_Sales_Org, Code_Manager, Source_Create, transfer_status, status_SAP)&#xA;SELECT  distinct      Compania + Vendedor AS Code_Seller, Compania AS Code_Unit_Org, Compania + Division AS Code_Sales_Org, '999999' AS Code_Manager, '0' AS Source_Create, '1' AS transfer_status, NULL  AS status_SAP&#xA;FROM            Vendedor&#xA;where Division IN ('026','036','037','038') and tipo = 'AUTOVENTA'&#xA;/*UNION&#xA;SELECT    Compania  + Cliente as  Code_Seller, Compania as Code_Unit_Org, Compania + Division as Code_Sales_Org,  '999999' as Code_Manager, '0' AS Source_Create, '1' AS transfer_status, NULL  AS status_SAP&#xA;FROM            Cliente&#xA;where Division IN ('036','037','038') and Cliente is not NULL and len(Compania  + Cliente) &lt; 13&#xA;GO*/&#xA;&#xA;&#xA;--   IMPLT_route_org_accounts&#xA;&#xA;TRUNCATE TABLE   IMPLT_route_org_accounts&#xA;GO&#xA;&#xA;INSERT INTO  IMPLT_route_org_accounts( Code_Account, Code_Unit_Org, Code_Sales_Org, Code_Route, Description, &#xA;Code_Seller, &#xA;Visit_Mon, Visit_Tue, Visit_Wen, Visit_Thu, Visit_Fri, Visit_Sat, Visit_Sun,&#xA;Code_Frecuency, Code_Week, &#xA;Source_Create, Transfer_status, Status_SAP)&#xA;SELECT        Visitas_Rutas.Compania + Visitas_Rutas.Cliente AS Code_account, &#xA;Visitas_Rutas.Compania AS Code_Unit_Org, Visitas_Rutas.Compania + Visitas_Rutas.Division AS Code_Sales_Org, &#xA;                         Visitas_Rutas.Compania + Visitas_Rutas.Ruta AS Code_Route, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; 'Ruta ' + Visitas_Rutas.Compania + Visitas_Rutas.Ruta AS Description, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; Vendedor.Compania + Vendedor.Vendedor AS Code_Seller, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; CASE WHEN Dia = 'LUNES' THEN '1' END AS Visit_Mon, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; CASE WHEN Dia = 'MARTES' THEN '1' END AS Visit_Tue, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; CASE WHEN Dia = 'MIERCOLES' THEN '1' END AS Visit_Wen, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; CASE WHEN Dia = 'JUEVES' THEN '1' END AS Visit_Thu, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; CASE WHEN Dia = 'VIERNES' THEN '1' END AS Visit_Fri,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; CASE WHEN Dia = 'SABADO' THEN '1' END AS Visit_Sat,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; CASE WHEN Dia = 'DOMINGO' THEN '1' END AS Visit_Sun,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; Tipo_Visita AS Code_Frecuency,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; Semana_Visita AS Code_Week,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '0' AS Source_Create, &#xA;                         '1' AS transfer_status, NULL  AS status_SAP&#xA;FROM            Visitas_Rutas INNER JOIN&#xA;                         Vendedor ON Visitas_Rutas.Compania = Vendedor.Compania &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; AND Visitas_Rutas.Division = Vendedor.Division AND Visitas_Rutas.Ruta = Vendedor.Ruta&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; AND Vendedor.Tipo = 'AUTOVENTA' &#xA;WHERE Visitas_Rutas.Division IN ('026','036','037','038') &#xA;and Visitas_Rutas.Cliente  in (select Cliente from Cliente where Division IN ('026','036','037','038')&#xA;and Cliente is not NULL)&#xA;/*UNION&#xA;SELECT        Compania + Cliente AS Code_Account, Compania AS Code_Unit_Org, Compania + Division AS Code_Sales_Org, &#xA;Compania + Cliente AS Code_Route, 'Ruta ' + Compania + Cliente AS Description, &#xA;                         Compania + Cliente AS Code_Seller, &#xA;&#x9;&#x9;&#x9;             NULL AS Code_Frecuency,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; NULL AS Code_Week,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '0' AS Source_Create, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '1' AS transfer_status, NULL  AS status_SAP&#xA;FROM            Cliente&#xA;WHERE Division IN ('036','037','038') and cliente is not null and len(Compania  + Cliente) &lt; 13&#xA;GO&#xA;*/" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{BFD2CE9A-3EDB-499B-BA73-171FBCED4812}"
+      DTS:From="Package\Promociones viejo"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Cargas" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{A2F1BB54-7766-49D7-89FE-D23512C3AD2D}"
+      DTS:From="Package\Cargas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Pedidos" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D9CF856D-9173-40FB-8BF8-6310DCBA5983}"
+      DTS:From="Package\Pedidos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Fiscal" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{EF1C1B8B-7C2D-41EE-9DD3-ED518FD1702A}"
+      DTS:From="Package\Fiscal"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Promociones New" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{AB1C894D-0CF3-4855-BC4F-CBEB7837B2FA}"
+      DTS:From="Package\Clientes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Productos" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{91364019-A80E-4D61-866C-469785AE4C63}"
+      DTS:From="Package\Productos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\Vendedores y Rutas" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{5CED2D67-1AAB-4E57-A52E-AF16FA478810}"
+      DTS:From="Package\Vendedores y Rutas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\Pricing" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{F02BE72B-4CA2-464A-AE86-3EDF07E9DCDF}"
+      DTS:From="Package\Pricing"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 3"
+      DTS:To="Package\Cobros" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{0EDCC568-EC7C-4CAC-9605-D4799E19CC7D}"
+      DTS:From="Package\Cobros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 4"
+      DTS:To="Package\Grupos de articulos" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{0CB6A418-0857-40BD-A0EB-4330CFA1A895}"
+      DTS:From="Package\Grupos de articulos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 5"
+      DTS:To="Package\Organizacion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{33815D8D-27FD-472F-A90D-5B2FF0DB3B1D}"
+      DTS:From="Package\Organizacion"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 6"
+      DTS:To="Package\Promociones viejo" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="111.333333333334,41.3333333333334"
+          Id="Package\Cargas"
+          TopLeft="32.335601102912,221.455178196554" />
+        <NodeLayout
+          Size="115.333333333334,41.3333333333334"
+          Id="Package\Clientes"
+          TopLeft="5.5,5.68867924528302" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Cobros"
+          TopLeft="599.5,108.443396226415" />
+        <NodeLayout
+          Size="104.666666666667,41.3333333333334"
+          Id="Package\Fiscal"
+          TopLeft="395.138883000861,218.833329420288" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Grupos de articulos"
+          TopLeft="398.896226415094,108.292452830189" />
+        <NodeLayout
+          Size="148,44"
+          Id="Package\Organizacion"
+          TopLeft="200.179245283019,108.330188679245" />
+        <NodeLayout
+          Size="115.333333333334,41.3333333333334"
+          Id="Package\Pedidos"
+          TopLeft="203.47221919025,215.222218373749" />
+        <NodeLayout
+          Size="110,42"
+          Id="Package\Pricing"
+          TopLeft="599.575471698113,5.5" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Productos"
+          TopLeft="205.009433962264,5.61320754716981" />
+        <NodeLayout
+          Size="163.333333333334,41.3333333333334"
+          Id="Package\Promociones New"
+          TopLeft="600.000010217939,217.613448430098" />
+        <NodeLayout
+          Size="164.666666666667,41.3333333333334"
+          Id="Package\Promociones viejo"
+          TopLeft="5.5,108.179245283019" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Vendedores y Rutas"
+          TopLeft="398.896226415094,5.5377358490566" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="87.917800551456,149.779245283019">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,71.6759329135353"
+              Start="0,0"
+              End="0,64.1759329135353">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.1759329135353" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="143.535601102912,239.138698285152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="59.936618087338,0"
+              Start="0,0"
+              End="52.436618087338,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.436618087338,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="318.805552523583,238.027773897019">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="76.3333304772774,0"
+              Start="0,0"
+              End="68.8333304772774,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="68.8333304772774,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="499.938883000861,239.023388925193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="100.061127217078,0"
+              Start="0,0"
+              End="92.5611272170785,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="92.5611272170785,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="120.833333333333,27.1509433962264">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="84.1761006289307,0"
+              Start="0,0"
+              End="76.6761006289307,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="76.6761006289307,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="340.783018867925,27.5754716981132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="58.1132075471699,-0.0754716981132049"
+              Start="0,0"
+              End="50.6132075471699,-0.0754716981132049">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="29.0566037735849,0" />
+                  <mssgle:LineSegment
+                    End="29.0566037735849,-0.0754716981132049" />
+                  <mssgle:LineSegment
+                    End="50.6132075471699,-0.0754716981132049" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="534.896226415094,27.0188679245283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="64.679245283019,0"
+              Start="0,0"
+              End="57.179245283019,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="57.179245283019,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 3]"
+          TopLeft="654.575471698113,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="12.924528301887,60.943396226415"
+              Start="0,0"
+              End="12.924528301887,53.443396226415">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.4716981132075" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.4716981132075"
+                    Point2="0,30.4716981132075"
+                    Point3="4,30.4716981132075" />
+                  <mssgle:LineSegment
+                    End="8.92452830188699,30.4716981132075" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.92452830188699,30.4716981132075"
+                    Point2="12.924528301887,30.4716981132075"
+                    Point3="12.924528301887,34.4716981132075" />
+                  <mssgle:LineSegment
+                    End="12.924528301887,53.443396226415" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 4]"
+          TopLeft="599.5,130.405660377358">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-64.8301886792453,-0.15094339622641"
+              Start="0,0"
+              End="-57.3301886792453,-0.15094339622641">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-32.4150943396227,0" />
+                  <mssgle:LineSegment
+                    End="-32.4150943396227,-0.15094339622641" />
+                  <mssgle:LineSegment
+                    End="-57.3301886792453,-0.15094339622641" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 5]"
+          TopLeft="398.896226415094,130.311320754717">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-50.716981132075,0"
+              Start="0,0"
+              End="-43.216981132075,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-43.216981132075,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 6]"
+          TopLeft="200.179245283019,129.654716981132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-29.879245283019,0"
+              Start="0,0"
+              End="-22.379245283019,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-22.379245283019,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

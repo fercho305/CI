@@ -1,0 +1,89 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/2/2018 9:15:44 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="LAPTOP-GJLEKKKG"
+  DTS:CreatorName="LAPTOP-GJLEKKKG\Rafael Contreras"
+  DTS:DTSID="{65ECA360-E917-40D1-8600-24CE2336591F}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="2058"
+  DTS:ObjectName="Historico"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{A6B878BA-7DFC-4EAB-BB81-A0BAC0A9EBEA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CRM_Proyecto]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{c558dd77-0121-4472-a896-c787afc5e86b}"
+      DTS:ObjectName="CRM_Proyecto">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=IBVM06WSQL;User ID=SisTelynet;Initial Catalog=Telynet;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{C37EE04D-F2D3-4126-AA52-6A7C5BE532EA}SERGIOW7\MSQL2008.crm3_mercasid;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="Bub5oHIH6w=="
+            IV="OSgEoHar9ms=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>OSgEoHar9mtQIGo1hlkFB1qRZ6xXR+xDV/hL6kpDwkUwNrp2PiFQ3aShfs7MwrxV3KBT+Bd/H5iIvbwO0jyT+uc2OQYVZPaJIKxuAXEuwJFAvLePsZ8LYlHXjOpj/KtPD7VJWsPq6AjC/41Lf0QYmphgw5s0Mim+efEbm1Dm5RTqrZ/0eJePwg==</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Historico"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{55DEE215-D159-4395-9C03-4BF6987476AA}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Historico"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{c558dd77-0121-4472-a896-c787afc5e86b}"
+          SQLTask:SqlStatementSource="-- Cabecera de pedidos&#xA;INSERT INTO prj_hist_orders_header (Platform, Create_User, Create_Date, Modify_User, Modify_Date, Delete_User, Delete_Date, Code_User, Code_Price_List_default, Brute_Amount, &#xA;                      Taxes_Amount, Order_Num_Cli, Code_Lock, Status, Transfered, Order_Num_Telynet, Code_Account_Shipto, Code_Address_Shipto, Code_Account_Billto, &#xA;                      Code_Address_Billto, Code_Account_Payer, Code_Address_Payer, Taxes_Req, Special_discount, Pp_discount, Volume_discount, Units_discount, Taxes_IVA, &#xA;                      Code_ReturnCause, Code_Ica, Invoiced, Grouped, OrderNum_Linked, Type_Document, Code_User_Del, Code_Seller_Del, Dispatched, Order_Num, &#xA;                      Order_Num_ofClient, Code_Account, Code_Unit_Org, Code_Sales_Org, Order_Type, Code_Trademark, Code_Seller, Order_Date, Delivery_Date, Code_Address, &#xA;                      Code_Type_Address, Code_Currency, Code_Paymentway, Total_Amount, Total_Cost, Total_Weight, Code_Status, Net_Amount, Observations, Code_Price_List, &#xA;                      Net_Amount2)&#xA;SELECT     View_System_Fields_ERP.Platform, View_System_Fields_ERP.Create_User, View_System_Fields_ERP.Create_Date, View_System_Fields_ERP.Modify_User, View_System_Fields_ERP.Modify_Date, &#xA;                      Delete_User, Delete_Date, Code_User, Code_Price_List_default, Brute_Amount, Taxes_Amount, &#xA;                      Order_Num_Cli, Code_Lock, Status, Transfered, Order_Num_Telynet, Code_Account_Shipto, Code_Address_Shipto, Code_Account_Billto, Code_Address_Billto, &#xA;                      Code_Account_Payer, Code_Address_Payer, Taxes_Req, Special_discount, Pp_discount, Volume_discount, Units_discount, Taxes_IVA, Code_ReturnCause, Code_Ica, &#xA;                      Invoiced, Grouped, Ordernum_Linked, Type_Document, Code_User_Del, Code_Seller_Del, Dispatched, Order_Num, Order_Num_ofClient, Code_Account, &#xA;                      Code_Unit_Org, Code_Sales_Org, Order_Type, Code_Trademark, Code_Seller, Order_Date, Delivery_Date, NULL AS Code_Address, NULL AS Code_Type_Address, &#xA;                      Code_Currency, Code_Paymentway, Total_Amount, Total_Cost, Total_Weight, CASE WHEN Invoiced = '1' THEN 'CD' ELSE 'IP' END AS Code_Status, Net_Amount, &#xA;                      Observations, Code_Price_List, Net_Amount2&#xA;FROM         prj_orders_header CROSS JOIN&#xA;                      View_System_Fields_ERP&#xA;where Order_Num not in (select Order_Num from prj_hist_orders_header)&#xA;GO&#xA;&#xA;-- Detalle pedidos&#xA;INSERT INTO prj_hist_orders_lines (Platform, Create_User, Create_Date, Modify_User, Modify_Date, Delete_User, Delete_Date, Factor_Conversion, Br_Price, Price_N_Promo, Manual, Brute_Amount, &#xA;                      Taxes_Amount, Quantity_Unit, Code_Promotion, Quantity_Promotion, Code_Price_List_default, Code_Price_List, Code_ReturnCause, Code_Lock, Observations, &#xA;                      Transfered, Quantity_promo_def, Quantity_promo_def_gif, Discount_promo_def, Price_promo_def, Invoiced, Quantity_Order, Quantity_Order_Gift, TaxClassification, &#xA;                      Quantity_Gift, IVA_Amount, Req_Amount, Unit_Type_Sel, Order_Num, Num_Line, Code_Account, Order_Date, Code_Product, Price, Total_Discount, Total_Amount, &#xA;                      Total_Cost, Total_Weight, Quantity, Sale_Type, Code_Status, Unit_Type_Inv, Net_Amount, Total_Com, Per_Com)&#xA;SELECT     View_System_Fields_ERP.Platform, View_System_Fields_ERP.Create_User, View_System_Fields_ERP.Create_Date, View_System_Fields_ERP.Modify_User, View_System_Fields_ERP.Modify_Date, &#xA;                      prj_orders_lines.Delete_User, prj_orders_lines.Delete_Date, prj_orders_lines.Factor_Conversion, prj_orders_lines.Br_Price, prj_orders_lines.Price_N_Promo, &#xA;                      prj_orders_lines.Manual, prj_orders_lines.Brute_Amount, prj_orders_lines.Taxes_Amount, prj_orders_lines.Quantity_Unit, prj_orders_lines.Code_Promotion, &#xA;                      prj_orders_lines.Quantity_Promotion, prj_orders_lines.Code_Price_List_default, prj_orders_lines.Code_Price_List, prj_orders_lines.Code_ReturnCause, &#xA;                      prj_orders_lines.Code_Lock, prj_orders_lines.Observations, prj_orders_lines.Transfered, prj_orders_lines.Quantity_promo_def, &#xA;                      prj_orders_lines.Quantity_promo_def_gif, prj_orders_lines.Discount_promo_def, prj_orders_lines.Price_promo_def, prj_orders_lines.Invoiced, &#xA;                      prj_orders_lines.Quantity_Order, prj_orders_lines.Quantity_Order_Gift, prj_orders_lines.TaxClassification, prj_orders_lines.Quantity_Gift, &#xA;                      prj_orders_lines.IVA_Amount, prj_orders_lines.Req_Amount, prj_orders_lines.Unit_Type_Sel, prj_orders_lines.Order_Num, prj_orders_lines.Num_Line, &#xA;                      prj_orders_lines.Code_Account, prj_orders_lines.Order_Date, prj_orders_lines.Code_Product, prj_orders_lines.Price, prj_orders_lines.Total_Discount, &#xA;                      prj_orders_lines.Total_Amount, prj_orders_lines.Total_Cost, prj_orders_lines.Total_Weight, prj_orders_lines.Quantity, prj_orders_lines.Sale_Type, &#xA;                      CASE WHEN prj_orders_header.Invoiced = '1' THEN 'CD' ELSE 'IP' END AS Code_Status, prj_orders_lines.Unit_Type_Inv, prj_orders_lines.Net_Amount,  prj_orders_lines.Total_Com,  prj_orders_lines.Per_Com&#xA;FROM         prj_orders_lines INNER JOIN&#xA;                      prj_orders_header ON prj_orders_lines.Order_Num = prj_orders_header.Order_Num CROSS JOIN&#xA;                      View_System_Fields_ERP&#xA;WHERE NOT EXISTS (SELECT  Order_Num, Num_Line FROM prj_hist_orders_lines where Order_Num = prj_orders_lines.Order_Num and Num_Line = prj_orders_lines.Num_Line)&#xA;GO                      &#xA;&#xA;-- Secuencias&#xA;INSERT INTO prj_hist_orders_sec (Create_User, Create_Date, Modify_User, Modify_Date, Delete_User, Delete_Date, Platform, Order_Num, Secuence, Value, Num_Line, Code_Account, &#xA;                      Code_Product, Orden, Code_Currency, Unit_Measure, Exclusive, On_Base, Amount_Line, Type_Based, code_table)&#xA;SELECT   distinct  View_System_Fields_ERP.Create_User, View_System_Fields_ERP.Create_Date, View_System_Fields_ERP.Modify_User, View_System_Fields_ERP.Modify_Date, &#xA;                      prj_orders_secuences.Delete_User, prj_orders_secuences.Delete_Date, View_System_Fields_ERP.Platform, prj_orders_secuences.Order_Num, &#xA;                      prj_orders_secuences.Secuence, prj_orders_secuences.Value, prj_orders_secuences.Num_Line, prj_orders_secuences.Code_Account, &#xA;                      prj_orders_secuences.Code_Product, prj_orders_secuences.Orden, prj_orders_secuences.Code_Currency, prj_orders_secuences.Unit_Measure, &#xA;                      prj_orders_secuences.Exclusive, prj_orders_secuences.On_Base, prj_orders_secuences.Amount_Line, prj_orders_secuences.Type_Based, prj_orders_secuences.Code_Table&#xA;FROM         prj_orders_secuences INNER JOIN&#xA;                      prj_orders_header ON prj_orders_secuences.Order_Num = prj_orders_header.Order_Num CROSS JOIN&#xA;                      View_System_Fields_ERP&#xA;WHERE NOT EXISTS (SELECT Order_Num, Secuence, Num_Line FROM prj_hist_orders_sec where Order_Num = prj_orders_secuences.Order_Num and Secuence = prj_orders_secuences.Secuence and Num_Line = prj_orders_secuences.Num_Line)&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="120,42"
+          Id="Package\Historico"
+          TopLeft="369,104" />
+        <AnnotationLayout
+          Text="mjh"
+          ParentId="Package"
+          FontInfo="{x:Null}"
+          Size="49,40"
+          Id="9680d664-28e4-4552-8aa9-2571ed0c0b40"
+          TopLeft="1271,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

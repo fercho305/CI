@@ -1,0 +1,1943 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/2/2020 10:56:09 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SERGIOW10"
+  DTS:CreatorName="TELYNET\Sergio Iñigo"
+  DTS:DTSID="{C0AC66D6-64F2-48A4-B988-7D9779823334}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="RecargaTourID"
+  DTS:PackageType="5"
+  DTS:VersionBuild="211"
+  DTS:VersionGUID="{87EA5B0B-0F63-4FCC-87A2-49428909F75F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CRM_Proyecto]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D4665717-DF6B-49C4-95F0-395AC64E5C96}"
+      DTS:ObjectName="CRM_Proyecto">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=sql-gc01.miami;User ID=Rafael Contreras;Initial Catalog=crm3_cesar_iglesias;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{D4665717-DF6B-49C4-95F0-395AC64E5C96}SERGIOW7\MSQL2008.crm3_mercasid;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJ3FrcYZHnkm0UAkWomxwqQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADvJcyoFvV0st/HRliEzZYtZh/NvKfasuuCEdgON3uWSQAAAAAOgAAAAAIAACAAAADG9zv6cdQkRp1SSuGrw/hLf1thr5fmEOZj9MGVVq0NfjAAAACzyBmw3MiVLuKCAOpe9ThqddGz6TUn/EWWQRifz7A7wO+KvjCgyksgjYuxAMAmCBhAAAAADfa9QTLLPYz/m9uR/ajaYNdDAkDxZTAZPCuqxWjAkuN88zsZem4WH1Chpl40yDa0Eexs2L9qaMkD/F/BFAHEUA</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[STDB_Cliente]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1AB70D78-37C2-4C7E-8AF2-866B738CC075}"
+      DTS:ObjectName="STDB_Cliente">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=172.16.7.80;User ID=telynetusr;Initial Catalog=SAPPI;Provider=SQLNCLI11.1;Auto Translate=False;Application Name=SSIS-Package-{3A37EB33-C7CC-4FA0-9921-6362CEB5D253}SERGIOW7\MSQL2008.STDB_Little;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJ3FrcYZHnkm0UAkWomxwqQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACnRJdfzghT8qazErF828Hjn2J3yUgeQ/mX7eVDri2utwAAAAAOgAAAAAIAACAAAAATAK3OeJi6sZLi3i9+4rSczneXwg67KU6gEWDny6dc/iAAAABh2LmS47JNei69Kzet5wWmlBwbghEapzu8zu5wHdYzTEAAAABTyieMUMo/ygIU4RAFbdnWQAPpg7cNzkDN67ozdc04fTGN1JmzvWE4EXKz5VvjCirgky+qNt3QJiYf68Qxh0zJ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[STDB_Iglesias]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3CCFC191-F083-481D-9B07-95E0840707C8}"
+      DTS:ObjectName="STDB_Iglesias">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=Express-gc01.miami;User ID=RContreras;Initial Catalog=STDB_Iglesias;Provider=SQLNCLI11.1;Auto Translate=False;Application Name=SSIS-Package1-{3CCFC191-F083-481D-9B07-95E0840707C8}SERGIOW10\SERGIOW10_2016.STDB_Corripio_Prod;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJ3FrcYZHnkm0UAkWomxwqQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACyTMKXLxrAZEMTsjJBGOLdmIqx4F7pr7+ZYtM13nFmUQAAAAAOgAAAAAIAACAAAADa7cE9qs4Dafxkw+yynPwE7QNVg3IJXBt5MMNPRKytQSAAAAB1F8V82btJe71yrekV2ly9cB0FnLO6nMEwtV0gJ2B9MEAAAACWdRBaxg4AxFpuMt3nQJN4ic90JFYsv9mHdGSbr/6Y0TBEyFHv00Rao9rmB1qWhenHPZkKHd/MJOLucMSNMHTg</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Borra STDB tablas cliente"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{03CF61AF-C5BD-420D-A623-344EFC025431}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Borra STDB tablas cliente"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3CCFC191-F083-481D-9B07-95E0840707C8}"
+          SQLTask:SqlStatementSource="DELETE FROM Ruta&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Carga STDB"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{AB7BB0FD-E3D5-4B55-9F23-A9C71B8CB82E}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga STDB"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga STDB\OLE DB Ruta"
+              componentClassID="DTSAdapter.OLEDBDestination.3"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Ruta"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Ruta]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga STDB\OLE DB Ruta.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[STDB_Iglesias]"
+                  connectionManagerRefId="Package.ConnectionManagers[STDB_Iglesias]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].Columns[DESCRIPCION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="DESCRIPCION"
+                      externalMetadataColumnId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPCION]"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[DESCRIPCION]" />
+                    <inputColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].Columns[RUTA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="RUTA"
+                      externalMetadataColumnId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[RUTA]"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[RUTA]" />
+                    <inputColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].Columns[SOCIEDAD_SAP]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="SOCIEDAD_SAP"
+                      externalMetadataColumnId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[SOCIEDAD_SAP]"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[SOCIEDAD_SAP]" />
+                    <inputColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].Columns[CENTRO_SAP]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="CENTRO_SAP"
+                      externalMetadataColumnId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[CENTRO_SAP]"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[CENTRO_SAP]" />
+                    <inputColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].Columns[TOUR_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="11"
+                      cachedName="TOUR_ID"
+                      externalMetadataColumnId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[TOUR_ID]"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[TOUR_ID]" />
+                    <inputColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].Columns[CONDUCTOR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CONDUCTOR"
+                      externalMetadataColumnId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[CONDUCTOR]"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[CONDUCTOR]" />
+                    <inputColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].Columns[CAMION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="CAMION"
+                      externalMetadataColumnId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[CAMION]"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[CAMION]" />
+                    <inputColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].Columns[TIPO_LISTA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="TIPO_LISTA"
+                      externalMetadataColumnId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[TIPO_LISTA]"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[TIPO_LISTA]" />
+                    <inputColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].Columns[PERIOCIDAD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="PERIOCIDAD"
+                      externalMetadataColumnId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[PERIOCIDAD]"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[PERIOCIDAD]" />
+                    <inputColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].Columns[FECHA_CREACION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FECHA_CREACION"
+                      externalMetadataColumnId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]" />
+                    <inputColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].Columns[NOMBRE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="NOMBRE"
+                      externalMetadataColumnId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE]"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[NOMBRE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPCION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="DESCRIPCION" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[RUTA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="RUTA" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[SOCIEDAD_SAP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="SOCIEDAD_SAP" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[CENTRO_SAP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="CENTRO_SAP" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[TOUR_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="TOUR_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[CONDUCTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CONDUCTOR" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[CAMION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="CAMION" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[TIPO_LISTA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="TIPO_LISTA" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[PERIOCIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="PERIOCIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_CREACION" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="NOMBRE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga STDB\OLE DB Ruta.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga STDB\OLE DB Ruta.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga STDB\OLE DB Ruta.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga STDB\OLE DB Ruta.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga STDB\Ruta"
+              componentClassID="DTSAdapter.OLEDBSource.3"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Ruta"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Ruta]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [Order_Num]
+      ,[TOUR_ID]
+      ,[Code_Account]
+      ,[Delivery_Date]
+      ,[Order_Num2]
+      ,[Order_Date]
+      ,[Hour_Order]
+      ,[Order_Num_Linked]
+      ,[Code_Payment]
+      ,[Transfer_Status]
+  FROM [dbo].[EXPLT_orders]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga STDB\Ruta.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[STDB_Cliente]"
+                  connectionManagerRefId="Package.ConnectionManagers[STDB_Cliente]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[DESCRIPCION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPCION]"
+                      length="40"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[DESCRIPCION]"
+                      name="DESCRIPCION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[RUTA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[RUTA]"
+                      length="6"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[RUTA]"
+                      name="RUTA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[SOCIEDAD_SAP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[SOCIEDAD_SAP]"
+                      length="4"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[SOCIEDAD_SAP]"
+                      name="SOCIEDAD_SAP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[CENTRO_SAP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[CENTRO_SAP]"
+                      length="4"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[CENTRO_SAP]"
+                      name="CENTRO_SAP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[TOUR_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[TOUR_ID]"
+                      length="11"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[TOUR_ID]"
+                      name="TOUR_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[CONDUCTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[CONDUCTOR]"
+                      length="10"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[CONDUCTOR]"
+                      name="CONDUCTOR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[CAMION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[CAMION]"
+                      length="18"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[CAMION]"
+                      name="CAMION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[TIPO_LISTA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[TIPO_LISTA]"
+                      length="4"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[TIPO_LISTA]"
+                      name="TIPO_LISTA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[PERIOCIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[PERIOCIDAD]"
+                      length="1"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[PERIOCIDAD]"
+                      name="PERIOCIDAD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                      name="FECHA_CREACION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[NOMBRE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE]"
+                      length="40"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].Columns[NOMBRE]"
+                      name="NOMBRE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPCION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="DESCRIPCION" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[RUTA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="RUTA" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[SOCIEDAD_SAP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="SOCIEDAD_SAP" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[CENTRO_SAP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="CENTRO_SAP" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[TOUR_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="TOUR_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[CONDUCTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CONDUCTOR" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[CAMION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="CAMION" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[TIPO_LISTA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="TIPO_LISTA" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[PERIOCIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="PERIOCIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_CREACION" />
+                    <externalMetadataColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="NOMBRE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[RUTA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[RUTA]"
+                      name="RUTA" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[DESCRIPCION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[DESCRIPCION]"
+                      name="DESCRIPCION" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[SOCIEDAD_SAP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[SOCIEDAD_SAP]"
+                      name="SOCIEDAD_SAP" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[CENTRO_SAP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[CENTRO_SAP]"
+                      name="CENTRO_SAP" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[TOUR_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[TOUR_ID]"
+                      name="TOUR_ID" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[CONDUCTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[CONDUCTOR]"
+                      name="CONDUCTOR" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[CAMION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[CAMION]"
+                      name="CAMION" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[TIPO_LISTA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[TIPO_LISTA]"
+                      name="TIPO_LISTA" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[PERIOCIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[PERIOCIDAD]"
+                      name="PERIOCIDAD" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                      name="FECHA_CREACION" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[NOMBRE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[NOMBRE]"
+                      name="NOMBRE" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga STDB.Paths[OLE DB Source Output]"
+              endId="Package\Carga STDB\OLE DB Ruta.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Carga STDB\Ruta.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Corrige ruta"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{389d83cd-ef82-44bf-a573-57f8bbfb53ea}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Corrige ruta"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D4665717-DF6B-49C4-95F0-395AC64E5C96}"
+          SQLTask:SqlStatementSource="UPDATE ERP_IMPLT_route_header set Code_Sales_Org = '0' + Code_Sales_Org &#xA;WHERE len(Code_Sales_Org) = 1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delete ERP_IMPLT"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Delete ERP_IMPLT"
+      DTS:DTSID="{985429e8-67ab-4ccd-bcf3-52fc89b5810b}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete ERP_IMPLT"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D4665717-DF6B-49C4-95F0-395AC64E5C96}"
+          SQLTask:SqlStatementSource="-- Borramos las tablas ERP_IMPLT antes de cargar los datos&#xA;&#xA;TRUNCATE TABLE ERP_IMPLT_route_header&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ERP_IMPLT_route_header"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{21c7cb26-a41a-45ac-8268-b236f26e5ee3}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ERP_IMPLT_route_header"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\ERP_IMPLT_route_header\Conversión de datos"
+              componentClassID="DTSTransform.DataConvert.3"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Reservados todos los derechos; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ERP_IMPLT_route_header\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ERP_IMPLT_route_header\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Description"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\ERP_IMPLT_route_header\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Code_Unit_Org]"
+                      cachedDataType="i4"
+                      cachedName="Code_Unit_Org"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Code_Unit_Org]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ERP_IMPLT_route_header\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\ERP_IMPLT_route_header\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ZU_Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\ERP_IMPLT_route_header\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ZU_Description]"
+                      name="ZU_Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Description]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Code_Unit_Org]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ERP_IMPLT_route_header\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Code_Unit_Org]"
+                      name="Copy of Code_Unit_Org"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Code_Unit_Org]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ERP_IMPLT_route_header\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\ERP_IMPLT_route_header\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ERP_IMPLT_route_header\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ERP_IMPLT_route_header\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ERP_IMPLT_route_header\Destino de OLE DB"
+              componentClassID="DTSAdapter.OLEDBDestination.3"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Reservados todos los derechos; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[ERP_IMPLT_route_header]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CRM_Proyecto]"
+                  connectionManagerRefId="Package.ConnectionManagers[CRM_Proyecto]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Source_Create]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Source_Create"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Source_Create]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Source_Create]" />
+                    <inputColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Transfer_status]"
+                      cachedDataType="numeric"
+                      cachedName="Transfer_status"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Transfer_status]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Transfer_status]" />
+                    <inputColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Status_SAP]"
+                      cachedDataType="numeric"
+                      cachedName="Status_SAP"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Status_SAP]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Status_SAP]" />
+                    <inputColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Code_ofClient]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="24"
+                      cachedName="Code_ofClient"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Code_ofClient]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Code_ofClient]" />
+                    <inputColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Code_Region]"
+                      cachedDataType="i4"
+                      cachedName="Code_Region"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Code_Region]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Code_Region]" />
+                    <inputColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Seasonal]"
+                      cachedDataType="i4"
+                      cachedName="Seasonal"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Seasonal]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Seasonal]" />
+                    <inputColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DayofWeek]"
+                      cachedDataType="i4"
+                      cachedName="DayofWeek"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DayofWeek]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[DayofWeek]" />
+                    <inputColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Code_Sales_Org]"
+                      cachedDataType="i4"
+                      cachedName="Code_Sales_Org"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Code_Sales_Org]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Code_Sales_Org]" />
+                    <inputColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[ZU_Description]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ZU_Description"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Description]"
+                      lineageId="Package\ERP_IMPLT_route_header\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ZU_Description]" />
+                    <inputColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copy of Code_Unit_Org]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Code_Unit_Org"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Code_Unit_Org]"
+                      lineageId="Package\ERP_IMPLT_route_header\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Code_Unit_Org]" />
+                    <inputColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[TOUR_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="TOUR_ID"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TOUR_ID]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[TOUR_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Code]"
+                      dataType="numeric"
+                      name="Code"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Code_ofClient]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="Code_ofClient" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="50"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Code_Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_Region" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Seasonal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Seasonal" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DayofWeek]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="DayofWeek" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Code_Unit_Org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_Unit_Org" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Code_Sales_Org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_Sales_Org" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Source_Create]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Source_Create" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Transfer_status]"
+                      dataType="i4"
+                      name="Transfer_status" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Status_SAP]"
+                      dataType="i4"
+                      name="Status_SAP" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Transfer_Date]"
+                      dataType="wstr"
+                      length="14"
+                      name="Transfer_Date" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TOUR_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="TOUR_ID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ERP_IMPLT_route_header\Origen de OLE DB"
+              componentClassID="DTSAdapter.OLEDBSource.3"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Reservados todos los derechos; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT 
+                     -- Code_Account AS Code, 
+					  --Code_Route AS Code,
+					  Code_Route AS Code_ofClient, 
+					  Description, 
+					  CASE 
+						WHEN  LEFT (TOUR_ID, 1) = 'S'
+						THEN 2
+						WHEN LEFT (TOUR_ID, 1) = 'V'
+						THEN 0
+					  END as Seasonal,
+					  NULL AS Code_Region, 
+					  NULL AS DayofWeek, 
+					  Code_Unit_Org, 
+					  min(Code_Sales_Org) AS Code_Sales_Org, 
+					  Source_Create, 
+					  Transfer_status, 
+					  Status_SAP, 
+					  TOUR_ID
+FROM         IMPLT_route_org_accounts
+GROUP BY Code_Route, Description, TOUR_ID, Code_Unit_Org, Source_Create, Transfer_status, Status_SAP</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[STDB_Iglesias]"
+                  connectionManagerRefId="Package.ConnectionManagers[STDB_Iglesias]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Source_Create]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Source_Create]"
+                      length="1"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Source_Create]"
+                      name="Source_Create"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Transfer_status]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Transfer_status]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Transfer_status]"
+                      name="Transfer_status"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Status_SAP]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Status_SAP]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Status_SAP]"
+                      name="Status_SAP"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Description]"
+                      length="50"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Code_ofClient]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Code_ofClient]"
+                      length="24"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Code_ofClient]"
+                      name="Code_ofClient"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Code_Region]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Code_Region]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Code_Region]"
+                      name="Code_Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Seasonal]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Seasonal]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Seasonal]"
+                      name="Seasonal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[DayofWeek]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[DayofWeek]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[DayofWeek]"
+                      name="DayofWeek"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Code_Unit_Org]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Code_Unit_Org]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Code_Unit_Org]"
+                      name="Code_Unit_Org"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Code_Sales_Org]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Code_Sales_Org]"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Code_Sales_Org]"
+                      name="Code_Sales_Org"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[TOUR_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[TOUR_ID]"
+                      length="12"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[TOUR_ID]"
+                      name="TOUR_ID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Source_Create]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Source_Create" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Transfer_status]"
+                      dataType="numeric"
+                      name="Transfer_status"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Status_SAP]"
+                      dataType="numeric"
+                      name="Status_SAP"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Code_ofClient]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="Code_ofClient" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Code_Region]"
+                      dataType="i4"
+                      name="Code_Region" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Seasonal]"
+                      dataType="i4"
+                      name="Seasonal" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[DayofWeek]"
+                      dataType="i4"
+                      name="DayofWeek" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Code_Unit_Org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_Unit_Org" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Code_Sales_Org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_Sales_Org" />
+                    <externalMetadataColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[TOUR_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="TOUR_ID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Source_Create]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Source_Create]"
+                      name="Source_Create" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Transfer_status]"
+                      dataType="numeric"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Transfer_status]"
+                      name="Transfer_status"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Status_SAP]"
+                      dataType="numeric"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Status_SAP]"
+                      name="Status_SAP"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Description]"
+                      name="Description" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Code_ofClient]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Code_ofClient]"
+                      name="Code_ofClient" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Code_Region]"
+                      dataType="i4"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Code_Region]"
+                      name="Code_Region" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Seasonal]"
+                      dataType="i4"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Seasonal]"
+                      name="Seasonal" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[DayofWeek]"
+                      dataType="i4"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[DayofWeek]"
+                      name="DayofWeek" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[TOUR_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[TOUR_ID]"
+                      name="TOUR_ID" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Code_Unit_Org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Code_Unit_Org]"
+                      name="Code_Unit_Org" />
+                    <outputColumn
+                      refId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Code_Sales_Org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Code_Sales_Org]"
+                      name="Code_Sales_Org" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ERP_IMPLT_route_header.Paths[Salida de conversión de datos]"
+              endId="Package\ERP_IMPLT_route_header\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\ERP_IMPLT_route_header\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\ERP_IMPLT_route_header.Paths[Salida de origen de OLE DB]"
+              endId="Package\ERP_IMPLT_route_header\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de OLE DB"
+              startId="Package\ERP_IMPLT_route_header\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Llena IMPLT_route_org"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BBBDDA61-B8B7-40C9-9FAD-00F7CA1E56C9}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Llena IMPLT_route_org"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3CCFC191-F083-481D-9B07-95E0840707C8}"
+          SQLTask:SqlStatementSource="--   IMPLT_route_org_accounts&#xA;&#xA;TRUNCATE TABLE   IMPLT_route_org_accounts&#xA;GO&#xA;&#xA;INSERT INTO  IMPLT_route_org_accounts( Code_Account, Code_Unit_Org, Code_Sales_Org, Code_Route, Description, &#xA;Code_Seller, &#xA;Visit_Mon, Visit_Tue, Visit_Wen, Visit_Thu, Visit_Fri, Visit_Sat, Visit_Sun,&#xA;Code_Frecuency, Code_Week, TOUR_ID, Type_List, Code_Truck,&#xA;Source_Create, Transfer_status, Status_SAP)&#xA;SELECT    Codigo_Cliente AS Code_account, &#xA;'01' AS Code_Unit_Org, Grupo_Cliente AS Code_Sales_Org, &#xA;Clientes.Ruta AS Code_Route, &#xA;Ruta.Descripcion AS Description, &#xA;Conductor AS Code_Seller, &#xA;CASE WHEN Dia_Visita = 'LUN' THEN Orden_Visita ELSE '0' END AS Visit_Mon, &#xA;CASE WHEN Dia_Visita = 'MAR' THEN Orden_Visita ELSE '0' END AS Visit_Tue, &#xA;CASE WHEN Dia_Visita = 'MIE' THEN Orden_Visita ELSE '0' END AS Visit_Wen, &#xA;CASE WHEN Dia_Visita = 'JUE' THEN Orden_Visita ELSE '0' END AS Visit_Thu, &#xA;CASE WHEN Dia_Visita = 'VIE' THEN Orden_Visita ELSE '0' END AS Visit_Fri,&#xA;CASE WHEN Dia_Visita = 'SAB' THEN Orden_Visita ELSE '0' END AS Visit_Sat,&#xA;CASE WHEN Dia_Visita = 'DOM' THEN Orden_Visita ELSE '0' END AS Visit_Sun,&#xA;&#xA;CASE WHEN Frecuencia_Visita = 'N/A' THEN 'S' ELSE Frecuencia_Visita END AS Code_Frecuency,&#xA;&#xA;CASE WHEN Semana_Visita = 'N/A' THEN '0' &#xA;ELSE CASE WHEN Frecuencia_Visita = 'Q' AND Semana_Visita IN ('1','3') THEN  '0'&#xA;ELSE CASE WHEN Frecuencia_Visita = 'Q' AND Semana_Visita IN ('2','4') THEN  '1'&#xA;ELSE Semana_Visita &#xA;END END END AS Code_Week,&#xA;TOUR_ID, Tipo_Lista AS Type_List, Camion AS Code_Truck,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; '0' AS Source_Create, &#xA;                         '1' AS transfer_status, NULL  AS status_SAP&#xA;FROM   Clientes INNER JOIN Ruta ON Clientes.Ruta = Ruta.Ruta&#xA;WHERE Codigo_Cliente is not NULL --AND left(ruta.ruta,1) NOT IN ('M','A') " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\route_header"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="route_header"
+      DTS:DTSID="{ac79499a-ae18-4973-aeca-5e742cc77d75}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="route_header"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D4665717-DF6B-49C4-95F0-395AC64E5C96}"
+          SQLTask:SqlStatementSource="-- Alta&#xA;INSERT INTO route_header (Create_User, Create_Date, Modify_User, Modify_Date,  &#xA;   Platform, Code, Code_ofClient, Description, Code_Region, Seasonal, &#xA;   DayofWeek, Code_Unit_Org, Code_Sales_Org, TOUR_ID)&#xA;SELECT distinct View_System_Fields_ERP.Create_User, View_System_Fields_ERP.Create_Date, &#xA;View_System_Fields_ERP.Modify_User, View_System_Fields_ERP.Modify_Date,  &#xA;View_System_Fields_ERP.Platform,   &#xA;convert(char(6),getdate(),12) + replace(convert(char(8),getdate(),14),':','')  &#xA;+ cast(ROW_NUMBER() OVER (order by Code_ofClient) + 100000 as varchar(8)) as Code, &#xA;Code_ofClient, Description, Code_Region, Seasonal, &#xA;                      DayofWeek, Code_Unit_Org, Code_Sales_Org, TOUR_ID&#xA;FROM        ERP_IMPLT_route_header CROSS JOIN View_System_Fields_ERP&#xA;WHERE not exists (SELECT Code_ofClient from route_header &#xA;where Code_ofClient = ERP_IMPLT_route_header.Code_ofClient)&#xA;GO&#xA;&#xA;-- Modificación&#xA;-- Si la Organización en las rutas se mantiene desde Hydra hay que quitar el Code_Sales_Org y el Code_Unit_Org de estas queries&#xA;UPDATE route_header SET Create_User = View_System_Fields_ERP.Create_User , Create_Date = View_System_Fields_ERP.Create_Date , &#xA;  Modify_User = View_System_Fields_ERP.Modify_User , Modify_Date = View_System_Fields_ERP.Modify_Date, Delete_User = NULL, Delete_Date = NULL, Platform = View_System_Fields_ERP.Platform, &#xA;  Description = MOD.Description, Code_Region = MOD.Code_Region, Seasonal = MOD.Seasonal, DayofWeek = MOD.DayofWeek, Code_Unit_Org = MOD.Code_Unit_Org, &#xA;  Code_Sales_Org = MOD.Code_Sales_Org, TOUR_ID = MOD.TOUR_ID&#xA;FROM&#xA;(SELECT  Code_ofClient, Description, Code_Region, Seasonal, DayofWeek, Code_Unit_Org, Code_Sales_Org, TOUR_ID&#xA;FROM       ERP_IMPLT_route_header &#xA;EXCEPT&#xA;SELECT    Code_ofClient, Description, Code_Region, Seasonal, DayofWeek, Code_Unit_Org, Code_Sales_Org, TOUR_ID&#xA;FROM         route_header) as MOD INNER JOIN route_header ON MOD.Code_ofClient = route_header.Code_ofClient CROSS JOIN View_System_Fields_ERP&#xA;GO&#xA;&#xA;-- Baja&#xA;UPDATE route_header SET Delete_Date = View_System_Fields_ERP.Create_Date, Delete_User = View_System_Fields_ERP.Create_User&#xA;FROM  route_header CROSS JOIN&#xA;                      View_System_Fields_ERP&#xA;WHERE  exists (SELECT Code_ofClient FROM ERP_IMPLT_route_header where Code_ofClient = route_header.Code_ofClient and right(isnull(Status_SAP,'1'),1) = '3')&#xA;GO&#xA;&#xA;-- Quitar Baja&#xA;UPDATE route_header SET Modify_Date = View_System_Fields_ERP.Modify_Date, Modify_User = View_System_Fields_ERP.Modify_User, Delete_Date = NULL, Delete_User = NULL&#xA;FROM  route_header CROSS JOIN&#xA;                      View_System_Fields_ERP&#xA;WHERE  Delete_Date is not NULL and exists (SELECT Code_ofClient FROM ERP_IMPLT_route_header where Code_ofClient = route_header.Code_ofClient and right(isnull(Status_SAP,'1'),1) &lt;&gt; '3')&#xA;GO&#xA;&#xA;-- Alta 6000&#xA;INSERT INTO route_header (Create_User, Create_Date, Modify_User, Modify_Date,  &#xA;   Platform, Code, Code_ofClient, Description, Code_Region, Seasonal, &#xA;   DayofWeek, Code_Unit_Org, Code_Sales_Org, TOUR_ID)&#xA;SELECT distinct View_System_Fields_ERP.Create_User, View_System_Fields_ERP.Create_Date, &#xA;View_System_Fields_ERP.Modify_User, View_System_Fields_ERP.Modify_Date,  &#xA;View_System_Fields_ERP.Platform,   &#xA;convert(char(6),getdate(),12) + replace(convert(char(8),getdate(),14),':','')  &#xA;+ cast(ROW_NUMBER() OVER (order by Code_ofClient) + 100000 as varchar(8)) as Code, &#xA;Code_ofClient, Description, Code_Region, Seasonal, &#xA;                      DayofWeek, Code_Unit_Org, &#xA;       '6000' as Code_Sales_Org, TOUR_ID&#xA;FROM        ERP_IMPLT_route_header CROSS JOIN View_System_Fields_ERP&#xA;WHERE Code_Sales_Org = '1000' AND not exists (SELECT Code_ofClient from route_header &#xA;where Code_ofClient = ERP_IMPLT_route_header.Code_ofClient)&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update route_header"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b3a361ee-0e48-4a61-b797-446322a6b47b}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update route_header"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D4665717-DF6B-49C4-95F0-395AC64E5C96}"
+          SQLTask:SqlStatementSource="UPDATE [ERP_IMPLT_route_header] set Code_Unit_Org = '01' WHERE Code_Unit_Org = '1'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D5B9B698-5EAC-4510-B416-2A4EDC9332E3}"
+      DTS:From="Package\Borra STDB tablas cliente"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Carga STDB" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{B5AB595F-59D9-4428-868A-8F402A81D6AB}"
+      DTS:From="Package\Carga STDB"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Llena IMPLT_route_org" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{87FE23B9-E7C2-4A80-B59D-8E01F7BB9E1C}"
+      DTS:From="Package\Llena IMPLT_route_org"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Delete ERP_IMPLT" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{EF701A89-E079-4779-80DD-CE0C1572234E}"
+      DTS:From="Package\Delete ERP_IMPLT"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\ERP_IMPLT_route_header" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{F5B5AAFE-819E-426F-938A-60DED25C4A03}"
+      DTS:From="Package\ERP_IMPLT_route_header"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Update route_header" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{9F770652-AC39-493B-A7AA-7A1A57E5D867}"
+      DTS:From="Package\Update route_header"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Corrige ruta" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{A2B1DD97-C83E-442B-A63A-BA9C95564182}"
+      DTS:From="Package\Corrige ruta"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\route_header" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Borra STDB tablas cliente"
+          TopLeft="37,35" />
+        <NodeLayout
+          Size="121.333333333334,42.6666666666667"
+          Id="Package\Carga STDB"
+          TopLeft="55.0000000000001,138" />
+        <NodeLayout
+          Size="135.333333333334,42"
+          Id="Package\Corrige ruta"
+          TopLeft="669,371.42641244432" />
+        <NodeLayout
+          Size="133.333333333334,44"
+          Id="Package\Delete ERP_IMPLT"
+          TopLeft="252,238" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\ERP_IMPLT_route_header"
+          TopLeft="488,238" />
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\Llena IMPLT_route_org"
+          TopLeft="243,140" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\route_header"
+          TopLeft="444.718111909337,365.12264150943" />
+        <NodeLayout
+          Size="178.666666666667,42"
+          Id="Package\Update route_header"
+          TopLeft="651.75,240.12264150943" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="117.333333333333,77.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.3333333333334"
+              Start="0,0"
+              End="0,52.8333333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.8333333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="176.333333333333,160.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="66.6666666666666,0"
+              Start="0,0"
+              End="59.1666666666666,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="59.1666666666666,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="319.833333333333,182.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.3333333333333"
+              Start="0,0"
+              End="0,47.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="385.333333333333,260">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="102.666666666667,0"
+              Start="0,0"
+              End="95.1666666666665,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="95.1666666666665,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="624,260.561320754715">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.75,0"
+              Start="0,0"
+              End="20.25,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="20.25,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="738.875,282.12264150943">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,89.3037709348901"
+              Start="0,0"
+              End="0,81.8037709348901">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,81.8037709348901" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="669,389.774526976875">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-88.281888090663,0"
+              Start="0,0"
+              End="-80.781888090663,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-80.781888090663,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Carga STDB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="94.6666666666667,42.6666666666667"
+          Id="Package\Carga STDB\Ruta"
+          TopLeft="260.833333333333,116.75" />
+        <NodeLayout
+          Size="124,42.6666666666667"
+          Id="Package\Carga STDB\OLE DB Ruta"
+          TopLeft="486.166666666667,111.416666666667" />
+        <EdgeLayout
+          Id="Package\Carga STDB.Paths[OLE DB Source Output]"
+          TopLeft="355.5,135.416666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="130.666666666667,0"
+              Start="0,0"
+              End="123.166666666667,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="123.166666666667,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga STDB\OLE DB Ruta">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga STDB\Ruta">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\ERP_IMPLT_route_header">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\ERP_IMPLT_route_header\Origen de OLE DB"
+          TopLeft="11,5.5" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\ERP_IMPLT_route_header\Destino de OLE DB"
+          TopLeft="9.00000000000003,209.5" />
+        <NodeLayout
+          Size="174.666666666667,42"
+          Id="Package\ERP_IMPLT_route_header\Conversión de datos"
+          TopLeft="5.50000000000003,107.5" />
+        <EdgeLayout
+          Id="Package\ERP_IMPLT_route_header.Paths[Salida de origen de OLE DB]"
+          TopLeft="93,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ERP_IMPLT_route_header.Paths[Salida de conversión de datos]"
+          TopLeft="93,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ERP_IMPLT_route_header\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ERP_IMPLT_route_header\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

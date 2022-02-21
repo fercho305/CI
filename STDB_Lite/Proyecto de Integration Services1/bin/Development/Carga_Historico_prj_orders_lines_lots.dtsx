@@ -1,0 +1,75 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/31/2019 1:18:02 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="IBVM06WSQL"
+  DTS:CreatorName="IBVM06WSQL\Telynet-1"
+  DTS:DTSID="{979E67AC-54A7-4C83-9843-6CB1372E0F56}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Carga_Historico_prj_orders_lines_lots"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{90117FB1-A1F5-4C63-AF51-8A5164E010E8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CRM_Proyecto]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DB747C7F-1C9B-402E-8ED6-5BA82E639615}"
+      DTS:ObjectName="CRM_Proyecto">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=IBVM06WSQL;User ID=SisTelynet;Initial Catalog=Telynet_Prod;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{C37EE04D-F2D3-4126-AA52-6A7C5BE532EA}SERGIOW7\MSQL2008.crm3_mercasid;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAM3RqCY/f+02OqRlfw1P56AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB/af/TcYwqRt2Thf4c2Rpn1CIasXsk5VOvoHorOfYIPQAAAAAOgAAAAAIAACAAAAD01hgXuZN0D+7FZwCbpl43gcscip+mboaq3LkjlGQR2DAAAAB05drbQ/PyfEoVVTgeoRolGOcKYs+OzYOVJECKCVhPwiDBUABcvws2LbUCFfGXzNdAAAAADYB79iZJinjUdUFmhjL+5px1iUseBxUY6iUGqyJxiG6ms44m+h89K6Sl8quko6fg7KEAAhgcnpZFXhkMrHazmQ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\prj_orders_lines_lots"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="prj_orders_lines_lots"
+      DTS:DTSID="{2f685c30-106d-4496-9d23-e10120801024}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="prj_orders_lines_lots"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DB747C7F-1C9B-402E-8ED6-5BA82E639615}"
+          SQLTask:SqlStatementSource="-----Query_Llenado_prj_hist_orders_line_lot&#xA;INSERT INTO prj_hist_orders_lines_lots (Create_User,Create_Date,Modify_User,Modify_Date,Delete_User,Delete_Date,Platform,Order_Num,Num_Line,Lot_Number,Code_Account,Order_Date,Code_Product,Unit_Type_Sel,Unit_Type_Inv,Factor_Conversion&#xA;,Quantity,Quantity_Unit,Transfered)&#xA;SELECT Create_User,Create_Date,Modify_User,Modify_Date,Delete_User,Delete_Date,Platform,Order_Num,Num_Line,Lot_Number,Code_Account,Order_Date,Code_Product,Unit_Type_Sel,Unit_Type_Inv,Factor_Conversion&#xA;,Quantity,Quantity_Unit,Transfered  &#xA;FROM prj_orders_lines_lots  &#xA;WHERE Order_Num NOT IN (SELECT Order_Num FROM prj_hist_orders_lines_lots)&#xA;GO&#xA;&#xA;------Borrado_de_prj_orders_lines_lots_antiguedad_mas_5_meses-------&#xA;DELETE FROM prj_orders_lines_lots WHERE Order_Date&lt;CONVERT(VARCHAR,DATEADD(mm,-5,DATEADD(mm,DATEDIFF(mm,0,GETDATE()),0)), 112)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\prj_orders_lines_lots"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

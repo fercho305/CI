@@ -1,0 +1,2157 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/17/2018 1:29:16 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SERGIOW7"
+  DTS:CreatorName="TELYNET\Sergio Iñigo"
+  DTS:DTSID="{D8E1DAD3-A2C1-4854-8C4C-463F0E99B005}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="InsertaControlResto"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="638"
+  DTS:VersionGUID="{79F9D6E4-B29F-408D-B953-D7E57A68102A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CRM_Proyecto]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{10FCF0E3-D233-4AF5-8A40-04FE94869BCD}"
+      DTS:ObjectName="CRM_Proyecto">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=sql-gc01.miami;User ID=Rafael Contreras;Initial Catalog=crm3_cesar_iglesias;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{10FCF0E3-D233-4AF5-8A40-04FE94869BCD}SERGIOW7\MSQL2008.crm3_mercasid;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="PKrXTku0KQ=="
+            IV="CALgT1ubVfM=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>CALgT1ubVfNPC2yL1qftW2SUwh4DuO1hB/aODJa7JS94SjLHFejvxtZi7BW6HLexgH1RLfSaAgJJTmpg8il8f/3dIwUhr8ta8AmBedA3SDsMSEjVZ/vGJLx4n2OvgHAEu82WXtxqyfQgOaKcK3QBDViztXo5+yWH7HclyvgxRh+yRFYkr7y7sg==</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ImportMaster.dtsx 1]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{E4EF5C60-E422-4BE3-AAEA-DD0D2F45085F}"
+      DTS:ObjectName="ImportMaster.dtsx 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Telynet-1\Documents\versión cliente 27 Julio\versión cliente\STDB_Lite\Proyecto de Integration Services1\ImportMaster.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMTP]"
+      DTS:CreationName="SMTP"
+      DTS:Description="cacti-gc01.miami"
+      DTS:DTSID="{646877FF-F614-4AE1-9D5C-25D1051EC20D}"
+      DTS:ObjectName="SMTP">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=cacti-gc01.miami;UseWindowsAuthentication=False;EnableSsl=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[STDB_Cliente]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{41b13e2e-d07c-4a8a-85c7-6a3b6bcb3e80}"
+      DTS:ObjectName="STDB_Cliente">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=172.16.7.80;User ID=telynetusr;Initial Catalog=SAPPI;Provider=SQLNCLI11.1;Auto Translate=False;Application Name=SSIS-Package-{3A37EB33-C7CC-4FA0-9921-6362CEB5D253}SERGIOW7\MSQL2008.STDB_Little;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="/PfxX2ULMw=="
+            IV="YBSnQslSmxA=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>YBSnQslSmxDxcwk4R2/AI53Cq0J5JPyyZcueM45EPNzZYmDHvqpLpuyHf3u6YP0UVXNgn4vHKN41Rbtg60cbjh6ogALxIf2TnkjAhvotKyANAqzWRWpvwiVUAnWCYea7EyA19AtUMv2GZSObQRg+4tpVG5PSicSDxC3wrCHH+3o=</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[STDB_Lite]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BC866B7B-06AF-494E-8692-363812810976}"
+      DTS:ObjectName="STDB_Lite">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=Express-gc01.miami;User ID=RContreras;Initial Catalog=STDB_Iglesias;Provider=SQLNCLI11.1;Auto Translate=False;Application Name=SSIS-Package-{BC866B7B-06AF-494E-8692-363812810976}SERGIOW7\MSQL2008.STDB_Little;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="WijJwe9vKw=="
+            IV="sgBb0lD/SfM=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>sgBb0lD/SfPQtnImNsioWhPP6JTeYnbD+3/2Ai5E4o9b32VcJFEo5/aDvCfdZQpTd1ddfIC5MxS6CWpDven68Bq91p/fqMeZFDayRcCMf0+UTy3FGCLafiveC61XuEVy+RsrUe86N7t2UQATwTOq/+udm4x7FXS2qi4ETQ17nXk=</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{36C862A2-07B7-42CE-A4D5-10610E16616F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CargaDeudaT">
+      <DTS:VariableValue
+        DTS:DataType="8">I</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FD260CF9-8FE2-4DE0-9D3A-17599B114324}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ReindexarT">
+      <DTS:VariableValue
+        DTS:DataType="8">Y</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6741BD0D-FE0E-464C-80B1-B1C232BA35B8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TipoCargaT">
+      <DTS:VariableValue
+        DTS:DataType="8">I</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Inserta Control"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{841692AA-1C4C-4578-863E-A305A8A8DD0B}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inserta Control"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{10FCF0E3-D233-4AF5-8A40-04FE94869BCD}"
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[ERP_EXPLT_W_Table_Control_2]&#xA;           ([TOUR_ID]&#xA;           ,[Code_Route]&#xA;           ,[Code_Seller]&#xA;           ,[Code_Truck]&#xA;           ,[Date_save]&#xA;           ,[Flag_Order_Header]&#xA;           ,[Flag_Order_Detail]&#xA;           ,[Flag_Collection]&#xA;           ,[Flag_Checkin_Header]&#xA;           ,[Flag_Checkin_Detail]&#xA;           ,[Flag_Exe_Del_Header]&#xA;           ,[Flag_Exe_Del_Detail]&#xA;           ,[Flag_Process]&#xA;           ,[Date_Execution]&#xA;           ,[Transfer_status])&#xA;SELECT DISTINCT&#xA;[dbo].[route_header].TOUR_ID&#xA;           ,[dbo].[route_header].Code_ofClient AS [Code_Route]&#xA;           ,[dbo].[sellers].Code_ofClient AS [Code_Seller]&#xA;           ,'000000' + [dbo].[trucks].Code AS [Code_Truck]&#xA;&#x9;&#x9;   ,CONVERT(varchar,GETDATE(),112) AS [Date_save]&#xA;           ,'X' AS [Flag_Order_Header]&#xA;           ,'X' AS [Flag_Order_Detail]&#xA;           ,'X' AS [Flag_Collection]&#xA;           ,'X' AS [Flag_Checkin_Header]&#xA;           ,'X' AS [Flag_Checkin_Detail]&#xA;           ,'X' AS [Flag_Exe_Del_Header]&#xA;           ,'X' AS [Flag_Exe_Del_Detail]&#xA;           ,'X' AS [Flag_Process]&#xA;           ,'X' AS [Date_Execution]&#xA;           ,'1' AS [Transfer_status]&#xA;FROM [dbo].[route_header]&#xA;INNER JOIN [dbo].[route_sellers] ON [dbo].[route_header].code = [dbo].[route_sellers].Code_Route&#xA;INNER JOIN [dbo].[sellers] ON [dbo].[route_sellers].Code_Seller = [dbo].[sellers].Code&#xA;INNER JOIN [dbo].[trucks] ON [dbo].[sellers].Code = [dbo].[trucks].Code_Seller&#xA;LEFT JOIN [dbo].[ERP_EXPLT_orders] ON [dbo].[ERP_EXPLT_orders].TOUR_ID = [dbo].[route_header].TOUR_ID&#xA;INNER JOIN [dbo].[close_day] ON [dbo].[close_day].Code_User = [dbo].[route_sellers].Code_Seller&#xA;INNER JOIN [dbo].[prj_close_day] ON [dbo].[close_day].ID_Close = [dbo].[prj_close_day].ID_Close&#xA;AND [dbo].[prj_close_day].Transfered = 'A'&#xA;&#x9;&#x9;   WHERE --'20220108' = close_day.Date_Ini&#xA;&#x9;&#x9;   CONVERT(varchar,GETDATE(),112) = [dbo].[close_day].Date_Ini&#xA;&#x9;&#x9;   AND [dbo].[close_day].Hour_End IS NOT NULL&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inserta EXPLT W table control"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{bfc65b07-d0ba-4a54-b784-e3116b6a7310}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inserta EXPLT W table control"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Inserta EXPLT W table control\OLE DB Destination"
+              componentClassID="DTSAdapter.OLEDBDestination.3"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ERP_EXPLT_W_Table_Control]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Inserta EXPLT W table control\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[STDB_Lite]"
+                  connectionManagerRefId="Package.ConnectionManagers[STDB_Lite]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TOUR_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="11"
+                      cachedName="TOUR_ID"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOUR_ID]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOUR_ID]" />
+                    <inputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Transfer_status]"
+                      cachedDataType="numeric"
+                      cachedName="Transfer_status"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Transfer_status]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Transfer_status]" />
+                    <inputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Code_Route]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="Code_Route"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Code_Route]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Route]" />
+                    <inputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Code_Seller]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="Code_Seller"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Code_Seller]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Seller]" />
+                    <inputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Code_Truck]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="24"
+                      cachedName="Code_Truck"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Code_Truck]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Truck]" />
+                    <inputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date_save]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="Date_save"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date_save]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_save]" />
+                    <inputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Order_Header]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Order_Header"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Order_Header]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Order_Header]" />
+                    <inputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Order_Detail]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Order_Detail"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Order_Detail]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Order_Detail]" />
+                    <inputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Collection]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Collection"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Collection]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Collection]" />
+                    <inputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Checkin_Header]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Checkin_Header"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Checkin_Header]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Checkin_Header]" />
+                    <inputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Checkin_Detail]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Checkin_Detail"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Checkin_Detail]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Checkin_Detail]" />
+                    <inputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Exe_Del_Header]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Exe_Del_Header"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Exe_Del_Header]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Exe_Del_Header]" />
+                    <inputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Exe_Del_Detail]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Exe_Del_Detail"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Exe_Del_Detail]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Exe_Del_Detail]" />
+                    <inputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Process]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Process"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Process]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Process]" />
+                    <inputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date_Execution]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="Date_Execution"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date_Execution]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_Execution]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOUR_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="TOUR_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Transfer_status]"
+                      dataType="numeric"
+                      name="Transfer_status"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Code_Route]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_Route" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Code_Seller]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_Seller" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Code_Truck]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="Code_Truck" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date_save]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="Date_save" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Order_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Order_Header" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Order_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Order_Detail" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Collection]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Collection" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Checkin_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Checkin_Header" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Checkin_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Checkin_Detail" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Exe_Del_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Exe_Del_Header" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Exe_Del_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Exe_Del_Detail" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flag_Process]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Process" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date_Execution]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="Date_Execution" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Inserta EXPLT W table control\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Inserta EXPLT W table control\OLE DB Source"
+              componentClassID="DTSAdapter.OLEDBSource.3"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ERP_EXPLT_W_Table_Control_2]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [ID]
+      ,[TOUR_ID]
+      ,[Code_Route]
+      ,[Code_Seller]
+      ,[Code_Truck]
+      ,[Date_save]
+      ,[Flag_Order_Header]
+      ,[Flag_Order_Detail]
+      ,[Flag_Collection]
+      ,[Flag_Checkin_Header]
+      ,[Flag_Checkin_Detail]
+      ,[Flag_Exe_Del_Header]
+      ,[Flag_Exe_Del_Detail]
+      ,[Flag_Process]
+      ,[Date_Execution]
+      ,[Transfer_status]
+  FROM [dbo].[ERP_EXPLT_W_Table_Control_2]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Inserta EXPLT W table control\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CRM_Proyecto]"
+                  connectionManagerRefId="Package.ConnectionManagers[CRM_Proyecto]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOUR_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOUR_ID]"
+                      length="11"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOUR_ID]"
+                      name="TOUR_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Transfer_status]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Transfer_status]"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Transfer_status]"
+                      name="Transfer_status"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Route]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Route]"
+                      length="12"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Route]"
+                      name="Code_Route"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Seller]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Seller]"
+                      length="12"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Seller]"
+                      name="Code_Seller"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Truck]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Truck]"
+                      length="24"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Truck]"
+                      name="Code_Truck"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_save]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date_save]"
+                      length="14"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_save]"
+                      name="Date_save"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Order_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Order_Header]"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Order_Header]"
+                      name="Flag_Order_Header"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Order_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Order_Detail]"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Order_Detail]"
+                      name="Flag_Order_Detail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Collection]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Collection]"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Collection]"
+                      name="Flag_Collection"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Checkin_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Checkin_Header]"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Checkin_Header]"
+                      name="Flag_Checkin_Header"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Checkin_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Checkin_Detail]"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Checkin_Detail]"
+                      name="Flag_Checkin_Detail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Exe_Del_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Exe_Del_Header]"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Exe_Del_Header]"
+                      name="Flag_Exe_Del_Header"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Exe_Del_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Exe_Del_Detail]"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Exe_Del_Detail]"
+                      name="Flag_Exe_Del_Detail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Process]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Process]"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Process]"
+                      name="Flag_Process"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_Execution]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date_Execution]"
+                      length="8"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_Execution]"
+                      name="Date_Execution"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOUR_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="TOUR_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Transfer_status]"
+                      dataType="numeric"
+                      name="Transfer_status"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Route]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_Route" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Seller]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_Seller" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Truck]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="Code_Truck" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date_save]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="Date_save" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Order_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Order_Header" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Order_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Order_Detail" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Collection]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Collection" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Checkin_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Checkin_Header" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Checkin_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Checkin_Detail" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Exe_Del_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Exe_Del_Header" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Exe_Del_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Exe_Del_Detail" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Process]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Process" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date_Execution]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="Date_Execution" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOUR_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOUR_ID]"
+                      name="TOUR_ID" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Route]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Route]"
+                      name="Code_Route" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Seller]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Seller]"
+                      name="Code_Seller" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Truck]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Truck]"
+                      name="Code_Truck" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date_save]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date_save]"
+                      name="Date_save" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Order_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Order_Header]"
+                      name="Flag_Order_Header" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Order_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Order_Detail]"
+                      name="Flag_Order_Detail" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Collection]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Collection]"
+                      name="Flag_Collection" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Checkin_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Checkin_Header]"
+                      name="Flag_Checkin_Header" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Checkin_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Checkin_Detail]"
+                      name="Flag_Checkin_Detail" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Exe_Del_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Exe_Del_Header]"
+                      name="Flag_Exe_Del_Header" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Exe_Del_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Exe_Del_Detail]"
+                      name="Flag_Exe_Del_Detail" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Process]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Process]"
+                      name="Flag_Process" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date_Execution]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date_Execution]"
+                      name="Date_Execution" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Transfer_status]"
+                      dataType="numeric"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Transfer_status]"
+                      name="Transfer_status"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Inserta EXPLT W table control.Paths[OLE DB Source Output]"
+              endId="Package\Inserta EXPLT W table control\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Inserta EXPLT W table control\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inserta EXPLT_table_control"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{c3e7257b-622f-422d-a033-bf440f554698}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inserta EXPLT_table_control"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BC866B7B-06AF-494E-8692-363812810976}"
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[EXPLT_W_Table_Control]&#xA;           ([TOUR_ID]&#xA;           ,[Code_Route]&#xA;           ,[Code_Seller]&#xA;           ,[Code_Truck]&#xA;           ,[Date_save]&#xA;           ,[Flag_Order_Header]&#xA;           ,[Flag_Order_Detail]&#xA;           ,[Flag_Collection]&#xA;           ,[Flag_Checkin_Header]&#xA;           ,[Flag_Checkin_Detail]&#xA;           ,[Flag_Exe_Del_Header]&#xA;           ,[Flag_Exe_Del_Detail]&#xA;           ,[Flag_Process]&#xA;           ,[Date_Execution]&#xA;           ,[Transfer_status])&#xA;SELECT [TOUR_ID]&#xA;      ,[Code_Route]&#xA;      ,[Code_Seller]&#xA;      ,[Code_Truck]&#xA;      ,[Date_save]&#xA;      ,[Flag_Order_Header]&#xA;      ,[Flag_Order_Detail]&#xA;      ,[Flag_Collection]&#xA;      ,[Flag_Checkin_Header]&#xA;      ,[Flag_Checkin_Detail]&#xA;      ,[Flag_Exe_Del_Header]&#xA;      ,[Flag_Exe_Del_Detail]&#xA;      ,[Flag_Process]&#xA;      ,[Date_Execution]&#xA;      ,[Transfer_status]&#xA;  FROM [dbo].[ERP_EXPLT_W_Table_Control]&#xA;  WHERE NOT EXISTS (SELECT [TOUR_ID]&#xA;           ,[Code_Route]&#xA;           ,[Code_Seller]&#xA;           ,[Code_Truck] FROM  EXPLT_W_Table_Control)&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inserta tabla W de control"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{bad2f12d-aa1e-446e-85b9-721a8291a58e}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inserta tabla W de control"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Inserta tabla W de control\OLE DB Destination"
+              componentClassID="DTSAdapter.OLEDBDestination.3"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TablaDeControl]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Inserta tabla W de control\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[STDB_Cliente]"
+                  connectionManagerRefId="Package.ConnectionManagers[STDB_Cliente]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TOUR_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="11"
+                      cachedName="TOUR_ID"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_RUTA]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOUR_ID]" />
+                    <inputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Code_Route]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="Code_Route"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RUTA]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Route]" />
+                    <inputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Code_Seller]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="Code_Seller"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CODIGO_VENDEDOR]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Seller]" />
+                    <inputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Code_Truck]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="24"
+                      cachedName="Code_Truck"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VEHICULO]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Truck]" />
+                    <inputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Transfer_status]"
+                      cachedDataType="numeric"
+                      cachedName="Transfer_status"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STATUS]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Transfer_status]" />
+                    <inputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Order_Header]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Order_Header"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_PEDIDO_CABECERA]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Order_Header]" />
+                    <inputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Order_Detail]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Order_Detail"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_PEDIDO_DETALLE]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Order_Detail]" />
+                    <inputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Collection]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Collection"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_COBRO]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Collection]" />
+                    <inputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Checkin_Header]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Checkin_Header"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_CHECKIN_CABECERA]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Checkin_Header]" />
+                    <inputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Checkin_Detail]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Checkin_Detail"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_CHECKIN_DETALLE]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Checkin_Detail]" />
+                    <inputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Exe_Del_Header]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Exe_Del_Header"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_EJEC_ENTREGA_CABECERA]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Exe_Del_Header]" />
+                    <inputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Exe_Del_Detail]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Exe_Del_Detail"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_EJEC_ENTREGA_DETALLE]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Exe_Del_Detail]" />
+                    <inputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flag_Process]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Flag_Process"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_PROCESADO]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Process]" />
+                    <inputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date_Execution]"
+                      cachedDataType="i4"
+                      cachedName="Date_Execution"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FEC_EJECUCION]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_Execution]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_RUTA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="ID_RUTA" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RUTA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="RUTA" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CODIGO_VENDEDOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="CODIGO_VENDEDOR" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VEHICULO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="VEHICULO" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_PEDIDO_CABECERA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="FLAG_PEDIDO_CABECERA" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_PEDIDO_DETALLE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="FLAG_PEDIDO_DETALLE" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_COBRO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="FLAG_COBRO" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_CHECKIN_CABECERA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="FLAG_CHECKIN_CABECERA" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_CHECKIN_DETALLE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="FLAG_CHECKIN_DETALLE" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_EJEC_ENTREGA_CABECERA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="FLAG_EJEC_ENTREGA_CABECERA" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_EJEC_ENTREGA_DETALLE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="FLAG_EJEC_ENTREGA_DETALLE" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLAG_PROCESADO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="FLAG_PROCESADO" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FEC_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      name="FEC_EJECUCION" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Inserta tabla W de control\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Inserta tabla W de control\OLE DB Source"
+              componentClassID="DTSAdapter.OLEDBSource.3"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[EXPLT_Table_Control]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT [EXPLT_W_Table_Control].[TOUR_ID]
+      ,[EXPLT_W_Table_Control].[Code_Route]
+      ,[EXPLT_W_Table_Control].[Code_Seller]
+      ,[EXPLT_W_Table_Control].[Code_Truck]
+      ,[Date_save],
+	  CASE WHEN IMPLT_route_org_accounts.Type_List IN('ZHR', 'ZMY','ZAS','ZPR','ZPL','ZPA')
+      THEN 'X' ELSE '' END AS [Flag_Order_Header] 
+      ,CASE WHEN IMPLT_route_org_accounts.Type_List IN('ZHR', 'ZMY','ZAS','ZPR','ZPL','ZPA')
+      THEN 'X' ELSE '' END AS [Flag_Order_Detail]
+      ,CASE WHEN IMPLT_route_org_accounts.Type_List IN('ZHR', 'ZMY','ZAS','ZPRE','ZDS')
+      THEN 'X' ELSE '' END AS [Flag_Collection]
+      ,CASE WHEN IMPLT_route_org_accounts.Type_List IN('ZPRE', 'ZDS')
+      THEN 'X' ELSE '' END AS [Flag_Checkin_Header]
+      ,CASE WHEN IMPLT_route_org_accounts.Type_List IN('ZPRE', 'ZDS')
+      THEN 'X' ELSE '' END AS [Flag_Checkin_Detail]
+      ,CASE WHEN IMPLT_route_org_accounts.Type_List IN('ZPRE', 'ZDS')
+      THEN 'X' ELSE '' END AS [Flag_Exe_Del_Header]
+      ,CASE WHEN IMPLT_route_org_accounts.Type_List IN('ZPRE', 'ZDS')
+      THEN 'X' ELSE '' END AS [Flag_Exe_Del_Detail]
+      ,'0' AS [Flag_Process]
+      ,NULL AS [Date_Execution]
+      ,[EXPLT_W_Table_Control].[Transfer_status]
+  FROM [dbo].[EXPLT_W_Table_Control]
+INNER JOIN IMPLT_route_org_accounts ON [EXPLT_W_Table_Control].Code_route = IMPLT_route_org_accounts.Code_Route</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Inserta tabla W de control\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[STDB_Lite]"
+                  connectionManagerRefId="Package.ConnectionManagers[STDB_Lite]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOUR_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOUR_ID]"
+                      length="11"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOUR_ID]"
+                      name="TOUR_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Transfer_status]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Transfer_status]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Transfer_status]"
+                      name="Transfer_status"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Route]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Route]"
+                      length="12"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Route]"
+                      name="Code_Route"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Seller]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Seller]"
+                      length="12"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Seller]"
+                      name="Code_Seller"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Truck]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Truck]"
+                      length="24"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Truck]"
+                      name="Code_Truck"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_save]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date_save]"
+                      length="14"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_save]"
+                      name="Date_save"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Order_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Order_Header]"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Order_Header]"
+                      name="Flag_Order_Header"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Order_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Order_Detail]"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Order_Detail]"
+                      name="Flag_Order_Detail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Collection]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Collection]"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Collection]"
+                      name="Flag_Collection"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Checkin_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Checkin_Header]"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Checkin_Header]"
+                      name="Flag_Checkin_Header"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Checkin_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Checkin_Detail]"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Checkin_Detail]"
+                      name="Flag_Checkin_Detail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Exe_Del_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Exe_Del_Header]"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Exe_Del_Header]"
+                      name="Flag_Exe_Del_Header"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Exe_Del_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Exe_Del_Detail]"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Exe_Del_Detail]"
+                      name="Flag_Exe_Del_Detail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Process]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Process]"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Flag_Process]"
+                      name="Flag_Process"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_Execution]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date_Execution]"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_Execution]"
+                      name="Date_Execution"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOUR_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="TOUR_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Transfer_status]"
+                      dataType="numeric"
+                      name="Transfer_status"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Route]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_Route" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Seller]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_Seller" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Truck]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="Code_Truck" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date_save]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="Date_save" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Order_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Order_Header" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Order_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Order_Detail" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Collection]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Collection" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Checkin_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Checkin_Header" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Checkin_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Checkin_Detail" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Exe_Del_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Exe_Del_Header" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Exe_Del_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Exe_Del_Detail" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Flag_Process]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Flag_Process" />
+                    <externalMetadataColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date_Execution]"
+                      dataType="i4"
+                      name="Date_Execution" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOUR_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOUR_ID]"
+                      name="TOUR_ID" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Route]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Route]"
+                      name="Code_Route" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Seller]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Seller]"
+                      name="Code_Seller" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Truck]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Truck]"
+                      name="Code_Truck" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date_save]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date_save]"
+                      name="Date_save" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Order_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Order_Header]"
+                      name="Flag_Order_Header" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Order_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Order_Detail]"
+                      name="Flag_Order_Detail" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Collection]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Collection]"
+                      name="Flag_Collection" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Checkin_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Checkin_Header]"
+                      name="Flag_Checkin_Header" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Checkin_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Checkin_Detail]"
+                      name="Flag_Checkin_Detail" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Exe_Del_Header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Exe_Del_Header]"
+                      name="Flag_Exe_Del_Header" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Exe_Del_Detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Exe_Del_Detail]"
+                      name="Flag_Exe_Del_Detail" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Process]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Flag_Process]"
+                      name="Flag_Process" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date_Execution]"
+                      dataType="i4"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date_Execution]"
+                      name="Date_Execution" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Transfer_status]"
+                      dataType="numeric"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Transfer_status]"
+                      name="Transfer_status"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Inserta tabla W de control.Paths[OLE DB Source Output]"
+              endId="Package\Inserta tabla W de control\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Inserta tabla W de control\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Post-Proceso Pedidos"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Post-Proceso Pedidos"
+      DTS:DTSID="{c353070a-b771-495d-bd5b-ed40ced9ff1c}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Post-Proceso Pedidos"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{10FCF0E3-D233-4AF5-8A40-04FE94869BCD}"
+          SQLTask:SqlStatementSource="-- Marcamos los pedidos traspasados&#xA;UPDATE    prj_orders_header set Transfered = '1' &#xA;--select * from prj_orders_header&#xA; WHERE (Transfered = 'A') &#xA;GO&#xA;&#xA;-- Marcamos los pedidos a traspasar. Pedido cerrados y que tengan líneas de pedido&#xA;UPDATE    prj_orders_header set Transfered = '0' &#xA;--select * from prj_orders_header&#xA;where Transfered is NULL&#xA;GO&#xA;&#xA;UPDATE    prj_orders_header set Transfered = 'A' &#xA;--SELECT * FROM  prj_orders_header&#xA;WHERE (Transfered = '0')  &#xA;and Invoiced = '0' and Order_Num in &#xA;(select distinct order_num from prj_orders_lines where delete_date is null)&#xA;GO&#xA;&#xA;-- Marcamos los pedidos traspasados&#xA;UPDATE    prj_orders_header set Transfered = '1' &#xA;--select * from prj_orders_header&#xA; WHERE (Transfered = '0') and Invoiced = '0'&#xA;GO&#xA;&#xA;UPDATE loads_head set Code_Status = '2'&#xA;WHERE Code_Status = 'A'&#xA;GO&#xA;&#xA;UPDATE loads_head set Code_Status = 'A'&#xA;WHERE Code_Status = '1' AND Transfered = '1'&#xA;GO&#xA;&#xA;UPDATE    prj_close_day set Transfered = '4' &#xA;--SELECT * FROM  prj_orders_header&#xA;WHERE Status = '1' AND Transfered = 'A'&#xA;&#xA;-- Marcamos los cierres&#xA;UPDATE    prj_close_day set Transfered = 'A' &#xA;--select * from prj_orders_header&#xA; WHERE (Transfered IS NULL &#xA; AND Status = '1' ) OR (Transfered = '1' &#xA; AND Status = '1' )&#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B25DD292-54E2-4A7F-9811-715FAA5DB788}"
+      DTS:From="Package\Inserta EXPLT W table control"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Inserta EXPLT_table_control" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{F349DE31-4BDF-46CD-99AC-D9CB36279E70}"
+      DTS:From="Package\Inserta EXPLT_table_control"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Inserta tabla W de control" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{7603CAA2-BAC0-406C-B613-9E361079B12E}"
+      DTS:From="Package\Inserta tabla W de control"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Post-Proceso Pedidos" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{64619DEF-A270-4578-B88A-355C5488D9AB}"
+      DTS:From="Package\Inserta Control"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Inserta EXPLT W table control" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{A3DB6AC5-ED83-46B8-A756-DF91CAFA7203}"
+      DTS:EventID="326232788"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="La propiedad de propagación del evento"
+          DTS:DTSID="{032010A6-0E4E-4898-9D10-A32850128686}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Enviar correo error"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Enviar correo error"
+          DTS:Disabled="True"
+          DTS:DTSID="{8975991F-0A00-4E58-A703-E494064B61E7}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Enviar correo error"
+          DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="MessageSource">(DT_WSTR, 12) @[System::ErrorCode] + ": " +  @[System::ErrorDescription]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{646877FF-F614-4AE1-9D5C-25D1051EC20D}"
+              SendMailTask:From="soporte-Dominicana@telynet.com"
+              SendMailTask:To="ciglesias-dts@telynet.com;fgarcia@telynet.com;rcontreras@telynet.com"
+              SendMailTask:Subject="Error procesando STDB"
+              SendMailTask:MessageSource="0: " xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="128,42.6666666666667"
+          Id="Package\Inserta Control"
+          TopLeft="334.666666666667,1294.66666666667" />
+        <NodeLayout
+          Size="178.666666666667,42.6666666666667"
+          Id="Package\Inserta EXPLT W table control"
+          TopLeft="304.959818234369,1422.2278117498" />
+        <NodeLayout
+          Size="173.333333333334,42.6666666666667"
+          Id="Package\Inserta EXPLT_table_control"
+          TopLeft="550.872516647068,1424.54262656461" />
+        <NodeLayout
+          Size="162.666666666667,42.6666666666667"
+          Id="Package\Inserta tabla W de control"
+          TopLeft="784.036537811083,1428.03733555932" />
+        <NodeLayout
+          Size="152,42.6666666666667"
+          Id="Package\Post-Proceso Pedidos"
+          TopLeft="791.603474019539,1514.90051814892" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="483.626484901036,1444.71855249054">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="67.2460317460321,0"
+              Start="0,0"
+              End="59.7460317460321,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="59.7460317460321,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="724.205849980401,1447.6233143953">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59.8306878306819,0"
+              Start="0,0"
+              End="52.3306878306819,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.3306878306819,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="866.486672581978,1470.70400222599">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.1965159229298"
+              Start="0,0"
+              End="0,36.6965159229298">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.6965159229298" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="396.479909117184,1337.33333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,84.8944784164664"
+              Start="0,0"
+              End="0,77.3944784164664">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.3944784164664" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="136,44"
+          Id="Package.EventHandlers[OnError]\Enviar correo error"
+          TopLeft="44.1666666666667,109.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Inserta EXPLT W table control">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170.666666666667,42"
+          Id="Package\Inserta EXPLT W table control\OLE DB Destination"
+          TopLeft="453,73" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Inserta EXPLT W table control\OLE DB Source"
+          TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package\Inserta EXPLT W table control.Paths[OLE DB Source Output]"
+          TopLeft="210,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="243,13"
+              Start="0,0"
+              End="235.5,13">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="117.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="117.5,0"
+                    Point2="121.5,0"
+                    Point3="121.5,4" />
+                  <mssgle:LineSegment
+                    End="121.5,9" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.5,9"
+                    Point2="121.5,13"
+                    Point3="125.5,13" />
+                  <mssgle:LineSegment
+                    End="235.5,13" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Inserta EXPLT W table control\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Inserta EXPLT W table control\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Inserta tabla W de control">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Inserta tabla W de control\OLE DB Source"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\Inserta tabla W de control\OLE DB Destination"
+          TopLeft="452,71" />
+        <EdgeLayout
+          Id="Package\Inserta tabla W de control.Paths[OLE DB Source Output]"
+          TopLeft="210,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="242,11.3333333333333"
+              Start="0,0"
+              End="234.5,11.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="117,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="117,0"
+                    Point2="121,0"
+                    Point3="121,4" />
+                  <mssgle:LineSegment
+                    End="121,7.33333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121,7.33333333333333"
+                    Point2="121,11.3333333333333"
+                    Point3="125,11.3333333333333" />
+                  <mssgle:LineSegment
+                    End="234.5,11.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Inserta tabla W de control\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Inserta tabla W de control\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

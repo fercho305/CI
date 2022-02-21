@@ -1,0 +1,1063 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/14/2019 12:32:55 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="IBVM06WSQL"
+  DTS:CreatorName="IBVM06WSQL\Telynet-1"
+  DTS:DTSID="{6ACC5F05-F1A0-41F6-A3D4-E46D1F1E1319}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Geolocation"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{E9E3738A-F402-4EF6-B447-0F0AD830ABB7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CRM_Proyecto]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{067A8368-6FE4-4138-B1D6-A52BA0DC9776}"
+      DTS:ObjectName="CRM_Proyecto">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=IBVM06WSQL;User ID=SisTelynet;Initial Catalog=Telynet_Prod;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{C37EE04D-F2D3-4126-AA52-6A7C5BE532EA}SERGIOW7\MSQL2008.crm3_mercasid;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAf6Sa7Qe08UO3uU7C9qINeAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACM6aynpISMdhWPQsdCPfrWmbd1AlhFi9fhas32zLnRQAAAAAAOgAAAAAIAACAAAAAzHZcw8a4oCRb8xiJ+Zzrxvyz5ZYJDM/gK118AOpgnLDAAAABKNbdAWqqIbyX1dDw6OVrAsCxxg1MdEeKTJE3hy1XZJ6K/pydPPwl108V+9y92vgJAAAAAm9o0CUXRu2yWecMVz0trEm7tIVviYjOxUsNIhvk7GnAF8b3sQ3iX6jqnisvF6tWp55PcEe+lU57iznrZPniXeg</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DF Gelocation Hist"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D2118971-7EC9-42A5-934A-CEBDAB4B7639}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF Gelocation Hist"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF Gelocation Hist\Geolocation"
+              componentClassID="DTSAdapter.OLEDBSource.3"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Geolocation"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[users_geolocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Gelocation Hist\Geolocation.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CRM_Proyecto]"
+                  connectionManagerRefId="Package.ConnectionManagers[CRM_Proyecto]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Create_User]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Create_User]"
+                      length="12"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Create_User]"
+                      name="Create_User"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Create_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Create_Date]"
+                      length="14"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Create_Date]"
+                      name="Create_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Modify_User]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Modify_User]"
+                      length="12"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Modify_User]"
+                      name="Modify_User"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Modify_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Modify_Date]"
+                      length="14"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Modify_Date]"
+                      name="Modify_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Delete_User]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Delete_User]"
+                      length="12"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Delete_User]"
+                      name="Delete_User"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Delete_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Delete_Date]"
+                      length="14"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Delete_Date]"
+                      name="Delete_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Platform]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Platform]"
+                      length="12"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Platform]"
+                      name="Platform"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Code_User]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Code_User]"
+                      length="12"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Code_User]"
+                      name="Code_User"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Date_Captured]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Date_Captured]"
+                      length="8"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Date_Captured]"
+                      name="Date_Captured"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Hour_Captured]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Hour_Captured]"
+                      length="6"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Hour_Captured]"
+                      name="Hour_Captured"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      length="20"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      name="Latitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Length]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Length]"
+                      length="20"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Length]"
+                      name="Length"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Satellites]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Satellites]"
+                      length="2"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Satellites]"
+                      name="Satellites"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Code_Unit_Org]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Code_Unit_Org]"
+                      length="12"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Code_Unit_Org]"
+                      name="Code_Unit_Org"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Code_Sales_Org]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Code_Sales_Org]"
+                      length="12"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Code_Sales_Org]"
+                      name="Code_Sales_Org"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Code_Visit]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Code_Visit]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Code_Visit]"
+                      name="Code_Visit"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Code_Account]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Code_Account]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Code_Account]"
+                      name="Code_Account"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Create_User]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Create_User" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Create_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="Create_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Modify_User]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Modify_User" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Modify_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="Modify_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Delete_User]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Delete_User" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Delete_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="Delete_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Platform]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Platform" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Code_User]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_User" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Date_Captured]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="Date_Captured" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Hour_Captured]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="Hour_Captured" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Length]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Length" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Satellites]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Satellites" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Code_Unit_Org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_Unit_Org" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Code_Sales_Org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_Sales_Org" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Code_Visit]"
+                      dataType="numeric"
+                      name="Code_Visit"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].ExternalColumns[Code_Account]"
+                      dataType="numeric"
+                      name="Code_Account"
+                      precision="18" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      dataType="i4"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Create_User]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Create_User]"
+                      name="Create_User" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Create_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Create_Date]"
+                      name="Create_Date" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Modify_User]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Modify_User]"
+                      name="Modify_User" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Modify_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Modify_Date]"
+                      name="Modify_Date" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Delete_User]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Delete_User]"
+                      name="Delete_User" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Delete_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Delete_Date]"
+                      name="Delete_Date" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Platform]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Platform]"
+                      name="Platform" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Code_User]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Code_User]"
+                      name="Code_User" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Date_Captured]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Date_Captured]"
+                      name="Date_Captured" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Hour_Captured]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Hour_Captured]"
+                      name="Hour_Captured" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      name="Latitude" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Length]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Length]"
+                      name="Length" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Satellites]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Satellites]"
+                      name="Satellites" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Code_Unit_Org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Code_Unit_Org]"
+                      name="Code_Unit_Org" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Code_Sales_Org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Code_Sales_Org]"
+                      name="Code_Sales_Org" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Code_Visit]"
+                      dataType="numeric"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Code_Visit]"
+                      name="Code_Visit"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Code_Account]"
+                      dataType="numeric"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[Code_Account]"
+                      name="Code_Account"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF Gelocation Hist\Hist_Geolocation"
+              componentClassID="DTSAdapter.OLEDBDestination.3"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Hist_Geolocation"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[users_hist_geolocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Gelocation Hist\Hist_Geolocation.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CRM_Proyecto]"
+                  connectionManagerRefId="Package.ConnectionManagers[CRM_Proyecto]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Create_User]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="Create_User"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Create_User]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Create_User]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Create_Date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="Create_Date"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Create_Date]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Create_Date]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Modify_User]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="Modify_User"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Modify_User]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Modify_User]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Modify_Date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="Modify_Date"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Modify_Date]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Modify_Date]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Delete_User]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="Delete_User"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Delete_User]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Delete_User]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Delete_Date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="Delete_Date"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Delete_Date]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Delete_Date]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Platform]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="Platform"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Platform]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Platform]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Code_User]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="Code_User"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Code_User]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Code_User]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Date_Captured]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="Date_Captured"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Date_Captured]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Date_Captured]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Hour_Captured]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="Hour_Captured"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Hour_Captured]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Hour_Captured]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Latitude]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Latitude"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Latitude]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Length]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Length"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Length]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Length]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Satellites]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Satellites"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Satellites]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Satellites]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Code_Unit_Org]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="Code_Unit_Org"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Code_Unit_Org]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Code_Unit_Org]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Code_Sales_Org]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="Code_Sales_Org"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Code_Sales_Org]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Code_Sales_Org]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Code_Visit]"
+                      cachedDataType="numeric"
+                      cachedName="Code_Visit"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Code_Visit]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Code_Visit]" />
+                    <inputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].Columns[Code_Account]"
+                      cachedDataType="numeric"
+                      cachedName="Code_Account"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Code_Account]"
+                      lineageId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output].Columns[Code_Account]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Create_User]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Create_User" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Create_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="Create_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Modify_User]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Modify_User" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Modify_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="Modify_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Delete_User]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Delete_User" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Delete_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="Delete_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Platform]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Platform" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Code_User]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_User" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Date_Captured]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="Date_Captured" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Hour_Captured]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="Hour_Captured" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Length]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Length" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Satellites]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Satellites" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Code_Unit_Org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_Unit_Org" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Code_Sales_Org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Code_Sales_Org" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Code_Visit]"
+                      dataType="numeric"
+                      name="Code_Visit"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[Code_Account]"
+                      dataType="numeric"
+                      name="Code_Account"
+                      precision="18" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF Gelocation Hist\Hist_Geolocation.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Gelocation Hist\Hist_Geolocation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Gelocation Hist\Hist_Geolocation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Gelocation Hist\Hist_Geolocation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF Gelocation Hist.Paths[OLE DB Source Output]"
+              endId="Package\DF Gelocation Hist\Hist_Geolocation.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF Gelocation Hist\Geolocation.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Geolocation"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ADD31BF6-3596-4A78-841D-4DBEB12095D7}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Geolocation"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{067A8368-6FE4-4138-B1D6-A52BA0DC9776}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[users_geolocation]&#xA;      &#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{99CF3D36-E8C6-421E-A98D-573EB2DF29E7}"
+      DTS:From="Package\DF Gelocation Hist"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Truncate Geolocation" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Truncate Geolocation"
+          TopLeft="549,158" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\DF Gelocation Hist"
+          TopLeft="161,158" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="327,179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="222,0"
+              Start="0,0"
+              End="214.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="214.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DF Gelocation Hist">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="134,42"
+          Id="Package\DF Gelocation Hist\Geolocation"
+          TopLeft="151,113" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DF Gelocation Hist\Hist_Geolocation"
+          TopLeft="548,116" />
+        <EdgeLayout
+          Id="Package\DF Gelocation Hist.Paths[OLE DB Source Output]"
+          TopLeft="285,135.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="263,0"
+              Start="0,0"
+              End="255.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="255.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Pasa Geolocation a Hist_Geolocation"
+          ParentId="Package\DF Gelocation Hist"
+          Size="206,60"
+          Id="135f636f-39bc-4396-85a0-19de2429709a"
+          TopLeft="322,42">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Gelocation Hist\Geolocation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Gelocation Hist\Hist_Geolocation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/7/2018 11:24:18 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="IBVM06WSQL"
+  DTS:CreatorName="IBVM06WSQL\Telynet-1"
+  DTS:DTSID="{85AA5271-333F-459A-BF22-14BF923BFF5E}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="BorradoStatus3"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{8A050F31-837C-408A-A16D-B1F16413E8DC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[STDB_Lite]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{e30ec9b2-064a-49bb-8ea9-1d0b99a649f4}"
+      DTS:ObjectName="STDB_Lite">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=IBVM06WSQL;User ID=SisTelynet;Initial Catalog=STDB_Induban;Provider=SQLNCLI11.1;Auto Translate=False;Application Name=SSIS-Package-{3A37EB33-C7CC-4FA0-9921-6362CEB5D253}SERGIOW7\MSQL2008.STDB_Little;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="Ivtxqm/DZw=="
+            IV="N7x7tM31hqo=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>N7x7tM31hqpykurzKVxyAky++FAc3+f384NR6Zg27LteiVNZHZrlfd3PFxjyDO06OdxK4XUsB67BQgs1K/09cSvMmsNhh2WEpWdPpdK3eqwDMDlnPrkq4GrKPC4DJohjzj8WC75DEiQfbhpRfwTWtTgFK5iLS4+uEGXtbDpEwmSgF25C79TbVQ==</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Borrado tablas IMPLT"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Borrado tablas IMPLT"
+      DTS:DTSID="{025345a4-ab11-4b18-9d72-ea8b8d49a680}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Borrado tablas IMPLT"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{e30ec9b2-064a-49bb-8ea9-1d0b99a649f4}"
+          SQLTask:SqlStatementSource="-- Una vez procesadas las tablas IMPLT las borramos&#xA;DELETE FROM [dbo].[IMPLT_accounts]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_accounts_agrupation1] &#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_accounts_agrupation2]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_accounts_agrupation3]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_accounts_array]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_accounts_configuration]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_accounts_credit]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_collections_pending]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_configuration]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_equipment_accounts]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_equipment_array]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_hist_orders]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_loads_detail]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_orders]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_payment_term]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_pricing]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_product_conf]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_products]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_products_array]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_products_hierarchy2]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_products_hierarchy3]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_products_hierarchy4]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_products_measure]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_provinces]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_route_accounts]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_sellers]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_trucks]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_unit_configuration]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_users_control]&#xA;GO&#xA;&#xA;DELETE FROM [dbo].[IMPLT_users_type_control]&#xA;GO&#xA;&#xA;TRUNCATE TABLE [dbo].[IMPLT_accounts_org]&#xA;GO&#xA;&#xA;TRUNCATE TABLE [dbo].[IMPLT_accounts_organ_credit]&#xA;GO&#xA;&#xA;TRUNCATE TABLE [dbo].[IMPLT_payment_accounts]&#xA;GO&#xA;&#xA;TRUNCATE TABLE [dbo].[IMPLT_products_exc]&#xA;GO&#xA;&#xA;TRUNCATE TABLE [dbo].[IMPLT_promotions_detail]&#xA;GO&#xA;&#xA;TRUNCATE TABLE [dbo].[IMPLT_promotions_gift]&#xA;GO&#xA;&#xA;TRUNCATE TABLE [dbo].[IMPLT_promotions_head]&#xA;GO&#xA;&#xA;DELETE FROM  [dbo].[IMPLT_promotions_head]&#xA;GO&#xA;&#xA;TRUNCATE TABLE [dbo].[IMPLT_users_fiscal]&#xA;GO&#xA;&#xA;TRUNCATE TABLE [dbo].[IMPLT_products_org]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ejecuta borrado EXPLT I T"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{722547E0-8FA6-4F8A-BC1F-F34351EFFF16}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ejecuta borrado EXPLT I T"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{e30ec9b2-064a-49bb-8ea9-1d0b99a649f4}"
+          SQLTask:SqlStatementSource="--Este borrado de tablas se pone en un job diferente ya que se corre en un horario diferente&#xA;--se borran los datos con Status_Sap = 3 &#xA;--significa que estas lineas ya fueron procesadas por SAP&#xA;&#xA;--VISIT&#xA;DELETE FROM I_VISIT_HEADER WHERE STATUS_SAP = '3'&#xA;GO&#xA;&#xA;--USERS_FISCAL&#xA;DELETE FROM EXPLT_users_fiscal &#xA;--WHERE STATUS_SAP = '3'&#xA;GO&#xA;&#xA;--CLEAR_HD&#xA;DELETE FROM I_CLEAR_HD WHERE STATUS_SAP = '3'&#xA;GO&#xA;&#xA;--COCIHEADER&#xA;DELETE FROM I_COCIHEADER WHERE STATUS_SAP = '3'&#xA;GO&#xA;&#xA;--DELIVERY_HEADER&#xA;DELETE FROM I_DELIVERY_HEADER WHERE STATUS_SAP = '3'&#xA;GO&#xA;&#xA;--INVOICE_HEADER&#xA;DELETE FROM I_INVOICE_HEADER WHERE STATUS_SAP = '3'&#xA;GO&#xA;&#xA;--PAYMENT_HD&#xA;DELETE FROM I_PAYMENT_HD WHERE STATUS_SAP = '3'&#xA;GO&#xA;&#xA;--TOUR_HEADER&#xA;DELETE FROM I_TOUR_HEADER WHERE STATUS_SAP = '3'&#xA;GO&#xA;&#xA;--T_COCIITEM&#xA;DELETE FROM T_COCIITEM WHERE STATUS_SAP = '3'&#xA;GO&#xA;&#xA;--COCIPAYM&#xA;DELETE FROM T_COCIPAYM WHERE STATUS_SAP = '3'&#xA;GO&#xA;&#xA;--PAYMENT_HD&#xA;DELETE FROM T_DELIVERY_010 WHERE STATUS_SAP = '3'&#xA;GO&#xA;&#xA;--TOUR_HEADER&#xA;DELETE FROM T_INVOICE_010 WHERE STATUS_SAP = '3'&#xA;GO&#xA;&#xA;--ID&#xA;TRUNCATE TABLE [dbo].[INT_ID_PA]&#xA;GO&#xA;&#xA;TRUNCATE TABLE INT_ID_PA&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A3B3E630-CF0C-4F6D-B176-6D249854B845}"
+      DTS:From="Package\Borrado tablas IMPLT"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Ejecuta borrado EXPLT I T" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Borrado tablas IMPLT"
+          TopLeft="211,95" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Ejecuta borrado EXPLT I T"
+          TopLeft="507,95" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="391,116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="116,0"
+              Start="0,0"
+              End="108.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="108.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

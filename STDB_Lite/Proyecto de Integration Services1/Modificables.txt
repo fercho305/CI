@@ -1,0 +1,5 @@
+Si debes hacer una modificaciòn a los ETL se hace desde la soluciòn.
+
+El password de todos los ETL es: 123
+
+Nunca hacer las modificaciones en la carpeta de PRD

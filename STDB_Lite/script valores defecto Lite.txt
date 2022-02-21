@@ -1,0 +1,798 @@
+DELETE FROM [dbo].[prj_orders_type_sales_organ]
+GO
+
+--DELETE FROM [dbo].[visits_array]
+--GO
+
+--DELETE FROM [dbo].[products_hierarchy1]
+--GO
+
+--DELETE FROM [dbo].[products_array]
+--GO
+
+
+DELETE FROM [dbo].[prj_return_cause]
+GO
+
+DELETE FROM [dbo].[prj_pricing_trademark]
+GO
+
+DELETE FROM [dbo].[prj_pricing_structure]
+GO
+
+DELETE FROM [dbo].[prj_pricing_secuence]
+GO
+
+DELETE FROM [dbo].[prj_pricing_priority]
+GO
+
+DELETE FROM [dbo].[prj_pricing_condition]
+GO
+
+DELETE FROM [dbo].[movements_type]
+GO
+
+--DELETE FROM [dbo].[prj_des_array]
+--GO
+
+--DELETE FROM [dbo].[accounts_array]
+--GO
+
+DELETE FROM [dbo].[prj_pricing_sc_trademark]
+GO
+
+DELETE FROM [dbo].[prj_orders_type]
+GO
+
+DELETE FROM [dbo].[accounts_type_functions]
+GO
+
+DELETE FROM [dbo].[accounts_type]
+GO
+
+--DELETE FROM [dbo].[contacts_array]
+--GO
+
+--DELETE FROM [dbo].[equipment_array]
+--GO
+
+--DELETE FROM [dbo].[loads_array]
+--GO
+
+DELETE FROM [dbo].[unit_sales_organization]
+GO
+
+DELETE FROM [dbo].[unit_organization]
+GO
+
+DELETE FROM [dbo].[sales_organization]
+GO
+
+--DELETE FROM [dbo].[providers]
+--GO
+
+SET IDENTITY_INSERT [dbo].[unit_organization] ON 
+
+GO
+INSERT [dbo].[unit_organization] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden]) VALUES (18, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'01', N'Unidad Organizativa', 1)
+GO
+SET IDENTITY_INSERT [dbo].[unit_organization] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[sales_organization] ON 
+
+GO
+INSERT [dbo].[sales_organization] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden]) VALUES (32, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'1001', N'OrganizaciÛn Ventas', 1)
+GO
+SET IDENTITY_INSERT [dbo].[sales_organization] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[unit_sales_organization] ON 
+
+GO
+INSERT [dbo].[unit_sales_organization] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Unit_Org], [Code_Sales_Org]) VALUES (50, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'01', N'1001')
+GO
+SET IDENTITY_INSERT [dbo].[unit_sales_organization] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[prj_orders_type] ON 
+
+GO
+INSERT [dbo].[prj_orders_type] ([Platform], [Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Orden], [Code], [Description]) VALUES (N'0', 16, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, 3, N'ZCOT', N'CotizaciÛn')
+GO
+INSERT [dbo].[prj_orders_type] ([Platform], [Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Orden], [Code], [Description]) VALUES (N'0', 15, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, 2, N'ZDEV', N'DevoluciÛn')
+GO
+INSERT [dbo].[prj_orders_type] ([Platform], [Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Orden], [Code], [Description]) VALUES (N'0', 14, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, 1, N'ZOR', N'Pedido Venta')
+GO
+SET IDENTITY_INSERT [dbo].[prj_orders_type] OFF
+GO
+
+
+SET IDENTITY_INSERT [dbo].[prj_orders_type_sales_organ] ON 
+
+GO
+INSERT [dbo].[prj_orders_type_sales_organ] ([Platform], [Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Code], [Code_Unit_Org], [Code_Sales_Org], [Description]) VALUES (N'0', 12, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'ZCOT', N'01', N'1001', N'CotizaciÛn')
+GO
+INSERT [dbo].[prj_orders_type_sales_organ] ([Platform], [Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Code], [Code_Unit_Org], [Code_Sales_Org], [Description]) VALUES (N'0', 11, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'ZDEV', N'01', N'1001', N'DevoluciÛn')
+GO
+INSERT [dbo].[prj_orders_type_sales_organ] ([Platform], [Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Code], [Code_Unit_Org], [Code_Sales_Org], [Description]) VALUES (N'0', 10, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'ZOR', N'01', N'1001', N'Pedido Venta')
+GO
+SET IDENTITY_INSERT [dbo].[prj_orders_type_sales_organ] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[prj_pricing_sc_trademark] ON 
+
+GO
+INSERT [dbo].[prj_pricing_sc_trademark] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Code_Unit_Org], [Code_Sales_Org], [Price_Schema], [Code_Type]) VALUES (182, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZCOT', N'01', N'1001', N'1', N'ZCOT')
+GO
+INSERT [dbo].[prj_pricing_sc_trademark] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Code_Unit_Org], [Code_Sales_Org], [Price_Schema], [Code_Type]) VALUES (181, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZDEV', N'01', N'1001', N'1', N'ZDEV')
+GO
+INSERT [dbo].[prj_pricing_sc_trademark] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Code_Unit_Org], [Code_Sales_Org], [Price_Schema], [Code_Type]) VALUES (180, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZOR', N'01', N'1001', N'1', N'ZOR')
+GO
+SET IDENTITY_INSERT [dbo].[prj_pricing_sc_trademark] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[accounts_array] ON 
+
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (223, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'0', N'Inactivo', 1, CAST(5 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (230, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'0', N'Semana Par', 1, CAST(25 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (237, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'0', N'Exento', 1, CAST(31 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (225, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'01', N'Por defecto', 1, CAST(6 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (224, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'1', N'Activo', 2, CAST(5 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (226, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'1', N'Est·ndar', 1, CAST(19 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (231, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'1', N'Semana impar/Primera semana', 2, CAST(25 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (238, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'1', N'Impuesto', 2, CAST(31 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (232, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'2', N'Segunda semana', 3, CAST(25 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (233, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'3', N'Tercera semana', 4, CAST(25 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (234, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'4', N'Cuarta semana', 5, CAST(25 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (229, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'M', N'Mensual', 3, CAST(24 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (235, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'MWST', N'Iva', 1, CAST(30 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (228, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'Q', N'Quincenal', 2, CAST(24 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (227, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'S', N'Semanal', 1, CAST(24 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[accounts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (236, N'ERP', N'20180213102333', N'ERP', N'20180213102333', NULL, NULL, N'0', N'TWST', N'Recargo', 2, CAST(30 AS Numeric(4, 0)))
+GO
+SET IDENTITY_INSERT [dbo].[accounts_array] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[accounts_type] ON 
+
+GO
+INSERT [dbo].[accounts_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Exclusive]) VALUES (1, N'ERP', N'20121002212847', N'ERP', N'20180213102333', NULL, NULL, N'0', N'01', N'Prospecto', 1, N'1')
+GO
+INSERT [dbo].[accounts_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Exclusive]) VALUES (37, N'ERP', N'20121002212847', N'ERP', N'20180213102333', NULL, NULL, N'0', N'02', N'Directo', 2, N'0')
+GO
+INSERT [dbo].[accounts_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Exclusive]) VALUES (38, N'ERP', N'20121002212847', N'ERP', N'20180213102333', N'ERP', N'20180213102333', N'0', N'03', N'Indirecto', 2, N'0')
+GO
+INSERT [dbo].[accounts_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Exclusive]) VALUES (39, N'ERP', N'20121002212847', N'ERP', N'20180213102333', N'ERP', N'20180213102333', N'0', N'04', N'Distribuidor', 2, N'0')
+GO
+INSERT [dbo].[accounts_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Exclusive]) VALUES (40, N'ERP', N'20121002212847', N'ERP', N'20180213102333', N'ERP', N'20180213102333', N'0', N'05', N'Farmacia', 2, N'1')
+GO
+INSERT [dbo].[accounts_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Exclusive]) VALUES (41, N'ERP', N'20121002212847', N'ERP', N'20180213102333', N'ERP', N'20180213102333', N'0', N'06', N'Asistencia', 2, N'0')
+GO
+INSERT [dbo].[accounts_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Exclusive]) VALUES (42, N'ERP', N'20121002212847', N'ERP', N'20180213102333', N'ERP', N'20180213102333', N'0', N'07', N'Hospital/ClÌnica (Centro MÈdico)', 2, N'1')
+GO
+INSERT [dbo].[accounts_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Exclusive]) VALUES (43, N'ERP', N'20121002212847', N'ERP', N'20180213102333', N'ERP', N'20180213102333', N'0', N'08', N'MÈdico y Enfermeros', 2, N'1')
+GO
+INSERT [dbo].[accounts_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Exclusive]) VALUES (44, N'ERP', N'20121002212847', N'ERP', N'20180213102333', N'ERP', N'20180213102333', N'0', N'09', N'Mayorista', 2, N'0')
+GO
+INSERT [dbo].[accounts_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Exclusive]) VALUES (45, N'ERP', N'20121002212847', N'ERP', N'20180213102333', N'ERP', N'20180213102333', N'0', N'10', N'Empleado', 2, N'0')
+GO
+SET IDENTITY_INSERT [dbo].[accounts_type] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[accounts_type_functions] ON 
+
+GO
+INSERT [dbo].[accounts_type_functions] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (8, N'ERP', N'20120614093852', N'ERP', N'20120925123001', NULL, NULL, N'0', N'1Z00011', N'Es el Lugar de Trabajo de', 18, N'2')
+GO
+INSERT [dbo].[accounts_type_functions] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (1, N'ERP', N'20120921125801', N'ERP', N'20120925123001', NULL, NULL, N'1', N'AG', N'Solicitante', 1, N'1')
+GO
+INSERT [dbo].[accounts_type_functions] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (6, N'ERP', N'20120614093852', N'ERP', N'20120925123001', NULL, NULL, N'0', N'CO', N'Distribuidor', 6, N'1')
+GO
+INSERT [dbo].[accounts_type_functions] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (2, N'ERP', N'20120614093852', N'ERP', N'20120925123001', NULL, NULL, N'0', N'RE', N'Destinatario Factura', 2, N'1')
+GO
+INSERT [dbo].[accounts_type_functions] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (3, N'ERP', N'20120614093852', N'ERP', N'20120925123001', NULL, NULL, N'0', N'RG', N'Pagador', 3, N'1')
+GO
+INSERT [dbo].[accounts_type_functions] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (4, N'ERP', N'20120614093852', N'ERP', N'20120925123001', NULL, NULL, N'0', N'WE', N'Destinatario MercancÌa', 4, N'1')
+GO
+INSERT [dbo].[accounts_type_functions] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Type]) VALUES (18, N'ERP', N'20120614093852', N'ERP', N'20120925123001', NULL, NULL, N'0', N'Z00011', N'Trabaja en', 17, N'2')
+GO
+SET IDENTITY_INSERT [dbo].[accounts_type_functions] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[contacts_array] ON 
+
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (2, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'0001', CAST(2 AS Numeric(4, 0)), N'Responsable', 1)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (3, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'0001', CAST(3 AS Numeric(4, 0)), N'AdministraciÛn', 1)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (4, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'0002', CAST(2 AS Numeric(4, 0)), N'Empleado', 2)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (5, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'0002', CAST(3 AS Numeric(4, 0)), N'LogÌstica', 2)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (6, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'0003', CAST(2 AS Numeric(4, 0)), N'Director', 4)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (7, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'0003', CAST(3 AS Numeric(4, 0)), N'Financiero', 3)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (8, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'0004', CAST(2 AS Numeric(4, 0)), N'Vendedor', 3)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (9, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'0004', CAST(3 AS Numeric(4, 0)), N'Ventas', 4)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (10, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'0005', CAST(2 AS Numeric(4, 0)), N'Administrativo', 6)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (11, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'0005', CAST(3 AS Numeric(4, 0)), N'Compras', 5)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (12, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'0006', CAST(2 AS Numeric(4, 0)), N'Jefe Regional', 5)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (13, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'0006', CAST(3 AS Numeric(4, 0)), N'DirecciÛn', 6)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (14, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'0007', CAST(3 AS Numeric(4, 0)), N'Inform·tica', 7)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (15, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'0008', CAST(3 AS Numeric(4, 0)), N'AlmacÈn', 8)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (16, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'0009', CAST(3 AS Numeric(4, 0)), N'No Calificado', 9)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (35, N'ERP', N'20170104124406', N'ERP', N'20170104124406', NULL, NULL, N'0', N'01', CAST(1 AS Numeric(4, 0)), N'Propietario', NULL)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (36, N'ERP', N'20170104124406', N'ERP', N'20170104124406', NULL, NULL, N'0', N'02', CAST(1 AS Numeric(4, 0)), N'Administrador', NULL)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (37, N'ERP', N'20170216172709', N'ERP', N'20170216172709', NULL, NULL, N'0', N'03', CAST(1 AS Numeric(4, 0)), N'GenÈrico', NULL)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (31, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'A', CAST(4 AS Numeric(4, 0)), N'ACTIVO (A)', 1)
+GO
+INSERT [dbo].[contacts_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (32, N'DEMO', N'20140128132500', N'DEMO', N'20140128132500', NULL, NULL, N'0', N'I', CAST(4 AS Numeric(4, 0)), N'INACTIVO (I)', 1)
+GO
+SET IDENTITY_INSERT [dbo].[contacts_array] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[equipment_array] ON 
+
+GO
+INSERT [dbo].[equipment_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (97, N'ERP', N'20170830120826', N'ERP', N'20170830120826', NULL, NULL, N'0', N'0', 2, N'Buen estado', 1, N'1', NULL)
+GO
+INSERT [dbo].[equipment_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (106, N'ERP', N'20170830120826', N'ERP', N'20170830120826', NULL, NULL, N'0', N'1', 2, N'Estropeado', 2, N'1', NULL)
+GO
+INSERT [dbo].[equipment_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (107, N'ERP', N'20170830120826', N'ERP', N'20170830120826', NULL, NULL, N'0', N'2', 2, N'Sucio', 3, N'1', NULL)
+GO
+INSERT [dbo].[equipment_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (108, N'ERP', N'20170830120826', N'ERP', N'20170830120826', NULL, NULL, N'0', N'3', 2, N'Competencia', 4, N'1', NULL)
+GO
+INSERT [dbo].[equipment_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (109, N'ERP', N'20170830120826', N'ERP', N'20170830120826', NULL, NULL, N'0', N'A', 1, N'Activo', 1, N'1', NULL)
+GO
+INSERT [dbo].[equipment_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (110, N'ERP', N'20170830120826', N'ERP', N'20170830120826', NULL, NULL, N'0', N'R', 1, N'Reterido', 2, N'1', NULL)
+GO
+INSERT [dbo].[equipment_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (98, N'ERP', N'20170830120826', N'ERP', N'20170830120826', NULL, NULL, N'0', N'R1', 3, N'En reparaciÛn', 1, N'1', NULL)
+GO
+INSERT [dbo].[equipment_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (99, N'ERP', N'20170830120826', N'ERP', N'20170830120826', NULL, NULL, N'0', N'R2', 3, N'Robado', 2, N'1', NULL)
+GO
+INSERT [dbo].[equipment_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (100, N'ERP', N'20170830120826', N'ERP', N'20170830120826', NULL, NULL, N'0', N'R3', 3, N'Retirado', 3, N'1', NULL)
+GO
+INSERT [dbo].[equipment_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (101, N'ERP', N'20170830120826', N'ERP', N'20170830120826', NULL, NULL, N'0', N'R4', 3, N'Cambiado a otro cliente', 4, N'1', NULL)
+GO
+SET IDENTITY_INSERT [dbo].[equipment_array] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[loads_array] ON 
+
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (1, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'0', N'Pendiente', CAST(2 AS Numeric(4, 0)), NULL, CAST(1 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (7, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'0', N'Normal', CAST(3 AS Numeric(4, 0)), NULL, CAST(1 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (2, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'01', N'Carga', CAST(1 AS Numeric(4, 0)), NULL, CAST(1 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (28, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'01', N'Incompleta', CAST(6 AS Numeric(4, 0)), NULL, CAST(1 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (3, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'02', N'Descarga', CAST(1 AS Numeric(4, 0)), NULL, CAST(2 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (29, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'02', N'DaÒada', CAST(6 AS Numeric(4, 0)), NULL, CAST(2 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (4, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'1', N'Realizada', CAST(2 AS Numeric(4, 0)), NULL, CAST(2 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (8, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'1', N'Tr·nsito', CAST(3 AS Numeric(4, 0)), NULL, CAST(2 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (15, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'1', N'Carga (Normal)', CAST(4 AS Numeric(4, 0)), NULL, CAST(4 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (5, N'ERP', N'20160811130126', N'ERP', N'20160811130126', NULL, NULL, N'0', N'2', N'PrevisiÛn Pendiente', CAST(2 AS Numeric(4, 0)), N'', CAST(3 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (13, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'2', N'Virtual', CAST(3 AS Numeric(4, 0)), NULL, CAST(3 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (16, N'ERP', N'20160811130059', N'ERP', N'20160811130059', NULL, NULL, N'0', N'2', N'PrevisiÛn', CAST(4 AS Numeric(4, 0)), N'', CAST(4 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (6, N'ERP', N'20160811130114', N'ERP', N'20160811130114', NULL, NULL, N'0', N'3', N'PrevisiÛn Realizada', CAST(2 AS Numeric(4, 0)), N'', CAST(4 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (17, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'3', N'Recarga (Manual)', CAST(4 AS Numeric(4, 0)), NULL, CAST(4 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (19, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'4', N'Descarga Pendiente', CAST(2 AS Numeric(4, 0)), NULL, CAST(5 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (18, N'ERP', N'20140310103534', N'ERP', N'20140310103534', N'ERP', N'20140310103534', N'0', N'4', N'Traspaso entre camiones', CAST(4 AS Numeric(4, 0)), NULL, CAST(4 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (20, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'5', N'Descarga Realizada', CAST(2 AS Numeric(4, 0)), NULL, CAST(6 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (23, N'ERP', N'20140310103534', N'ERP', N'20161007093123', N'ERP', N'20140310103534', N'0', N'5', N'SustituciÛn PrevisiÛn', CAST(4 AS Numeric(4, 0)), NULL, CAST(4 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (21, N'ERP', N'20140310103534', N'ERP', N'20161007093123', NULL, NULL, N'0', N'6', N'SustituciÛn Pendiente', CAST(2 AS Numeric(4, 0)), NULL, CAST(6 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (24, N'ERP', N'20140310103534', N'ERP', N'20161007093123', N'ERP', N'20140310103534', N'0', N'6', N'Carga Promocion', CAST(4 AS Numeric(4, 0)), NULL, CAST(4 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (22, N'ERP', N'20140310103534', N'ERP', N'20170721031707', NULL, NULL, N'0', N'7', N'PrevisiÛn Carga Realizada', CAST(2 AS Numeric(4, 0)), NULL, CAST(6 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (25, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'7', N'Carga Reparto', CAST(4 AS Numeric(4, 0)), NULL, CAST(4 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (26, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'8', N'PrevisiÛn como Carga', CAST(4 AS Numeric(4, 0)), NULL, CAST(4 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (30, N'ERP', N'20140310103534', N'ERP', N'20161007093123', NULL, NULL, N'0', N'9', N'Pend Validar AlmacÈn', CAST(2 AS Numeric(4, 0)), NULL, CAST(6 AS Numeric(4, 0)))
+GO
+INSERT [dbo].[loads_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Type], [Description_Short], [Orden]) VALUES (27, N'ERP', N'20140310103534', N'ERP', N'20140310103534', NULL, NULL, N'0', N'9', N'Descarga completa', CAST(4 AS Numeric(4, 0)), NULL, CAST(4 AS Numeric(4, 0)))
+GO
+SET IDENTITY_INSERT [dbo].[loads_array] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[movements_type] ON 
+
+GO
+INSERT [dbo].[movements_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Cost_Center], [Type], [Active]) VALUES (1, N'59', N'20140227162028', N'59', N'20140227162028', NULL, NULL, N'0', N'01', N'Sobrante', 1, N'0', N'0', N'1')
+GO
+INSERT [dbo].[movements_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Cost_Center], [Type], [Active]) VALUES (2, N'59', N'20140227162028', N'59', N'20140227162028', NULL, NULL, N'0', N'02', N'Faltante', 1, N'0', N'1', N'1')
+GO
+INSERT [dbo].[movements_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Cost_Center], [Type], [Active]) VALUES (3, N'59', N'20140227162028', N'59', N'20140227162028', NULL, NULL, N'0', N'03', N'Pedido', 1, N'0', N'0', N'1')
+GO
+INSERT [dbo].[movements_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Cost_Center], [Type], [Active]) VALUES (5, N'59', N'20140227162028', N'59', N'20140227162028', NULL, NULL, N'0', N'05', N'Caducado', 1, N'1', N'1', N'1')
+GO
+INSERT [dbo].[movements_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Cost_Center], [Type], [Active]) VALUES (6, N'59', N'20140227162028', N'59', N'20140227162028', NULL, NULL, N'0', N'06', N'Producto mal estado', 1, N'1', N'1', N'1')
+GO
+INSERT [dbo].[movements_type] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Cost_Center], [Type], [Active]) VALUES (7, N'59', N'20140227162028', N'59', N'20140227162028', NULL, NULL, N'0', N'07', N'Perdida de producto', 1, N'1', N'1', N'1')
+GO
+SET IDENTITY_INSERT [dbo].[movements_type] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[prj_des_array] ON 
+
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (1, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'0', CAST(10 AS Numeric(4, 0)), N'Importe', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (117, N'ERP', N'20140317110429', N'ERP', N'20140317110429', NULL, NULL, N'0', N'0', CAST(112 AS Numeric(4, 0)), N'Preventa', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (2, N'ERP', N'20140317110429', N'ERP', N'20140317110429', NULL, NULL, NULL, N'0', CAST(203 AS Numeric(4, 0)), N'SIN VALIDAR', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (3, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'0', CAST(205 AS Numeric(4, 0)), N'ABIERTO', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (105, N'DESA', N'20160628135100', N'DESA', N'20160628135100', NULL, NULL, N'0', N'0', CAST(301 AS Numeric(4, 0)), N'Inactivo', CAST(2 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (5, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'01', CAST(15 AS Numeric(4, 0)), N'Enero', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (115, N'10', N'20170412173810', N'10', N'20170412173810', NULL, NULL, N'1', N'01', CAST(111 AS Numeric(4, 0)), N'CrÈdito Fiscal', CAST(1 AS Numeric(4, 0)), N'')
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (122, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'01', CAST(171 AS Numeric(4, 0)), N'Cheque Devuelto', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (7, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'02', CAST(15 AS Numeric(4, 0)), N'Febrero', CAST(2 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (116, N'10', N'20170412173804', N'10', N'20170412173804', NULL, NULL, N'1', N'02', CAST(111 AS Numeric(4, 0)), N'Consumidor Final', CAST(1 AS Numeric(4, 0)), N'')
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (123, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'02', CAST(171 AS Numeric(4, 0)), N'Error en Factura', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (9, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'03', CAST(15 AS Numeric(4, 0)), N'Marzo', CAST(3 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (119, N'ERP', N'20140317110429', N'ERP', N'20140317110429', NULL, NULL, N'0', N'03', CAST(111 AS Numeric(4, 0)), N'Notas de dÈbito', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (124, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'03', CAST(171 AS Numeric(4, 0)), N'Material no entregado', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (11, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'04', CAST(15 AS Numeric(4, 0)), N'Abril', CAST(4 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (120, N'ERP', N'20140317110429', N'ERP', N'20140317110429', NULL, NULL, N'0', N'04', CAST(111 AS Numeric(4, 0)), N'Notas de CrÈdito', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (12, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'05', CAST(15 AS Numeric(4, 0)), N'Mayo', CAST(5 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (13, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'06', CAST(15 AS Numeric(4, 0)), N'Junio', CAST(6 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (14, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'07', CAST(15 AS Numeric(4, 0)), N'Julio', CAST(7 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (15, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'08', CAST(15 AS Numeric(4, 0)), N'Agosto', CAST(8 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (16, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'09', CAST(15 AS Numeric(4, 0)), N'Septiembre', CAST(9 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (18, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'1', CAST(10 AS Numeric(4, 0)), N'Cantidad', CAST(2 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (19, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'1', CAST(20 AS Numeric(4, 0)), N'MES', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (20, N'PRODUCTO', N'20130604134200', N'PRODUCTO', N'20130604134200', NULL, NULL, N'0', N'1', CAST(28 AS Numeric(4, 0)), N'NO VALIDADO - (NIVEL 1)', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (22, N'PRODUCTO', N'20130604134200', N'PRODUCTO', N'20130604134200', NULL, NULL, N'0', N'1', CAST(100 AS Numeric(4, 0)), N'Lunes', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (23, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'1', CAST(102 AS Numeric(4, 0)), N'Completo', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (24, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'1', CAST(103 AS Numeric(4, 0)), N'Mal estado', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (118, N'ERP', N'20140317110429', N'ERP', N'20140317110429', NULL, NULL, N'0', N'1', CAST(112 AS Numeric(4, 0)), N'Reparto', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (25, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'1', CAST(201 AS Numeric(4, 0)), N'LUNES', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (26, N'ERP', N'20140317110429', N'ERP', N'20140317110429', NULL, NULL, NULL, N'1', CAST(202 AS Numeric(4, 0)), N'PRECIO', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (27, N'ERP', N'20140317110429', N'ERP', N'20140317110429', NULL, NULL, NULL, N'1', CAST(203 AS Numeric(4, 0)), N'VALIDADO', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (28, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'1', CAST(205 AS Numeric(4, 0)), N'CERRADO', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (29, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'1', CAST(206 AS Numeric(4, 0)), N'VENTA', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (104, N'DESA', N'20160628135100', N'DESA', N'20160628135100', NULL, NULL, N'0', N'1', CAST(301 AS Numeric(4, 0)), N'Activo', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (30, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'10', CAST(15 AS Numeric(4, 0)), N'Octubre', CAST(10 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (31, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'11', CAST(15 AS Numeric(4, 0)), N'Noviembre', CAST(11 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (33, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'12', CAST(15 AS Numeric(4, 0)), N'Diciembre', CAST(12 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (32, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'12', CAST(20 AS Numeric(4, 0)), N'A—O', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (34, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'2', CAST(10 AS Numeric(4, 0)), N'Numero LÌneas', CAST(3 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (35, N'PRODUCTO', N'20130604134200', N'PRODUCTO', N'20130604134200', NULL, NULL, N'0', N'2', CAST(28 AS Numeric(4, 0)), N'EMPLEADO - (NIVEL 2)', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (37, N'PRODUCTO', N'20130604134200', N'PRODUCTO', N'20130604134200', NULL, NULL, N'0', N'2', CAST(100 AS Numeric(4, 0)), N'Martes', CAST(2 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (38, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'2', CAST(102 AS Numeric(4, 0)), N'Parcial', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (39, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'2', CAST(103 AS Numeric(4, 0)), N'No lo quiere', CAST(2 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (121, N'10', N'20170417135548', N'10', N'20170417135548', NULL, NULL, N'1', N'2', CAST(112 AS Numeric(4, 0)), N'Autoventa', CAST(2 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (40, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'2', CAST(201 AS Numeric(4, 0)), N'MARTES', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (41, N'ERP', N'20140317110429', N'ERP', N'20140317110429', NULL, NULL, NULL, N'2', CAST(202 AS Numeric(4, 0)), N'DTO IMPORTE', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (42, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'2', CAST(205 AS Numeric(4, 0)), N'PENDIENTE DE SERVIR', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (43, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'2', CAST(206 AS Numeric(4, 0)), N'DISTRIBUCION', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (44, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'3', CAST(20 AS Numeric(4, 0)), N'TRIMESTRE', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (45, N'PRODUCTO', N'20130604134200', N'PRODUCTO', N'20130604134200', NULL, NULL, N'0', N'3', CAST(28 AS Numeric(4, 0)), N'JEFE DE √ÅREA- (NIVEL 3)', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (47, N'PRODUCTO', N'20130604134200', N'PRODUCTO', N'20130604134200', NULL, NULL, N'0', N'3', CAST(100 AS Numeric(4, 0)), N'Miercoles', CAST(3 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (48, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'3', CAST(102 AS Numeric(4, 0)), N'No entregado', CAST(3 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (49, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'3', CAST(103 AS Numeric(4, 0)), N'Falta producto', CAST(3 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (50, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'3', CAST(201 AS Numeric(4, 0)), N'MIERCOLES', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (51, N'ERP', N'20140317110429', N'ERP', N'20140317110429', NULL, NULL, NULL, N'3', CAST(202 AS Numeric(4, 0)), N'DTO %', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (52, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'3', CAST(205 AS Numeric(4, 0)), N'ANULADO', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (53, N'PRODUCTO', N'20130604134200', N'PRODUCTO', N'20130604134200', NULL, NULL, N'0', N'4', CAST(28 AS Numeric(4, 0)), N'ADMINISTRACION - (NIVEL 4)', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (54, N'PRODUCTO', N'20130604134200', N'PRODUCTO', N'20130604134200', NULL, NULL, N'0', N'4', CAST(100 AS Numeric(4, 0)), N'Jueves', CAST(4 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (55, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'4', CAST(103 AS Numeric(4, 0)), N'Servido Completo', CAST(4 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (56, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'4', CAST(201 AS Numeric(4, 0)), N'JUEVES', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (57, N'PRODUCTO', N'20130604134200', N'PRODUCTO', N'20130604134200', NULL, NULL, N'0', N'5', CAST(100 AS Numeric(4, 0)), N'Viernes', CAST(5 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (58, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'5', CAST(201 AS Numeric(4, 0)), N'VIERNES', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (59, N'PRODUCTO', N'20130604134200', N'PRODUCTO', N'20130604134200', NULL, NULL, N'0', N'6', CAST(100 AS Numeric(4, 0)), N'S·bado', CAST(6 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (60, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'6', CAST(201 AS Numeric(4, 0)), N'SABADO', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (61, N'PRODUCTO', N'20130604134200', N'PRODUCTO', N'20130604134200', NULL, NULL, N'0', N'7', CAST(100 AS Numeric(4, 0)), N'Domingo', CAST(7 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (62, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'7', CAST(201 AS Numeric(4, 0)), N'DOMINGO', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (64, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'AC', CAST(22 AS Numeric(4, 0)), N'ACTIVIDADES', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (65, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'AS', CAST(22 AS Numeric(4, 0)), N'SURTIDOS', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (92, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'C', CAST(207 AS Numeric(4, 0)), N'COBRADO', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (67, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'CO', CAST(22 AS Numeric(4, 0)), N'RECLAMACIONES', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (68, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'DI', CAST(22 AS Numeric(4, 0)), N'ESCAPARATES', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (69, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'EM', CAST(22 AS Numeric(4, 0)), N'ELEMENTOS MERCADO', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (17, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, N'0', N'EN', CAST(3 AS Numeric(4, 0)), N'INGL…S', CAST(3 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (70, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'EQ', CAST(22 AS Numeric(4, 0)), N'EQUIPAMIENTO', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (71, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'ES', CAST(3 AS Numeric(4, 0)), N'ESPA—OL', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (72, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'EX', CAST(22 AS Numeric(4, 0)), N'GASTOS', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (125, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, N'0', N'FR', CAST(3 AS Numeric(4, 0)), N'FRANC…S', CAST(4 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (73, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'G', CAST(99 AS Numeric(4, 0)), N'General', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (75, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'I', CAST(21 AS Numeric(4, 0)), N'PRODUCTO', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (77, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'LOSI', CAST(22 AS Numeric(4, 0)), N'FIRMA CARGA', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (114, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'MO', CAST(22 AS Numeric(4, 0)), N'MOVIMIENTOS', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (80, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'ORSI', CAST(22 AS Numeric(4, 0)), N'FIRMA PEDIDO', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (82, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'P', CAST(99 AS Numeric(4, 0)), N'Particular', CAST(2 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (91, N'ERP', N'20140120171202', N'ERP', N'20140120171202', NULL, NULL, NULL, N'P', CAST(207 AS Numeric(4, 0)), N'PENDIENTE', CAST(2 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (93, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'PT', CAST(3 AS Numeric(4, 0)), N'PORTUGUES', CAST(2 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (85, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'SE', CAST(22 AS Numeric(4, 0)), N'SERVICIOS', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (86, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'SESI', CAST(22 AS Numeric(4, 0)), N'FIRMA SERVICIO', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (87, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'SL', CAST(22 AS Numeric(4, 0)), N'ESPACIOS', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (88, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'SR', CAST(22 AS Numeric(4, 0)), N'ENCUESTAS', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (89, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'T', CAST(21 AS Numeric(4, 0)), N'CLIENTES', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+INSERT [dbo].[prj_des_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Extra_Type]) VALUES (90, N'PRODUCTO', N'20140123125840', N'PRODUCTO', N'20140123125840', NULL, NULL, N'0', N'V', CAST(21 AS Numeric(4, 0)), N'JERARQUIA VENTAS', CAST(1 AS Numeric(4, 0)), NULL)
+GO
+SET IDENTITY_INSERT [dbo].[prj_des_array] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[prj_pricing_condition] ON 
+
+GO
+INSERT [dbo].[prj_pricing_condition] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Table], [Code_Type], [Code1], [Code2], [Code3], [Code4], [Code5], [Code6], [Code7], [Code8], [Exclusive]) VALUES (1, N'ERP', N'20130903130000', N'ERP', N'20130903130000', NULL, NULL, N'0', N'001', N'N', N'11', N'15', N'16', NULL, NULL, NULL, NULL, NULL, N'1')
+GO
+INSERT [dbo].[prj_pricing_condition] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Table], [Code_Type], [Code1], [Code2], [Code3], [Code4], [Code5], [Code6], [Code7], [Code8], [Exclusive]) VALUES (79, N'ERP', N'20130903130000', N'ERP', N'20130903130000', NULL, NULL, N'0', N'002', N'N', N'11', N'16', NULL, NULL, NULL, NULL, NULL, NULL, N'1')
+GO
+INSERT [dbo].[prj_pricing_condition] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Table], [Code_Type], [Code1], [Code2], [Code3], [Code4], [Code5], [Code6], [Code7], [Code8], [Exclusive]) VALUES (80, N'ERP', N'20130903130000', N'ERP', N'20130903130000', NULL, NULL, N'0', N'003', N'N', N'02', N'27', N'28', NULL, NULL, NULL, NULL, NULL, N'1')
+GO
+INSERT [dbo].[prj_pricing_condition] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Table], [Code_Type], [Code1], [Code2], [Code3], [Code4], [Code5], [Code6], [Code7], [Code8], [Exclusive]) VALUES (81, N'ERP', N'20130903130000', N'ERP', N'20130903130000', NULL, NULL, N'0', N'004', N'N', N'11', N'14', N'16', NULL, NULL, NULL, NULL, NULL, N'1')
+GO
+SET IDENTITY_INSERT [dbo].[prj_pricing_condition] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[prj_pricing_priority] ON 
+
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (53, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZCOT', CAST(1 AS Numeric(5, 0)), CAST(1 AS Numeric(5, 0)), N'ZPR0', N'P', N'1 ', N'0', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (54, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZCOT', CAST(1 AS Numeric(5, 0)), CAST(10 AS Numeric(5, 0)), N'ZDC1', N'D', N'2 ', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (55, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZCOT', CAST(1 AS Numeric(5, 0)), CAST(20 AS Numeric(5, 0)), N'ZDC2', N'D', N'3 ', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (56, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZCOT', CAST(1 AS Numeric(5, 0)), CAST(30 AS Numeric(5, 0)), N'ZDC3', N'D', N'4 ', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (57, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZCOT', CAST(1 AS Numeric(5, 0)), CAST(990 AS Numeric(5, 0)), N'MWST', N'T', N'5 ', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (58, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZCOT', CAST(1 AS Numeric(5, 0)), CAST(995 AS Numeric(5, 0)), N'TWST', N'T', N'6 ', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (47, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZDEV', CAST(1 AS Numeric(5, 0)), CAST(1 AS Numeric(5, 0)), N'ZPR0', N'P', N'1 ', N'0', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (48, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZDEV', CAST(1 AS Numeric(5, 0)), CAST(10 AS Numeric(5, 0)), N'ZDC1', N'D', N'2 ', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (49, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZDEV', CAST(1 AS Numeric(5, 0)), CAST(20 AS Numeric(5, 0)), N'ZDC2', N'D', N'3 ', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (50, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZDEV', CAST(1 AS Numeric(5, 0)), CAST(30 AS Numeric(5, 0)), N'ZDC3', N'D', N'4 ', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (51, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZDEV', CAST(1 AS Numeric(5, 0)), CAST(990 AS Numeric(5, 0)), N'MWST', N'T', N'5 ', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (52, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZDEV', CAST(1 AS Numeric(5, 0)), CAST(995 AS Numeric(5, 0)), N'TWST', N'T', N'6 ', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (41, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZOR', CAST(1 AS Numeric(5, 0)), CAST(1 AS Numeric(5, 0)), N'ZPR0', N'P', N'1 ', N'0', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (42, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZOR', CAST(1 AS Numeric(5, 0)), CAST(10 AS Numeric(5, 0)), N'ZDC1', N'D', N'2 ', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (43, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZOR', CAST(1 AS Numeric(5, 0)), CAST(20 AS Numeric(5, 0)), N'ZDC2', N'D', N'3 ', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (44, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZOR', CAST(1 AS Numeric(5, 0)), CAST(30 AS Numeric(5, 0)), N'ZDC3', N'D', N'4 ', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (45, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZOR', CAST(1 AS Numeric(5, 0)), CAST(990 AS Numeric(5, 0)), N'MWST', N'T', N'5 ', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_priority] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Priority], [Orden], [Secuence], [Code_Type], [Agrupation], [Type_Based], [Special_priority]) VALUES (46, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01ZOR', CAST(1 AS Numeric(5, 0)), CAST(995 AS Numeric(5, 0)), N'TWST', N'T', N'6 ', N'1', N'0')
+GO
+SET IDENTITY_INSERT [dbo].[prj_pricing_priority] OFF
+GO
+
+
+SET IDENTITY_INSERT [dbo].[prj_pricing_secuence] ON 
+
+GO
+INSERT [dbo].[prj_pricing_secuence] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Secuence], [Description]) VALUES (20, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'MWST', N'Impuesto 1 (IVA)')
+GO
+INSERT [dbo].[prj_pricing_secuence] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Secuence], [Description]) VALUES (21, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'TWST', N'Impuesto 2 (Recargo)')
+GO
+INSERT [dbo].[prj_pricing_secuence] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Secuence], [Description]) VALUES (17, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'ZDC1', N'Descuento 1')
+GO
+INSERT [dbo].[prj_pricing_secuence] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Secuence], [Description]) VALUES (18, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'ZDC2', N'Descuento 2')
+GO
+INSERT [dbo].[prj_pricing_secuence] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Secuence], [Description]) VALUES (19, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'ZDC3', N'Descuento 3')
+GO
+INSERT [dbo].[prj_pricing_secuence] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Secuence], [Description]) VALUES (16, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'ZPR0', N'Precio')
+GO
+SET IDENTITY_INSERT [dbo].[prj_pricing_secuence] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[prj_pricing_structure] ON 
+
+GO
+INSERT [dbo].[prj_pricing_structure] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Secuence], [Code_Table], [Orden], [Code1], [Code2], [Code3], [Code4], [Code5], [Code6], [Code7], [Code8], [Code_Type], [Exclusive], [On_Base]) VALUES (638, N'ERP', N'20180213110736', N'ERP', N'20180213110736', N'ERP', NULL, N'0', N'MWST', N'003', CAST(990 AS Numeric(5, 0)), N'02', N'27', N'28', NULL, NULL, NULL, NULL, NULL, N'T', N'1', N'1')
+GO
+INSERT [dbo].[prj_pricing_structure] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Secuence], [Code_Table], [Orden], [Code1], [Code2], [Code3], [Code4], [Code5], [Code6], [Code7], [Code8], [Code_Type], [Exclusive], [On_Base]) VALUES (639, N'ERP', N'20180213110736', N'ERP', N'20180213110736', N'ERP', NULL, N'0', N'TWST', N'003', CAST(995 AS Numeric(5, 0)), N'02', N'27', N'28', NULL, NULL, NULL, NULL, NULL, N'T', N'1', N'1')
+GO
+INSERT [dbo].[prj_pricing_structure] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Secuence], [Code_Table], [Orden], [Code1], [Code2], [Code3], [Code4], [Code5], [Code6], [Code7], [Code8], [Code_Type], [Exclusive], [On_Base]) VALUES (634, N'ERP', N'20180213110736', N'ERP', N'20180213110736', N'ERP', NULL, N'0', N'ZDC1', N'004', CAST(10 AS Numeric(5, 0)), N'11', N'14', N'16', NULL, NULL, NULL, NULL, NULL, N'D', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_structure] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Secuence], [Code_Table], [Orden], [Code1], [Code2], [Code3], [Code4], [Code5], [Code6], [Code7], [Code8], [Code_Type], [Exclusive], [On_Base]) VALUES (635, N'ERP', N'20180213110736', N'ERP', N'20180213110736', N'ERP', NULL, N'0', N'ZDC2', N'001', CAST(20 AS Numeric(5, 0)), N'11', N'15', N'16', NULL, NULL, NULL, NULL, NULL, N'D', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_structure] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Secuence], [Code_Table], [Orden], [Code1], [Code2], [Code3], [Code4], [Code5], [Code6], [Code7], [Code8], [Code_Type], [Exclusive], [On_Base]) VALUES (636, N'ERP', N'20180213110736', N'ERP', N'20180213110736', N'ERP', NULL, N'0', N'ZDC2', N'002', CAST(25 AS Numeric(5, 0)), N'11', N'16', NULL, NULL, NULL, NULL, NULL, NULL, N'D', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_structure] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Secuence], [Code_Table], [Orden], [Code1], [Code2], [Code3], [Code4], [Code5], [Code6], [Code7], [Code8], [Code_Type], [Exclusive], [On_Base]) VALUES (637, N'ERP', N'20180213110736', N'ERP', N'20180213110736', N'ERP', NULL, N'0', N'ZDC3', N'004', CAST(30 AS Numeric(5, 0)), N'11', N'14', N'16', NULL, NULL, NULL, NULL, NULL, N'D', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_structure] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Secuence], [Code_Table], [Orden], [Code1], [Code2], [Code3], [Code4], [Code5], [Code6], [Code7], [Code8], [Code_Type], [Exclusive], [On_Base]) VALUES (632, N'ERP', N'20180213110736', N'ERP', N'20180213110736', N'ERP', NULL, N'0', N'ZPR0', N'001', CAST(2 AS Numeric(5, 0)), N'11', N'15', N'16', NULL, NULL, NULL, NULL, NULL, N'P', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_structure] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Secuence], [Code_Table], [Orden], [Code1], [Code2], [Code3], [Code4], [Code5], [Code6], [Code7], [Code8], [Code_Type], [Exclusive], [On_Base]) VALUES (633, N'ERP', N'20180213110736', N'ERP', N'20180213110736', N'ERP', NULL, N'0', N'ZPR0', N'002', CAST(3 AS Numeric(5, 0)), N'11', N'16', NULL, NULL, NULL, NULL, NULL, NULL, N'P', N'1', N'0')
+GO
+INSERT [dbo].[prj_pricing_structure] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Secuence], [Code_Table], [Orden], [Code1], [Code2], [Code3], [Code4], [Code5], [Code6], [Code7], [Code8], [Code_Type], [Exclusive], [On_Base]) VALUES (631, N'ERP', N'20180213110736', N'ERP', N'20180213110736', N'ERP', NULL, N'0', N'ZPR0', N'004', CAST(1 AS Numeric(5, 0)), N'11', N'14', N'16', NULL, NULL, NULL, NULL, NULL, N'P', N'1', N'0')
+GO
+SET IDENTITY_INSERT [dbo].[prj_pricing_structure] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[prj_pricing_trademark] ON 
+
+GO
+INSERT [dbo].[prj_pricing_trademark] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Description]) VALUES (3, N'Admin', N'20130906110000', N'Admin', N'20130906110000', NULL, NULL, N'0', N'01ZCOT', N'CotizaciÛn')
+GO
+INSERT [dbo].[prj_pricing_trademark] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Description]) VALUES (1, N'Admin', N'20130906110000', N'Admin', N'20130906110000', NULL, NULL, N'0', N'01ZDEV', N'DevoluciÛn')
+GO
+INSERT [dbo].[prj_pricing_trademark] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code_Trademark], [Description]) VALUES (2, N'Admin', N'20130906110000', N'Admin', N'20130906110000', NULL, NULL, N'0', N'01ZOR', N'Pedido')
+GO
+SET IDENTITY_INSERT [dbo].[prj_pricing_trademark] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[prj_return_cause] ON 
+
+GO
+INSERT [dbo].[prj_return_cause] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Add_stock]) VALUES (21, N'ERP', N'20160620103536', N'ERP', N'20180213122918', NULL, NULL, N'0', N'0001', N'Mal estado', CAST(1 AS Numeric(4, 0)), N'0')
+GO
+INSERT [dbo].[prj_return_cause] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Add_stock]) VALUES (22, N'ERP', N'20160620103536', N'ERP', N'20180213122918', NULL, NULL, N'0', N'0002', N'Buen estado', CAST(2 AS Numeric(4, 0)), N'1')
+GO
+INSERT [dbo].[prj_return_cause] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Add_stock]) VALUES (9, N'ERP', N'20160620103536', N'ERP', N'20180213122918', NULL, NULL, N'0', N'0003', N'Defecto F·brica', CAST(3 AS Numeric(4, 0)), N'0')
+GO
+INSERT [dbo].[prj_return_cause] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden], [Add_stock]) VALUES (11, N'ERP', N'20160620103536', N'ERP', N'20180213122918', NULL, NULL, N'0', N'0005', N'Caducado', CAST(5 AS Numeric(4, 0)), N'0')
+GO
+SET IDENTITY_INSERT [dbo].[prj_return_cause] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[products_array] ON 
+
+GO
+INSERT [dbo].[products_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (497, N'ERP', N'20161130174931', N'ERP', N'20161130174931', NULL, NULL, N'0', N'0', CAST(6 AS Numeric(4, 0)), N'Inactivo', 1)
+GO
+INSERT [dbo].[products_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (15, N'ERP', N'20140303111528', N'10', N'20170206003735', NULL, NULL, N'0', N'0', CAST(31 AS Numeric(4, 0)), N'Exento', 0)
+GO
+INSERT [dbo].[products_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (499, N'ERP', N'20161130175107', N'ERP', N'20161130175107', NULL, NULL, N'0', N'1', CAST(6 AS Numeric(4, 0)), N'Activo', 1)
+GO
+INSERT [dbo].[products_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (5, N'ERP', N'20140303111528', N'10', N'20170405102532', NULL, NULL, N'0', N'1', CAST(31 AS Numeric(4, 0)), N'Impuesto 21%', 1)
+GO
+INSERT [dbo].[products_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (727, N'10', N'20170405102423', N'10', N'20170405102440', NULL, NULL, N'0', N'3', CAST(31 AS Numeric(4, 0)), N'Impuesto 10%', 2)
+GO
+INSERT [dbo].[products_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (728, N'10', N'20170405102509', N'10', N'20170405102509', NULL, NULL, N'0', N'4', CAST(31 AS Numeric(4, 0)), N'Impuesto 4%', 3)
+GO
+INSERT [dbo].[products_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (1, N'ERP', N'20140303111528', N'ERP', N'20140303111528', NULL, NULL, N'0', N'MWST', CAST(30 AS Numeric(4, 0)), N'IVA', 1)
+GO
+INSERT [dbo].[products_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden]) VALUES (2, N'ERP', N'20140303111528', N'ERP', N'20140303111528', NULL, NULL, N'0', N'TWST', CAST(30 AS Numeric(4, 0)), N'Recargo', 2)
+GO
+SET IDENTITY_INSERT [dbo].[products_array] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[products_hierarchy1] ON 
+
+GO
+INSERT [dbo].[products_hierarchy1] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden]) VALUES (59, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'01', N'Producto venta', 1)
+GO
+INSERT [dbo].[products_hierarchy1] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden]) VALUES (60, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'02', N'Expositores (Neveras)', 2)
+GO
+INSERT [dbo].[products_hierarchy1] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden]) VALUES (61, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'03', N'Material PLV', 3)
+GO
+INSERT [dbo].[products_hierarchy1] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Description], [Orden]) VALUES (62, N'ERP', N'20180213110736', N'ERP', N'20180213110736', NULL, NULL, N'0', N'04', N'Regalos', 4)
+GO
+SET IDENTITY_INSERT [dbo].[products_hierarchy1] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[visits_array] ON 
+
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (1, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'0', CAST(1 AS Numeric(4, 0)), N'Abierta', CAST(1 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (36, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'01', CAST(5 AS Numeric(4, 0)), N'Final Visita', CAST(1 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (37, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'02', CAST(5 AS Numeric(4, 0)), N'Objetivos', CAST(2 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (2, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'1', CAST(1 AS Numeric(4, 0)), N'Cerrada', CAST(2 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (3, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'2', CAST(1 AS Numeric(4, 0)), N'Cancelada', CAST(3 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (4, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'AC', CAST(6 AS Numeric(4, 0)), N'Actividad', CAST(1 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (5, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'AS', CAST(6 AS Numeric(4, 0)), N'Surtidos', CAST(2 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (21, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'CA', CAST(3 AS Numeric(4, 0)), N'NO QUIERE PRODUCTO', CAST(1 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (6, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'CA', CAST(6 AS Numeric(4, 0)), N'CampaÒas', CAST(3 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (22, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'CC', CAST(3 AS Numeric(4, 0)), N'CARTERA DESACTUALIZADA', CAST(2 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (18, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'CD', CAST(2 AS Numeric(4, 0)), N'CLIENTE NO ACTIVO', CAST(1 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (7, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'CL', CAST(6 AS Numeric(4, 0)), N'ReclamaciÛn', CAST(4 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (8, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'CO', CAST(6 AS Numeric(4, 0)), N'Cobros', CAST(5 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (19, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'DA', CAST(2 AS Numeric(4, 0)), N'AVERÌA VEHÕCULO', CAST(2 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (27, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'DL', CAST(3 AS Numeric(4, 0)), N'ADEUDO PENDIENTE', CAST(3 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (9, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'EM', CAST(6 AS Numeric(4, 0)), N'Elementos de Mercado', CAST(6 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (20, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'IN', CAST(2 AS Numeric(4, 0)), N'CONDICIONES CLIMATOLOGICAS', CAST(3 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (10, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'MA', CAST(6 AS Numeric(4, 0)), N'Solicitud de Material', CAST(7 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (29, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'NC', CAST(3 AS Numeric(4, 0)), N'CLIENTE SIN EFECTIVO', CAST(4 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (30, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'NS', CAST(3 AS Numeric(4, 0)), N'SIN STOCK EN VEHÕCULO', CAST(5 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (23, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'OE', CAST(2 AS Numeric(4, 0)), N'VÕA CERRADA', CAST(4 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (31, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'OE', CAST(3 AS Numeric(4, 0)), N'CLIENTE AUSENTE', CAST(6 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (24, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'OM', CAST(2 AS Numeric(4, 0)), N'REUNI”N', CAST(5 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (11, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'OR', CAST(6 AS Numeric(4, 0)), N'Pedidos', CAST(8 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (32, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'OS', CAST(3 AS Numeric(4, 0)), N'ERROR EN PRECIOS', CAST(7 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (12, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'OS', CAST(6 AS Numeric(4, 0)), N'Oportunidad de Ventas', CAST(9 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (13, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'PR', CAST(6 AS Numeric(4, 0)), N'Promociones marketing', CAST(10 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (25, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'QE', CAST(2 AS Numeric(4, 0)), N'DIA EXCESO DE CLIENTES', CAST(6 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (26, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'RF', CAST(2 AS Numeric(4, 0)), N'CLIENTE CERRADO', CAST(7 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (33, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'RF', CAST(3 AS Numeric(4, 0)), N'DATOS DE CLIENTE ERRONEOS', CAST(8 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (14, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'RI', CAST(6 AS Numeric(4, 0)), N'Riesgos', CAST(11 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (15, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'SE', CAST(6 AS Numeric(4, 0)), N'Servicios', CAST(12 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (16, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'SL', CAST(6 AS Numeric(4, 0)), N'Espacios', CAST(13 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (17, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'SR', CAST(6 AS Numeric(4, 0)), N'Encuestas', CAST(14 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (34, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'TO', CAST(3 AS Numeric(4, 0)), N'FALLA TRANSPORTE', CAST(9 AS Numeric(4, 0)), N'1', NULL)
+GO
+INSERT [dbo].[visits_array] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Type], [Description], [Orden], [Active], [Agrupation]) VALUES (35, N'ERP', N'20130520134646', N'ERP', N'20130520134646', NULL, NULL, N'0', N'XX', CAST(3 AS Numeric(4, 0)), N'CLIENTE BLOQUEADO CREDITO', CAST(10 AS Numeric(4, 0)), N'1', NULL)
+GO
+SET IDENTITY_INSERT [dbo].[visits_array] OFF
+GO
+
+SET IDENTITY_INSERT [dbo].[providers] ON 
+
+GO
+INSERT [dbo].[providers] ([Id], [Create_User], [Create_Date], [Modify_User], [Modify_Date], [Delete_User], [Delete_Date], [Platform], [Code], [Code_ofClient], [Name1], [Name2], [NIF], [Code_Country], [Code_Region], [Code_Province], [Code_Population], [ZIP], [Address1], [Address2], [Province], [Population], [Hamlet], [Phone1], [Phone2], [Fax], [Web], [Email], [Code_Type], [Code_Status], [Code_ClassificationA], [Code_ClassificationB], [Date_New], [Date_Drop], [Cause_Drop], [Code_ERP], [Language_tr], [Observations], [House_nr], [Transfered]) VALUES (13, N'ERP', N'20160624142315', N'10', N'20170425181231', NULL, NULL, N'0', CAST(1 AS Numeric(18, 0)), N'01', N'Centro DistribuciÛn 1', N'Centro ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'', NULL, N'0')
+GO
+SET IDENTITY_INSERT [dbo].[providers] OFF
+GO
